@@ -12,3 +12,35 @@
   cursor: pointer;
 }
 /* hero section */
+
+/* navbar */
+.nav-bar svg{
+  display: none;
+}
+@media (max-width:1024) {
+  .nav-bar{
+    position: absolute;
+    width: 70%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .nav-bar ul{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    align-items:start;
+  }
+.close{
+  transform: translateX(-100%);
+}
+.open{
+  transform: translateX(0%);
+}
+.nav-bar svg{
+  display: block;
+}
+}

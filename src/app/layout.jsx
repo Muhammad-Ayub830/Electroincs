@@ -1,13 +1,14 @@
 
+import ContextFile from "./components/context/context";
 import "./globals.css";
 
 
 export const metadata = {
   title: "Haq Electronics",
   description: "The World of Electronics With Haq Electronics",
-  icons:{
+  icons: {
     icon: "/logo.png",
-    apple:"logo.png"
+    apple: "logo.png"
   }
 };
 
@@ -15,11 +16,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        {children}
-              <script
-  type="module"
-  src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
-></script>
+        <ContextFile>
+          {children}
+        </ContextFile>
       </body>
 
 

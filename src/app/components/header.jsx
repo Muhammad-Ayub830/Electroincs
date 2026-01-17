@@ -1,4 +1,5 @@
-import React from 'react'
+'use client'
+import React, { useContext, useEffect } from 'react'
 import {Inter} from 'next/font/google';
 import { HiMiniMagnifyingGlass } from "react-icons/hi2";
 
@@ -7,11 +8,15 @@ import { FaCartPlus } from "react-icons/fa6";
 
 
 import { FiMenu } from "react-icons/fi";
+import { NavContext } from './context/context';
 const fontt = Inter({
     subsets : ['latin']
 
 })
-const Header = () => {
+const Header = ({isclose,setClose}) => {
+    useEffect(()=>{
+        console.log(isclose)
+    },[isclose])
   return (
     <div className={`${fontt.className} flex items-center justify-between  py-8  Header px-[5%] bg-orange-400 lg:bg-white`}>
       <div className="left-logo-and-toggle-icon flex items-center justify-start">
@@ -39,7 +44,7 @@ const Header = () => {
                 </div>
             </div>
             
-            <FiMenu className='text-4xl text-white lg:hidden cursor-pointer'/>
+            <FiMenu onClick={()=>setClose((prev)=>!prev)} className='text-4xl text-white lg:hidden cursor-pointer'/>
         </div>
     </div>
   )
