@@ -5,4 +5,10 @@
   --foreground: #171717;
 } */
 
+/* css for header component */
 
+.Header .icon{
+  font-size: larger;
+  cursor: pointer;
+}
+/* hero section */
