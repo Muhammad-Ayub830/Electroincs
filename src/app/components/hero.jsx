@@ -14,13 +14,15 @@ const fontt = Inter({
 })
 const Hero = () => {
   return (
-    <div className={`${fontt.className} py-20 bg-gray-50 px-[5%] flex items-center justify-between flex-col xl:flex-row xl:gap-0 gap-30 `}>
-      <div className="left-side-hero">
-        <h1 className={` ${font.className} md:text-5xl  text-4xl mt-10 md:text-left text-center  `}>
+    <div className={`${fontt.className} py-20 hero bg-gray-50 px-[5%] flex items-center justify-between flex-col xl:flex-row xl:gap-0 gap-30 `}>
+        <div className="left-side-hero ">
+                  {/* <Image src={'/freepik__the-style-is-candid-image-photography-with-natural__92007.png'} width={1800} height={300} className='' /> */}
+
+        <h1 className={` ${font.className} md:text-5xl text-white text-4xl mt-10 md:text-left text-center  `}>
          <span className='text-orange-400 font-bold'>Brand</span>  New Electric Assests
         </h1>
-        <h2 className={`${fontt.className} md:text-3xl text-2xl  tracking-widest font-semibold mt-10 text-black md:text-left text-center`}>Light Every Corner</h2>
-        <p className='text-gray-400 xl:w-2/3 mt-5 font-semibold md:text-left text-center'>A renowned business networks of electri equipment throughout pakistan.
+        <h2 className={`${fontt.className} md:text-3xl text-2xl  tracking-widest font-semibold mt-10 text-white md:text-left text-center`}>Light Every Corner</h2>
+        <p className='text-gray-200 xl:w-2/3 mt-5 font-semibold md:text-left text-center'>A renowned business networks of electri equipment throughout pakistan.
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus consec
           tetur animi quasi, cupiditate commodi tempore </p>
           <p className='md:text-left text-center'><Btn/></p>

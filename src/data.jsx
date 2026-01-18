@@ -1,0 +1,77 @@
+export const products = [
+  {
+    id: "prd_001",
+    title: "Sony MDR-XB450L Extra Bass Headphones",
+    slug: "sony-mdr-xb450l-extra-bass-headphones",
+    category: "Headphones",
+    brand: "Sony",
+    image: "/products/sony-xb450l.png",
+    price: 360,
+    originalPrice: 450,
+    discountPercentage: 20,
+    currency: "USD",
+    rating: 4.6,
+    reviewsCount: 128,
+    isWishlisted: false,
+    isBestDeal: true,
+    stock: 24,
+    createdAt: "2025-01-05T10:30:00Z"
+  },
+
+  {
+    id: "prd_002",
+    title: "Apple AirPods Pro (2nd Generation)",
+    slug: "apple-airpods-pro-2nd-generation",
+    category: "Earbuds",
+    brand: "Apple",
+    image: "/products/airpods-pro-2.png",
+    price: 249,
+    originalPrice: 299,
+    discountPercentage: 17,
+    currency: "USD",
+    rating: 4.8,
+    reviewsCount: 542,
+    isWishlisted: true,
+    isBestDeal: true,
+    stock: 12,
+    createdAt: "2025-01-07T14:10:00Z"
+  },
+
+  {
+    id: "prd_003",
+    title: "JBL Tune 760NC Wireless Headphones",
+    slug: "jbl-tune-760nc-wireless",
+    category: "Headphones",
+    brand: "JBL",
+    image: "/products/jbl-760nc.png",
+    price: 180,
+    originalPrice: 220,
+    discountPercentage: 18,
+    currency: "USD",
+    rating: 4.4,
+    reviewsCount: 89,
+    isWishlisted: false,
+    isBestDeal: false,
+    stock: 40,
+    createdAt: "2025-01-09T09:00:00Z"
+  },
+
+  {
+    id: "prd_004",
+    title: "Beats Studio3 Wireless Headphones",
+    slug: "beats-studio3-wireless-headphones",
+    category: "Headphones",
+    brand: "Beats",
+    image: "/products/beats-studio3.png",
+    price: 299,
+    originalPrice: 349,
+    discountPercentage: 14,
+    currency: "USD",
+    rating: 4.5,
+    reviewsCount: 310,
+    isWishlisted: false,
+    isBestDeal: true,
+    stock: 18,
+    createdAt: "2025-01-10T16:45:00Z"
+  }
+]

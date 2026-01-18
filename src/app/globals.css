@@ -13,13 +13,17 @@ body{
   font-size: larger;
   cursor: pointer;
 }
-/* hero section */
 
-/* navbar */
-.nav-bar svg{
-  display: none;
+/* hero section */
+.hero{
+  background-image:linear-gradient(rgba(0, 0, 0, 0.116),rgba(66, 58, 58, 0.568)) , url("/freepik__the-style-is-candid-image-photography-with-natural__92007.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
-@media (max-width:1024) {
+/* navbar */
+
+@media (max-width:1024px) {
   .nav-bar{
     position: absolute;
     width: 70%;
@@ -30,7 +34,7 @@ body{
     align-items: center;
     justify-content: center;
   }
-  .nav-bar ul{
+  .nav-bar .ul1{
     display: flex;
     flex-direction: column;
     text-align: left;
@@ -42,9 +46,7 @@ body{
 .open{
   transform: translateX(0%);
 }
-.nav-bar svg{
-  display: block;
-}
+
 }
 /* category */
 .scroll-bar-category{
@@ -53,3 +55,4 @@ body{
 .scroll-bar-category .item{
   cursor: pointer;
 }
+
