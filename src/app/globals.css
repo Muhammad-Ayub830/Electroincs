@@ -6,7 +6,9 @@
 } */
 
 /* css for header component */
-
+body{
+  background-color: #f5f5f5;
+}
 .Header .icon{
   font-size: larger;
   cursor: pointer;
@@ -43,4 +45,11 @@
 .nav-bar svg{
   display: block;
 }
+}
+/* category */
+.scroll-bar-category{
+  scrollbar-width: none;
+}
+.scroll-bar-category .item{
+  cursor: pointer;
 }

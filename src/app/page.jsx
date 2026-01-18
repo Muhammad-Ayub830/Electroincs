@@ -6,6 +6,9 @@ import Hero from "./components/hero";
 import Offer from "./components/offer";
 import { useContext } from "react";
 import { NavContext } from "./components/context/context";
+import Categories from "./components/cateogoires";
+import BestDeal from "./components/bestDeal";
+import NewRelease from "./components/newrealease";
 
 export default function Home() {
   const {isclose,setClose} = useContext(NavContext)
@@ -15,6 +18,9 @@ export default function Home() {
       <Navbar isclose={isclose} setClose={setClose} />
       <Hero/>
       <Offer/>
+      <Categories/>
+      <BestDeal/>
+      <NewRelease/>
     </div>
   );
 }
