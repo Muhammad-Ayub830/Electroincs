@@ -13,7 +13,7 @@ const Navbar = ({isclose,setClose}) => {
 
 
   return (
-    <div className={`${font.className} ${isclose? "open" : "close" } nav-bar z-10  duration-500  p-5 px-[5%] shadow bg-orange-400 text-white  `}>
+    <div className={`${font.className} ${isclose? "open" : "close" } nav-bar z-10  duration-500  p-5 px-[5%] shadow bg-[#e9ae0d] text-white  `}>
       <ul className='flex ul1 items-center justify-start gap-10 list-none'>
         <li><Link href={`/`}  className=' hover:text-black duration-200 ' onClick={()=>setClose(false)}>Home </Link></li>
         <li  className='relative'> <button onClick={()=>setdrop((prev)=>!prev)} className='hover:text-black duration-200  flex items-center gap-3 '>Product Categories<IoIosArrowDown/></button>

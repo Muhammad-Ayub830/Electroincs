@@ -9,6 +9,7 @@ import { FaCartPlus } from "react-icons/fa6";
 
 import { FiMenu } from "react-icons/fi";
 import { NavContext } from './context/context';
+import Image from 'next/image';
 const fontt = Inter({
     subsets : ['latin']
 
@@ -25,7 +26,8 @@ const Header = ({isclose,setClose}) => {
                 <FiMenu  className='text-2xl hidden'/>
             </div>
        
-             <p className='logo text-4xl font-bold tracking-wider text-white lg:text-orange-500'>HAQ <span className='text-gray-950'>Electronics</span> </p>
+             <p className='logo text-4xl font-bold tracking-wider text-white lg:text-orange-500'><Image src={'/logo2.png'} width={250} height={0} /> </p>
+             {/* HAQ <span className='text-gray-950'>Electronics</span> */}
         </div>
         
       
