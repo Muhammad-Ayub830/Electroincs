@@ -32,7 +32,7 @@ const Hero = () => {
   
 
             <Image src={`/4662.png`} alt='iamge'  width={120} height={60} className='absolute -top-20 -left-20' />
-            <Image src={`/10041624.png`} alt='iamge'   width={600} height={600} className='absolute -top-20'/>
+            <Image src={`/EcoGlow Smart LED Bulb 12W.png`} alt='iamge'   width={600} height={600} className='absolute -top-20'/>
             <Image src={`/Vector.png`}  alt='iamge'  width={600} height={600}  className="w-75 md:w-150 h-auto"/>
                       <Image src={`/led.png`} alt='iamge'   width={120} height={60} className='absolute -bottom-18 right-0 transform rotate-90' />
 
