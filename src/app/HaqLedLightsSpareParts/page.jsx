@@ -14,17 +14,17 @@ const HaqLedLightsSpareParts = () => {
       <Navbar isclose={isclose} setClose={setClose}/>
       <MainTitle title={'Haq Spare Parts'} />
        <div className='grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-10  mx-[5%]'>
-        <ItemCard src={'/EcoGlow 12W LED Driver.jfif'}/>
-        <ItemCard src={'/EcoGlow 12W LED Driver.jfif'}/>
-        <ItemCard src={'/EcoGlow 12W LED Driver.jfif'}/>
-        <ItemCard src={'/EcoGlow 12W LED Driver.jfif'}/>
-        <ItemCard src={'/EcoGlow 12W LED Driver.jfif'}/>
-        <ItemCard src={'/EcoGlow 12W LED Driver.jfif'}/>
-        <ItemCard src={'/EcoGlow 12W LED Driver.jfif'}/>
-        <ItemCard src={'/EcoGlow 12W LED Driver.jfif'}/>
-        <ItemCard src={'/EcoGlow 12W LED Driver.jfif'}/>
-        <ItemCard src={'/EcoGlow 12W LED Driver.jfif'}/>
-        <ItemCard src={'/EcoGlow 12W LED Driver.jfif'}/>
+        <ItemCard src={'/EcoGlow 12W LED Driver.png'}/>
+        <ItemCard src={'/EcoGlow 12W LED Driver.png'}/>
+        <ItemCard src={'/EcoGlow 12W LED Driver.png'}/>
+        <ItemCard src={'/EcoGlow 12W LED Driver.png'}/>
+        <ItemCard src={'/EcoGlow 12W LED Driver.png'}/>
+        <ItemCard src={'/EcoGlow 12W LED Driver.png'}/>
+        <ItemCard src={'/EcoGlow 12W LED Driver.png'}/>
+        <ItemCard src={'/EcoGlow 12W LED Driver.png'}/>
+        <ItemCard src={'/EcoGlow 12W LED Driver.png'}/>
+        <ItemCard src={'/EcoGlow 12W LED Driver.png'}/>
+     
        </div>
     </div>
   )
