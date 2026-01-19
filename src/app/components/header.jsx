@@ -26,7 +26,7 @@ const Header = ({isclose,setClose}) => {
                 <FiMenu  className='text-2xl hidden'/>
             </div>
        
-             <p className='logo text-4xl font-bold tracking-wider text-white lg:text-[#e9ae0d]'><Image src={'/logo2.png'} width={250} height={0} /> </p>
+             <p className='logo text-4xl font-bold tracking-wider text-white lg:text-[#e9ae0d]'><Image src={'/logo3.png'} width={200} height={0} /> </p>
              {/* HAQ <span className='text-gray-950'>Electronics</span> */}
         </div>
         
