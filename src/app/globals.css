@@ -56,3 +56,10 @@ body{
   cursor: pointer;
 }
 
+/* locker */
+.locker{
+  background-image:linear-gradient(rgba(0, 0, 0, 0.808),rgba(41, 36, 36, 0.856)) , url("/freepik__the-style-is-candid-image-photography-with-natural__92007.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
