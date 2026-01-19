@@ -7,7 +7,7 @@ const NewRelease = () => {
   return (
     <div className=" my-20">
       <MainTitle title={'New Release'} />
-       <div className='grid px-[5%] grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-10 w-full '>
+       <div className='grid px-[5%] grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-7 w-full '>
             <ItemCard src={'/TW41004_01-removebg-preview (1).png'} />
             <ItemCard src={'/t.png'} />
             <ItemCard src={'/w.png'} />
