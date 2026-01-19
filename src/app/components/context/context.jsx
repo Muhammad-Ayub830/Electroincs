@@ -1,6 +1,6 @@
 'use client'
 
-import { products } from "@/data"
+
 import { createContext, useState } from "react"
 
 export const NavContext = createContext(null)
@@ -9,7 +9,7 @@ const ContextFile = ({children}) => {
   
     const [isclose,setClose] = useState(false)
   return (
-    <NavContext.Provider value={{isclose,setClose,products}}>
+    <NavContext.Provider value={{isclose,setClose}}>
         {children}
     </NavContext.Provider>
   )
