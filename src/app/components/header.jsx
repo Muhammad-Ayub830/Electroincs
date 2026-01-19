@@ -19,14 +19,14 @@ const Header = ({isclose,setClose}) => {
         console.log(isclose)
     },[isclose])
   return (
-    <div className={`${fontt.className} flex items-center justify-between  py-8  Header px-[5%] bg-orange-400 lg:bg-white`}>
+    <div className={`${fontt.className} flex items-center justify-between  py-8  Header px-[5%] bg-[#e9ae0d] lg:bg-white`}>
       <div className="left-logo-and-toggle-icon flex items-center justify-start">
         
             <div className="icon">
                 <FiMenu  className='text-2xl hidden'/>
             </div>
        
-             <p className='logo text-4xl font-bold tracking-wider text-white lg:text-orange-500'><Image src={'/logo2.png'} width={250} height={0} /> </p>
+             <p className='logo text-4xl font-bold tracking-wider text-white lg:text-[#e9ae0d]'><Image src={'/logo2.png'} width={250} height={0} /> </p>
              {/* HAQ <span className='text-gray-950'>Electronics</span> */}
         </div>
         
