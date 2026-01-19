@@ -17,7 +17,7 @@ const Navbar = ({isclose,setClose}) => {
       <ul className='flex ul1 items-center justify-start gap-10 list-none'>
         <li><Link href={`/`}  className=' hover:text-black duration-200 ' onClick={()=>setClose(false)}>Home </Link></li>
         <li  className='relative'> <button onClick={()=>setdrop((prev)=>!prev)} className='hover:text-black duration-200  flex items-center gap-3 '>Product Categories<IoIosArrowDown/></button>
-            <ul       className={`${isdrop ? "block" : "hidden" } absolute top-5 z-10  left-0 p-3 bg-orange-400 w-50 rounded-sm`}>
+            <ul       className={`${isdrop ? "block" : "hidden" } absolute top-5 z-10  left-0 p-3 bg-[#e9ae0d] w-50 rounded-sm`}>
               <li className='py-3 flex items-center justify-between w-full px-2 hover:text-black duration-200 hover:text-lg'><Link href={`/HaqLedLights`} onClick={()=>setClose(false)}>Haq LED Lights</Link> <IoIosArrowForward className='font-bold' /> </li>
               <li className='py-3 flex items-center justify-between w-full px-2 hover:text-black duration-200 hover:text-lg'><Link href={`/HaqLedLightsSpareParts`} onClick={()=>setClose(false)}>Haq LED Lights Spare Parts</Link> <IoIosArrowForward className='font-bold' /> </li>
               <li className='py-3  flex items-center justify-between w-full px-2 hover:text-black duration-200 hover:text-lg '><Link href={`/HaqCables`} onClick={()=>setClose(false)}>Haq Cables</Link> <IoIosArrowForward className='font-bold' /> </li>

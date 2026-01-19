@@ -5,9 +5,9 @@ import Image from 'next/image'
 
 const NewRelease = () => {
   return (
-    <div className="px-[5%] my-20">
+    <div className=" my-20">
       <MainTitle title={'New Release'} />
-       <div className='grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-10 w-full '>
+       <div className='grid px-[5%] grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-10 w-full '>
             <ItemCard src={'/TW41004_01-removebg-preview (1).png'} />
             <ItemCard src={'/t.png'} />
             <ItemCard src={'/w.png'} />
