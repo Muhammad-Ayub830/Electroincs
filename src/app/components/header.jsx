@@ -3,7 +3,7 @@ import React, { useContext, useEffect } from 'react'
 import {Inter} from 'next/font/google';
 import { HiMiniMagnifyingGlass } from "react-icons/hi2";
 
-import { FaMagnifyingGlass, FaRegUser } from "react-icons/fa6";
+import { FaMagnifyingGlass, FaRegUser, FaWhatsapp } from "react-icons/fa6";
 import { FaCartPlus } from "react-icons/fa6";
 
 
@@ -23,7 +23,7 @@ const Header = ({isclose,setClose}) => {
       <div className="left-logo-and-toggle-icon flex items-center justify-start">
         
             <div className="icon">
-                <FiMenu  className='text-2xl hidden'/>
+                <FaWhatsapp  className='text-2xl hidden'/>
             </div>
        
              <p className='logo text-4xl font-bold tracking-wider text-white lg:text-[#e9ae0d]'><Image src={'/logo3.png'} width={200} height={0} /> </p>
