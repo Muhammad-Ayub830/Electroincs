@@ -24,12 +24,12 @@ const page = () => {
           <div className="heading text-6xl mt-20 font-bold mb-10 text-black">
            <span className='text-[#e9ae0d]'> Our</span> Story
           </div>
-          <p className='mb-10  font-semibold'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae laudantium eveniet repellendus 
+          <p className='mb-10 text-[#59595A] '>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae laudantium eveniet repellendus 
             possimus iusto? Eum perspiciatis, excepturi aspernatur 
             possimus iusto? Eum perspiciatis, excepturi aspernatur 
             molestiae ratione vitae hic! Architecto iure autem possimus dolorum quas amet accusantium!
             molestiae ratione vitae hic! Architecto iure autem possimus dolorum quas amet accusantium!</p>
-          <p  className='mb-10  font-semibold'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae laudantium eveniet repellendus 
+          <p  className='mb-10 text-[#59595A]  '>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae laudantium eveniet repellendus 
             possim
             molestiae ratione vitae hic! Architecto iure autem possimus dolorum quas amet accusantium!
             molestiae ratione vitae hic! Architecto iure autem possimus dolorum quas amet accusantium!</p>
