@@ -8,7 +8,7 @@ const font = Outfit({
 })
 const MainTitle = ({ title }) => {
   return (
-    <div className={` ${font.className} text-3xl font-bold mx-[5%]  my-10 mb-5 m text-gray-700`}>
+    <div className={` ${font.className} text-3xl font-bold mx-[5%]  my-10 mb-10 m text-gray-600`}>
       {title}
     </div>
   )

@@ -3,28 +3,27 @@ import React, { useContext, useEffect } from 'react'
 import {Inter} from 'next/font/google';
 import { HiMiniMagnifyingGlass } from "react-icons/hi2";
 
-import { FaMagnifyingGlass, FaRegUser, FaWhatsapp } from "react-icons/fa6";
+import { FaMagnifyingGlass, FaRegUser, FaSquareWhatsapp, FaWhatsapp } from "react-icons/fa6";
 import { FaCartPlus } from "react-icons/fa6";
 
 
 import { FiMenu } from "react-icons/fi";
 import { NavContext } from './context/context';
 import Image from 'next/image';
+import { FaWhatsappSquare } from 'react-icons/fa';
+import { RiWhatsappFill, RiWhatsappLine } from 'react-icons/ri';
+import { IoLogoWhatsapp } from 'react-icons/io';
 const fontt = Inter({
     subsets : ['latin']
 
 })
 const Header = ({isclose,setClose}) => {
-    useEffect(()=>{
-        console.log(isclose)
-    },[isclose])
+ 
   return (
     <div className={`${fontt.className} flex items-center justify-between  py-8  Header px-[5%] bg-[#e9ae0d] lg:bg-white`}>
       <div className="left-logo-and-toggle-icon flex items-center justify-start">
         
-            <div className="icon">
-                <FaWhatsapp  className='text-2xl hidden'/>
-            </div>
+           
        
              <p className='logo text-4xl font-bold tracking-wider text-white lg:text-[#e9ae0d]'><Image src={'/logo3.png'} width={200} height={0} /> </p>
              {/* HAQ <span className='text-gray-950'>Electronics</span> */}
@@ -40,6 +39,14 @@ const Header = ({isclose,setClose}) => {
             <div className="icons  items-center justify-between gap-x-5  hidden lg:flex ">
                 <div className="icon">
                     <FaRegUser/>
+                </div>
+                <div className="icon">
+                    {/* <FaWhatsappSquare/> */}
+                    {/* <RiWhatsappFill/> */}
+                    {/* <RiWhatsappLine/> */}
+                 <a href="https://api.whatsapp.com/send/?phone=%2B923112111163&text=I+am+interested&type=phone_number&app_absent=0"><IoLogoWhatsapp/></a>   
+                    {/* <FaSquareWhatsapp/> */}
+                    
                 </div>
                 <div className="icon">
                     <FaCartPlus/>

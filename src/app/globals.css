@@ -193,6 +193,11 @@ body{
         justify-content: center;
         gap: 30px;
     }
+    .card{
+    background: #ffffffff;
+    border-radius: 12px;
+    padding: 20px !important;
+}
 }
 /* -------Our Goal section ends-------- */
 .joining_offer{
@@ -234,4 +239,12 @@ body{
 .btn2:hover {
     border: 1px solid #e9ae0d;
     color: black !important;
+}
+/* --------------------------- */
+.box{
+    border: 2px solid #e9ae0d;
+    /* box-shadow: 0 0 10px 1px #e9ae0d; */
+}
+.selected-box{
+    border: 4px solid #e9ae0d;
 }

@@ -1,18 +1,26 @@
-'use client'
+'use client';
 
+import { createContext, useEffect, useState } from "react";
+import { products } from "@/data";
 
-import { createContext, useState } from "react"
+export const NavContext = createContext(null);
 
-export const NavContext = createContext(null)
+const ContextFile = ({ children }) => {
+  const [product, setProducts] = useState([]);
+  const [isclose, setClose] = useState(false);
+  const [category, setCategory] = useState('All');
 
-const ContextFile = ({children}) => {
-  
-    const [isclose,setClose] = useState(false)
+  useEffect(() => {
+    setProducts(products);
+  }, []);
+
   return (
-    <NavContext.Provider value={{isclose,setClose}}>
-        {children}
+    <NavContext.Provider
+      value={{ isclose, setClose, product, category, setCategory }}
+    >
+      {children}
     </NavContext.Provider>
-  )
-}
+  );
+};
 
-export default ContextFile
+export default ContextFile;

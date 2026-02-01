@@ -1,5 +1,5 @@
 'use client'
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import Header from '../components/header'
 import Navbar from '../components/navbar'
 import { NavContext } from '../components/context/context'
@@ -13,8 +13,8 @@ import Footer from '../components/footer'
     subsets:['latin']
   })
 const page = () => {
-  const {isclose,setClose} = useContext(NavContext)
- 
+  const {isclose,setClose,product} = useContext(NavContext)
+
   return (
     <div className={`${font.className}`}>
       <Header isclose={isclose} setClose={setClose} />
@@ -55,14 +55,14 @@ const page = () => {
   </div>
 
   <div class="detail_in_cards">
-    <div class="card   border-0">
-      <div class="icon">
+    <div className="card   border-0">
+      <div className="icon">
         <img src="/card1.png" alt=""/>
       </div>
-      <div class="label my-4">
-        <h5 class="mb-0">Trusted by Thousands</h5>
+      <div className="label my-4">
+        <h5 className="mb-0">Trusted by Thousands</h5>
       </div>
-      <div class="caption">
+      <div className="caption">
         <p>
           We have successfully served thousands of students, helping them unlock
           their potential and achieve their career goals.

@@ -25,8 +25,8 @@ const Navbar = ({isclose,setClose}) => {
               <li className='py-3  flex items-center justify-between w-full px-2 hover:text-black hover:text-lg duration-200 '><Link href={`/HaqSolarInverters`} onClick={()=>setClose(false)}>Haq Solar Inverters</Link> <IoIosArrowForward className='font-bold' /> </li>
             </ul>
         </li>
-        <li className=' hover:text-black duration-200 '><Link href={`/`} onClick={()=>setClose(false)}>Why Choose Us</Link></li>
-        <li className=' hover:text-black duration-200 '><Link href={`/about`} onClick={()=>setClose(false)}>About Us</Link></li>
+        <li className=' hover:text-black duration-200 '><Link href={`/about`} onClick={()=>setClose(false)}>Why Choose Us</Link></li>
+        {/* <li className=' hover:text-black duration-200 '><Link href={``} onClick={()=>setClose(false)}>About Us</Link></li> */}
         <li className=' hover:text-black duration-200 ' ><Link href={`/contact`} onClick={()=>setClose(false)}>Contact Us</Link></li>
       </ul>
     </div>

@@ -3,7 +3,7 @@ import Image from "next/image"
 import { CiHeart as Heart } from "react-icons/ci";
 import React from 'react'
 
-const ItemCard = ({src}) => {
+const ItemCard = ({src,title,discount,price,originalPrice}) => {
   return (
      <div className="
      
@@ -35,7 +35,7 @@ const ItemCard = ({src}) => {
 
       {/* Title */}
       <p className="text-sm font-medium text-gray-800 leading-snug line-clamp-2">
-        Sony MDR-XB450L Extra Bass Headphones (Black)
+        {title}
       </p>
 
       {/* Save Badge */}
@@ -49,14 +49,15 @@ const ItemCard = ({src}) => {
         px-2
         py-1
         rounded-md
+        ml-0
       ">
-        Save 20%
+        Save {discount}
       </span>
 
       {/* Price */}
       <div className="mt-2 flex items-center gap-2">
-        <span className="text-lg font-bold text-gray-900">$360</span>
-        <span className="text-sm text-gray-400 line-through">$450</span>
+        <span className="text-lg font-bold text-gray-900">${originalPrice}</span>
+        <span className="text-sm text-gray-400 line-through">${price}</span>
       </div>
     </div>
   )

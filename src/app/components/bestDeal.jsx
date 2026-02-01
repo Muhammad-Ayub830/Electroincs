@@ -1,16 +1,45 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 
 import ItemCard from './itemcard'
 import MainTitle from './mainTitle'
+import { NavContext } from './context/context'
+import Link from 'next/link'
 
 const BestDeal = () => {
-    return (<div className=" my-10">
+    const {category,product} = useContext(NavContext)
+    useEffect(()=>{
+        console.log(product)
+    //   console.log(object)  
+      console.log(Array.isArray(product))
+    },[product])
+    return (<div className=" my-20">
 <MainTitle title={'Todays Best Deals'} />
-        <div className='grid px-[5%] grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-7 w-full '>
-            <ItemCard src={'/supply-watt-bright-edison-light.jpg'} />
-            <ItemCard src={'/0b201f02-15d0-41f7-a291-dab2d5fc5cd5.jpg'} />
-            <ItemCard src={'/w.png'} />
-            <ItemCard src={'/10041624.png'} />
+        <div className='grid px-[5%] grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-7 w-full mt-5 '>
+    
+            {
+                product ? product.slice(0,10).map((item,index)=>{
+                    if(item.isBestDeal){
+                           return   <Link key={item.id} href={`/Stage/${item.id}`}>
+    <div className="" key={index}>
+        <ItemCard
+        id={item.id}
+        src={item.images[0]}
+        title={item.title}
+        discount={item.discountPercentage}
+        price={item.price}
+        originalPrice={item.originalPrice}
+      />
+    </div>
+      
+    
+  </Link>
+  
+
+                    }
+
+                }) : <p>loading.....</p> 
+                
+            }
 
         </div>
     </div>
