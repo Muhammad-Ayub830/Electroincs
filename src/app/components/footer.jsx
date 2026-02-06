@@ -1,5 +1,6 @@
 import { Outfit } from "next/font/google";
 import Image from "next/image";
+import Link from "next/link";
 import { FaHome } from "react-icons/fa";
 import { FaFacebook, FaLocationDot, FaMapLocation, FaTwitter, FaWhatsapp } from "react-icons/fa6";
 
@@ -10,9 +11,9 @@ const font = Outfit({
 
 const Footer = () => {
   return (
-    <section className={`footer_section relative bg-white pb-10 lg:px-[5%] ${font.className}`}>
+    <section className={`footer_section relative    ${font.className}`}>
 
-      <div className="wrapper container mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-10 p-5 md:p-12">
+      <div className=" px-[3%] flex flex-col md:flex-row items-start md:items-center justify-between gap-10 py-5 md:py-12">
             <img src="oh.png" alt="" className='absolute w-110  top-0 right-0 -z-1' />
 
         {/* Logo & Contact */}
@@ -75,27 +76,31 @@ const Footer = () => {
 
             <div className="paths flex gap-2">
               <div className="please rounded">
+              <Link href={'https://www.facebook.com/haq.6363'}>
                 <FaFacebook className="cursor-pointer" />
+              </Link>
               </div>  
               <div className="please rounded">
                 <FaTwitter className="cursor-pointer" />
               </div>
               <div className="please rounded">
-                <FaWhatsapp className="cursor-pointer" />
+             <Link href={'https://api.whatsapp.com/send/?phone=%2B923112111163&text=I+am+interested&type=phone_number&app_absent=0'}>
+             <FaWhatsapp className="cursor-pointer" />
+             </Link>   
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <hr className="w-full my-6 text-gray-200" />
+      <hr className="w-full mt-6 text-gray-200" />
 
-      <div className="copyright container mx-auto md:flex items-center justify-between px-[5%]">
-        <p className="text-gray-500 font-semibold text-center">
+      <div className="copyright bg-[#e9ae0d] flex lg:flex-row flex-col items-center justify-between py-3 px-[5%]">
+        <p className="text-white font-semibold order-2 lg:order-0 lg:text-md text-sm ">
           Haq.com © 2000-2023, All Rights Reserved
         </p>
 
-        <div className="tags flex gap-2 justify-center md:justify-end mt-4 md:mt-0">
+        <div className="flex pt-2 ">
           <img src="/payment-1.png" alt=""/>
           <img src="/payment-2.png" alt=""/>
           <img src="/payment-3.png" alt=""/>

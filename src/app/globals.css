@@ -74,6 +74,8 @@ body{
 /* footer */
 .footer_section {
     margin-top: 100px;
+    background-color: white;
+    /* background: linear-gradient(#e9ae0d,orange) !important; */
 }
 
 .logo_one {

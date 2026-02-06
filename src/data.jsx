@@ -9,8 +9,8 @@ export const products = [
     brand: "EcoGlow",
     images: [
       "/ecoglow-9w-led-bulb.jpg",
-      "/ecoglow-9w-led-bulb-2.jpg",
-      "/ecoglow-9w-led-bulb-3.jpg"
+      "/ecoglow-9w-led-bulb-2.png",
+      "/ecoglow-9w-led-bulb-2.png"
     ],
     description:
       "The EcoGlow 9W LED Bulb delivers bright illumination with low energy consumption. Designed for long life and consistent performance, it is ideal for homes and offices.",

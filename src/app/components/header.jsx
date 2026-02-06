@@ -3,7 +3,7 @@ import React, { useContext, useEffect } from 'react'
 import {Inter} from 'next/font/google';
 import { HiMiniMagnifyingGlass } from "react-icons/hi2";
 
-import { FaMagnifyingGlass, FaRegUser, FaSquareWhatsapp, FaWhatsapp } from "react-icons/fa6";
+import { FaFacebook, FaFacebookF, FaMagnifyingGlass, FaRegUser, FaSquareWhatsapp, FaUser, FaWhatsapp } from "react-icons/fa6";
 import { FaCartPlus } from "react-icons/fa6";
 
 
@@ -13,6 +13,7 @@ import Image from 'next/image';
 import { FaWhatsappSquare } from 'react-icons/fa';
 import { RiWhatsappFill, RiWhatsappLine } from 'react-icons/ri';
 import { IoLogoWhatsapp } from 'react-icons/io';
+import Link from 'next/link';
 const fontt = Inter({
     subsets : ['latin']
 
@@ -25,7 +26,9 @@ const Header = ({isclose,setClose}) => {
         
            
        
-             <p className='logo text-4xl font-bold tracking-wider text-white lg:text-[#e9ae0d]'><Image src={'/logo3.png'} width={200} height={0} /> </p>
+             <p className='logo text-4xl font-bold tracking-wider text-white lg:text-[#e9ae0d]'>
+             <Link href={'/'} ><Image src={'/logo3.png'} width={200} height={0} /></Link>   
+                </p>
              {/* HAQ <span className='text-gray-950'>Electronics</span> */}
         </div>
         
@@ -36,20 +39,25 @@ const Header = ({isclose,setClose}) => {
                 
                 <HiMiniMagnifyingGlass className='text-2xl' />
             </div>
-            <div className="icons  items-center justify-between gap-x-5  hidden lg:flex ">
-                <div className="icon">
-                    <FaRegUser/>
+            <div className="icons paths  items-center justify-between gap-x-5  hidden lg:flex ">
+                <div className="icon please bg-[#fcbb09] p-3 rounded">
+                    <FaUser/>
                 </div>
-                <div className="icon">
+                <div className="icon please bg-[#fcbb09] p-3 rounded">
                     {/* <FaWhatsappSquare/> */}
                     {/* <RiWhatsappFill/> */}
                     {/* <RiWhatsappLine/> */}
-                 <a href="https://api.whatsapp.com/send/?phone=%2B923112111163&text=I+am+interested&type=phone_number&app_absent=0"><IoLogoWhatsapp/></a>   
+                 <a href="https://api.whatsapp.com/send/?phone=%2B923112111163&text=I+am+interested&type=phone_number&app_absent=0"><FaWhatsapp/></a>   
                     {/* <FaSquareWhatsapp/> */}
                     
                 </div>
-                <div className="icon">
-                    <FaCartPlus/>
+                <div className="icon please bg-[#fcbb09] p-3 rounded">
+                    {/* <FaWhatsappSquare/> */}
+                    {/* <RiWhatsappFill/> */}
+                    {/* <RiWhatsappLine/> */}
+                 <a href="https://www.facebook.com/haq.6363" className=''> <FaFacebookF/> </a>   
+                    {/* <FaSquareWhatsapp/> */}
+                    
                 </div>
             </div>
             
