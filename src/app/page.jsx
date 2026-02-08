@@ -20,27 +20,27 @@ const font = Orbitron({
 export default function Home() {
   const {isclose,setClose} = useContext(NavContext)
   return (
-    <div className="mx-auto max-w-360 relative">
-      <Header isclose={isclose} setClose={setClose} />
-      <Navbar isclose={isclose} setClose={setClose} />
-      <Hero/>
-      <Reveal>
-<Offer/>
- <Categories/>
-      <OurProducts/>
-      <BestDeal/>
-      <NewRelease/>
-      </Reveal>
+//     <div className="mx-auto max-w-360 relative">
+//       <Header isclose={isclose} setClose={setClose} />
+//       <Navbar isclose={isclose} setClose={setClose} />
+//       <Hero/>
+//       <Reveal>
+// <Offer/>
+//  <Categories/>
+//       <OurProducts/>
+//       <BestDeal/>
+//       <NewRelease/>
+//       </Reveal>
       
      
-    </div>
+//     </div>
     
-    // <div className="p-3 locker flex items-center justify-center w-[100%] h-[100vh]">
-    //  <div className="">
-    //   <p className={` ${font.className} text-center tracking-widest text-6xl text-[#e6c409] `}>Coming Soon!</p>
-    //   <p className={`${font.className} tracking-widest text-lg text-center mt-5 font-semibold text-[#d6b80c]`}>Our website will be available soon. Stay tuned!</p>
+    <div className="p-3 locker flex items-center justify-center w-[100%] h-[100vh]">
+     <div className="">
+      <p className={` ${font.className} text-center tracking-widest text-6xl text-[#e6c409] `}>Coming Soon!</p>
+      <p className={`${font.className} tracking-widest text-lg text-center mt-5 font-semibold text-[#d6b80c]`}>Our website will be available soon. Stay tuned!</p>
       
-    //  </div>
-    // </div>
+     </div>
+    </div>
   );
 }
