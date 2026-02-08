@@ -9,7 +9,7 @@ const font = Inter({ subsets: ['latin'] })
 const Offer = () => {
   return (
     <section
-      className={` offer
+      className={` offer fade-up fade-up-delay-4
         relative mx-[5%] my-24
         rounded-xl
         bg-[#ffffff]

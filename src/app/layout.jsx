@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
       <body>
         <ContextFile>
           {children}
-          {/* <Footer/> */}
+          <Footer/>
         </ContextFile>
       </body>
 

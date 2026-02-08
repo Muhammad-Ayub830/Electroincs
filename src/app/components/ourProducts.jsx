@@ -15,7 +15,7 @@ const OurProducts = () => {
   // Filter products based on category safely
   
   return (
-    <div className="my-20">
+    <div className="my-20 fade-up fade-up-delay-4">
       <MainTitle title={'What We Deal With'} />
 
       
