@@ -22,9 +22,8 @@ const OurProducts = () => {
         <div className="grid px-[5%] grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-7 w-full">
          {product.slice(0, 10).map((item,index) => {
           if(category === 'All' || item.category== category)
-  return <Link key={item.id} href={`/Stage/${item.id}`} >
-    <div className="">
-        <ItemCard
+  return (
+<ItemCard
         id={item.id}
         src={item.images[0]}
         title={item.title}
@@ -32,8 +31,11 @@ const OurProducts = () => {
         price={item.price}
         originalPrice={item.originalPrice}
       />
-    </div>
-  </Link>
+)
+    
+        
+   
+
 })}
 
         </div>

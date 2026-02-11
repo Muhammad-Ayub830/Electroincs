@@ -1,11 +1,16 @@
+'use client'
 import Image from "next/image"
 
 import { CiHeart as Heart } from "react-icons/ci";
-import React from 'react'
+import React, { useContext } from 'react'
+import { NavContext } from "./context/context";
+import Link from "next/link";
+import { FaHeart, FaHeartCircleBolt } from "react-icons/fa6";
 
-const ItemCard = ({src,title,discount,price,originalPrice}) => {
+const ItemCard = ({src,title,discount,price,originalPrice,id}) => {
+  const {addtoFavorite,favorite} = useContext(NavContext)
   return (
-     <div className="
+     <div  className="
      
       shrink-0
       bg-white
@@ -18,12 +23,18 @@ const ItemCard = ({src,title,discount,price,originalPrice}) => {
     ">
       
       {/* Wishlist Icon */}
-      <button className="absolute top-3 right-3 text-gray-400 hover:text-orange-500 transition">
-        <Heart size={18} />
+      <button onClick={()=>addtoFavorite(id)}  className="absolute top-3 right-3 text-gray-400 hover:text-orange-500 transition">
+        {
+          favorite?.[id] ? <FaHeart size={18} className="text-orange-500" /> : <Heart size={18} /> 
+              
+          
+        }
+       
       </button>
 
       {/* Image */}
-      <div className="w-full h-[160px] flex items-center justify-center mb-4">
+    <Link  href={`/Stage/${id}`} >
+    <div className="w-full h-[160px] flex items-center justify-center mb-4">
         <Image
           src={src} // replace with your image
           alt="Sony Headphones"
@@ -32,6 +43,8 @@ const ItemCard = ({src,title,discount,price,originalPrice}) => {
           className="object-contain"
         />
       </div>
+      
+    </Link>  
 
       {/* Title */}
       <p className="text-sm font-medium text-gray-800 leading-snug line-clamp-2">

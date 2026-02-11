@@ -18,10 +18,8 @@ const BestDeal = () => {
     
             {
                 product ? product.slice(0,10).map((item,index)=>{
-                    if(item.isBestDeal){
-                           return   <Link key={item.id} href={`/Stage/${item.id}`}>
-    <div className="" key={index}>
-        <ItemCard
+                    if(item.isBestDeal)return (
+<ItemCard
         id={item.id}
         src={item.images[0]}
         title={item.title}
@@ -29,13 +27,7 @@ const BestDeal = () => {
         price={item.price}
         originalPrice={item.originalPrice}
       />
-    </div>
-      
-    
-  </Link>
-  
-
-                    }
+)
 
                 }) : <p>loading.....</p> 
                 
