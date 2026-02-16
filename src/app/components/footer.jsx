@@ -96,7 +96,7 @@ const Footer = () => {
       <hr className="w-full mt-6 text-gray-200" />
 
       <div className="copyright bg-[#e9ae0d] flex lg:flex-row flex-col items-center justify-between py-3 px-[5%]">
-        <p className="text-white font-semibold order-2 lg:order-0 lg:text-md text-sm ">
+        <p className="text-white  order-2 lg:order-0 lg:text-md text-sm ">
           Haq.com © 2000-2023, All Rights Reserved
         </p>
 

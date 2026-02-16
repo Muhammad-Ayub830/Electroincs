@@ -11,10 +11,11 @@ import React, { useContext, useEffect, useState } from 'react'
 import { FaStar } from 'react-icons/fa6'
 
 const page = ({ params }) => {
-  const { setClose, isclose, product, } = useContext(NavContext)
+  const { setClose, isclose, product,addtoCart } = useContext(NavContext)
   const { OnStage } = useParams()
   const [item, setItem] = useState(null)
   const [url,seturl] = useState('')
+  const [counter,setcounter] = useState(1)
   // bringing targeted product
   const fetchProduct = async () => {
 
@@ -37,7 +38,7 @@ const page = ({ params }) => {
         <div className="bg-white fade-up fade-up-delay-2 rounded-2xl lg:mx-[5%] mx-[2%] overflow-hidden my-20 shadow-2xl shadow-gray-100 border border-gray-100 hover:shadow-3xl hover:shadow-gray-200 transition-all duration-300">
   <div className="lg:flex justify-between items-center lg:items-stretch">
     {/* Product Image Section */}
-    <div className="product flex  items-center justify-center bg-gradient-to-br from-gray-50 to-white lg:bg-white lg:p-8 p-4 lg:w-1/2">
+    <div className="product flex  items-center justify-center bg-linear-to-br from-gray-50 to-white lg:bg-white lg:p-8 p-4 lg:w-1/2">
       <div className="relative group">
         <img 
           src={url} 
@@ -58,12 +59,12 @@ const page = ({ params }) => {
      
       
       {/* Title */}
-      <h1 className='title text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 lg:mb-6 leading-tight text-[#e9ae0d]'>
+      <h1 className='title  text-2xl lg:text-3xl xl:text-4xl font-bold  lg:mb-2 leading-tight text-[#e9ae0d]'>
         {item.title}
       </h1>
       
       {/* Rating */}
-      <div className="rating flex items-center gap-2 mb-5 lg:mb-7">
+      <div className="rating flex items-center gap-2 mb-2 ">
         <div className="flex gap-0.5 text-[#FFD700] text-lg lg:text-xl">
           {[...Array(5)].map((_, i) => (
             <FaStar key={i} className="drop-shadow-sm" />
@@ -84,7 +85,7 @@ const page = ({ params }) => {
       </div>
       
       {/* Price Section */}
-      <div className="price mb-6 lg:mb-8">
+      <div className="price mb-6 lg:mb-8 my-3">
         <div className="flex items-baseline gap-3 mb-2">
           <p className='text-4xl lg:text-5xl xl:text-6xl font-black text-[#e9ae0d]'>
             ${item.originalPrice}
@@ -136,7 +137,15 @@ const page = ({ params }) => {
           ))}
         </div>
       </div>
-      
+      {/* addtocart */}
+      <div className="addtocart mb-3 flex items-center justify-start w-full gap-3 ">
+        <div className="counter flex gap-5 font-semibold rounded bg-gray-200 p-3 px-6 text-lg hover:scale-105 duration-300">
+          <button onClick={()=>setcounter((prev)=>prev+1)} className='cursor-pointer  '>+</button>
+          <button>{counter}</button>
+          <button onClick={()=>setcounter((prev)=> prev == 1 ? 1 :  prev-1)} className='cursor-pointer '>-</button>
+        </div>
+        <button  onClick={()=>addtoCart(item.id,counter)} className={` bg-[#e9ae0d] hover:scale-105 duration-300 cursor-pointer block basis-full rounded  p-3 text-lg text-white font-semibold'`}>Add to Cart </button>
+      </div>
       {/* Tags */}
       <div className="mt-auto">
         <div className='flex flex-wrap gap-2'>

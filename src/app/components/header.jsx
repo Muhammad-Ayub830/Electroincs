@@ -50,7 +50,7 @@ const Header = ({ isclose, setClose }) => {
 
                     </Link>
                     <div className="cart relative cursor-pointer ">
-                        <FaCartPlus className='size-5' />
+                    <Link href={'/cart'} ><FaCartPlus className='size-5' /></Link>   
                         {
                             favoriteCount() > 0 ? <div className="count rounded-full text-black font-bold absolute  -top-3 left-3 bg-orange-400 w-6 h-6 text-center leading-6 text-sm ">
                                 {

@@ -287,3 +287,10 @@ body{
   animation-delay: 1s;
 }
 /* add more as needed */
+.cartItem{
+    box-shadow: 0 0 4px 2px #17171817;
+}
+.cartBorder{
+    border: 1px solid #59595A;
+
+}

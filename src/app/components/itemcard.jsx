@@ -5,14 +5,14 @@ import { CiHeart as Heart } from "react-icons/ci";
 import React, { useContext } from 'react'
 import { NavContext } from "./context/context";
 import Link from "next/link";
-import { FaHeart, FaHeartCircleBolt } from "react-icons/fa6";
+import { FaCartShopping } from "react-icons/fa6";
 
 const ItemCard = ({src,title,discount,price,originalPrice,id}) => {
-  const {addtoFavorite,favorite} = useContext(NavContext)
+  const {addtoCart} = useContext(NavContext)
   return (
      <div  className="
      
-      shrink-0
+      
       bg-white
       rounded-xl
       p-4
@@ -21,17 +21,6 @@ const ItemCard = ({src,title,discount,price,originalPrice,id}) => {
       transition
       relative
     ">
-      
-      {/* Wishlist Icon */}
-      <button onClick={()=>addtoFavorite(id)}  className="absolute top-3 right-3 text-gray-400 hover:text-orange-500 transition">
-        {
-          favorite?.[id] ? <FaHeart size={18} className="text-orange-500" /> : <Heart size={18} /> 
-              
-          
-        }
-       
-      </button>
-
       {/* Image */}
     <Link  href={`/Stage/${id}`} >
     <div className="w-full h-[160px] flex items-center justify-center mb-4">

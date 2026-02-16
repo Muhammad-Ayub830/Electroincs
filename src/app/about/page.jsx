@@ -207,9 +207,6 @@ const page = () => {
 
       <div className="grid my-20 grid-cols-[repeat(auto-fit,minmax(270px,1fr))] mx-[5%] gap-7.5 ">
 
-
-     
-    
       <PersonCard/>
       <PersonCard/>
       <PersonCard/>
