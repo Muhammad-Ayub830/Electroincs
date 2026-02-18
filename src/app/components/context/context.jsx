@@ -11,7 +11,7 @@ const ContextFile = ({ children }) => {
   const [category, setCategory] = useState('All');
   const [favorite,setfavorite] = useState({})
   const [shippingfee,setShippingFee] = useState(0)
-  const [cart,setCart] = useState(()=> window.length != "undefined" ?
+  const [cart,setCart] = useState(()=> typeof window != "undefined" ?
      localStorage.getItem("cart")? JSON.parse(localStorage.getItem("cart")) : {} : {})
   // add to cart 
   const addtoCart = (id,quantity)=>{

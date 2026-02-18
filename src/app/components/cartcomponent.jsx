@@ -64,7 +64,7 @@ const CartComponents = () => {
             </table>
             {/* return to shop btn  */}
             <Link href={'/'}>
-                <button className='px-15 py-3 cartBorder text-sm bg-white rounded'>Return To Shop</button>
+                <button className='px-15 py-3 cursor-pointer cartBorder text-sm bg-white rounded'>Return To Shop</button>
             </Link>
             {/* cartTotal */}
             <div className="summary flex flex-col gap-10 lg:flex-row items-start justify-between mt-20">
@@ -86,7 +86,9 @@ const CartComponents = () => {
                         <div className="name">Total: </div>
                         <div className="price">${cartTotal()+shippingfee}</div>
                     </div>
-                    <button className='bg-[#e9ae0d] cursor-pointer text-sm px-8 m-auto mt-5 text-white py-3 rounded block '>Process to Checkout</button>
+           <Link href={'/placeOrder'} >
+           <button className='bg-[#e9ae0d] cursor-pointer text-sm px-8 m-auto mt-5 text-white py-3 rounded block '>Process to Checkout</button>
+           </Link>         
 
                 </div>
             </div>
