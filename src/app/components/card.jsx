@@ -47,11 +47,11 @@ const PersonCard = () => {
       </div>
 
       {/* 内容部分 */}
-      <div className="px-5 bg-gray-200 pt-4 pb-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div className="px-5  pt-4 pb-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         
         {/* 文本信息 */}
         <div className="flex-1 min-w-0">
-          <h3 className="text-lg font-semibold text-gray-900 truncate">
+          <h3 className="text-lg font-semibold text-(--orange-color) truncate">
             {person.name}
           </h3>
           <p className="text-sm text-gray-500 mt-1">
@@ -63,7 +63,7 @@ const PersonCard = () => {
         <div className="flex flex-col items-start sm:items-end  gap-3">
           <button
             onClick={handleProfileClick}
-            className="text-sm font-medium text-orange-500 hover:text-orange-600 transition-colors duration-200 flex items-center gap-1 group"
+            className="text-sm font-medium text-(--orange-color) hover:text-orange-600 transition-colors duration-200 flex items-center gap-1 group"
             aria-label={`Visit ${person.name}'s profile`}
           >
             Visit profile

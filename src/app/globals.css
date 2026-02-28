@@ -1,9 +1,10 @@
 @import "tailwindcss";
 
-/* :root {
-  --background: #ffffff;
-  --foreground: #171717;
-} */
+:root {
+  --orange-color: #e9c80d;
+  --orange-shade : #b99f06;
+  --selected-link   : black;
+}
 
 /* css for header component */
 body{
@@ -24,24 +25,76 @@ body{
   background-repeat: no-repeat;
 }
 /* navbar */
+.main-ul{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    
+}
+.main-ul li{
+    padding: 10px 20px;
+    position: relative;
+    cursor: pointer;
+    font-size: larger;
+}
+.group-2 h3, .group-1 h3, .group-3 h3{
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: large;
+    transition: .5s;
+}
+.group-2 h3:hover, .group-1 h3:hover, .group-3 h3:hover, .group-4 p:hover{
+        transform: scale(1.1);
 
-@media (max-width:1024px) {
+}
+.group-2  p, .group-1  p, .group-3 p {
+    padding-bottom: 5px;
+}
+.group-2  p:hover, .group-1  p:hover, .group-3 p:hover ,.group-4 p:hover{
+    color: black;
+    transition: .5s;
+    font-weight: bold;
+}
+.group-4 p{
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+@media (max-width:1280px) {
   .nav-bar{
     position: absolute;
     width: 70%;
-    height: 100vh;
+    min-height: 100vh;
+    height: fit-content;
     top: 0;
     left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+   
   }
-  .nav-bar .ul1{
+  .main-ul{
     display: flex;
     flex-direction: column;
-    text-align: left;
-    align-items:start;
+    gap: 1;
   }
+  .main-ul li{
+    width: 100%;
+    padding: 10px 0;
+    font-size: large;
+  }
+  .f-drop, .s-drop, .t-drop{
+    position: relative;
+    padding: 10px;
+    margin-top: 10px;
+        /* background-color: #000; */
+        left: 0;
+       
+
+  }
+  .f-drop li, .s-drop li, .t-drop li{
+    display: block;
+    min-width: 100%;  
+    font-size: smaller; 
+    padding-top: 0;
+}
 .close{
   transform: translateX(-100%);
 }
@@ -171,7 +224,7 @@ body{
 }
 .detail_in_cards{
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(500px,1fr));
+    grid-template-columns: repeat(auto-fit,minmax(400px,1fr));
    
     gap: 30px;
 }
@@ -183,24 +236,7 @@ body{
 .card .caption p{
     color: #59595A;
 }
-/* ---- achievments section ends */
-.Our_Goals{
-    margin-bottom: 100px;
-}
-@media screen and (max-width:770px) {
-    .detail_in_cards{
-        display: grid;
-        grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
-        align-items: center;
-        justify-content: center;
-        gap: 30px;
-    }
-    .card{
-    background: #ffffffff;
-    border-radius: 12px;
-    padding: 20px !important;
-}
-}
+
 /* -------Our Goal section ends-------- */
 .joining_offer{
    position: relative;
@@ -228,27 +264,27 @@ body{
     width: 200px !important;
 }
 .specific{
-    color: #e9ae0d;
+    color: var(--orange-color);
 }
 .fill_orange {
-    background-color: #e9ae0d;
+    background-color: var(--orange-color);
 }
 
 .color_Orange {
-    color: #e9ae0d;
+    color: var(--orange-color);
 }
 
 .btn2:hover {
-    border: 1px solid #e9ae0d;
+    border: 1px solid var(--orange-color);
     color: black !important;
 }
 /* --------------------------- */
 .box{
-    border: 2px solid #e9ae0d;
+    border: 2px solid var(--orange-color);
     /* box-shadow: 0 0 10px 1px #e9ae0d; */
 }
 .selected-box{
-    border: 4px solid #e9ae0d;
+    border: 4px solid var(--orange-color);
 }
 /* contact us */
 .contact-heading {
@@ -293,4 +329,7 @@ body{
 .cartBorder{
     border: 1px solid #59595A;
 
+}
+.shadoww{
+    box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.219);
 }

@@ -32,13 +32,13 @@ const Offer = () => {
 
         {/* Content */}
         <div className="text-center max-w-lg">
-          <p className="mb-3 text-xs font-medium uppercase tracking-wider text-[#e9ae0d]">
+          <p className="mb-3 text-xs font-medium uppercase tracking-wider text-(--orange-color)">
             Limited Offer
           </p>
 
           <h2 className="mb-4 text-2xl md:text-4xl font-semibold text-black leading-snug">
             Extra $10 Off  
-            <span className="block text-[#e9ae0d]">
+            <span className="block text-(--orange-color)">
               Premium Lights
             </span>
           </h2>

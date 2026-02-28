@@ -22,12 +22,12 @@ const Header = ({ isclose, setClose }) => {
     const { favoriteCount } = useContext(NavContext)
 
     return (
-        <div className={`${fontt.className} flex items-center justify-between  py-8  Header px-[5%] bg-[#e9ae0d] lg:bg-white`}>
+        <div className={`${fontt.className} flex items-center justify-between  py-8  Header px-[5%] bg-(--orange-color) lg:bg-white`}>
             <div className="left-logo-and-toggle-icon flex items-center justify-start">
 
 
 
-                <p className='logo text-4xl font-bold tracking-wider w-[130px] md:w-[200px]   text-white lg:text-[#e9ae0d]'>
+                <p className='logo text-4xl font-bold tracking-wider w-[130px] md:w-[200px]   text-white lg:text-(--orange-color)'>
                     <Link href={'/'} ><Image src={'/logo3.png'} width={200} height={0} /></Link>
                 </p>
                 {/* HAQ <span className='text-gray-950'>Electronics</span> */}
@@ -64,7 +64,7 @@ const Header = ({ isclose, setClose }) => {
 
                 </div>
 
-                <FiMenu onClick={() => setClose((prev) => !prev)} className='text-4xl text-black lg:hidden cursor-pointer' />
+                <FiMenu onClick={() => setClose((prev) => !prev)} className='text-4xl lg:ml-8 text-black xl:hidden cursor-pointer' />
             </div>
         </div>
     )

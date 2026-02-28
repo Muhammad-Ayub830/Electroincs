@@ -22,7 +22,7 @@ const Hero = () => {
 
         <Reveal>
           <h1 className={`md:text-6xl text-white text-4xl mt-10 md:text-left text-center  `}>
-         <span className='text-[#e9ae0d] font-bold'>Welcome </span>  To Haq Electronics
+         <span className='text-(--orange-color) font-bold'>Welcome </span>  To Haq Electronics
         </h1>
         </Reveal>
        
