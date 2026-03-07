@@ -26,7 +26,7 @@ const page = () => {
 
    
   return (
-    <div className={`px-[10%] pt-[5%]   ${outfit.className} text-2xl `}>
+    <div className={`px-[5%] pt-[5%]   ${outfit.className} text-2xl `}>
           <AdminNav />
                           <h1 className={`text-center mb-5`}>Your Products</h1>
 
