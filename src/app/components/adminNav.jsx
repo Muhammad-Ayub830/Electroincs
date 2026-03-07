@@ -8,7 +8,7 @@ const AdminNav = () => {
   return (
     <div className={` bg-white rounded flex items- justify-between p-5 shadow mb-8 `}>
       <Link onClick={()=>setAdmin(false)} href={'/'}> <div className="logo">
-            <img src={'/logo3.PNG'} className='w-[100px]' alt="" />
+            <img src={'/logo3.png'} className='w-[100px]' alt="" />
         </div></Link> 
       <ul className='flex items-center gap-5 text-[19px] '>
         <Link href={'/admin/all-products'} ><li>All Products</li></Link>
