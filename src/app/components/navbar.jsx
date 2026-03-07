@@ -21,7 +21,7 @@ const Navbar = ({ isclose, setClose }) => {
          <li>
           <p onClick={() => set_main_drop(prev => !prev)} className={` ${main_drop? 'text-(--selected-link)' : ''} flex items-center justify-between gap-3`}>Product Categories <GoChevronDown size={23} className={`${main_drop ? ' rotate-180 text-(--selected-link)' : 'rotate-0'} transition duration-300 `} /></p>
         
-        <ul className={` grid-cols-4 min-w-[1000px] p-5   ${main_drop ? 'xl:grid hidden' : 'hidden '}  p-3 shadow shadow-2xl xl:absolute xl:top-17 hover:scale-105 duration-300 relative rounded bg-(--orange-color) z-20`}>
+        <ul className={` grid-cols-4 gap-5 min-w-[1000px] p-5   ${main_drop ? 'xl:grid hidden' : 'hidden '}  p-3 shadow shadow-2xl xl:absolute xl:top-20 hover:scale-105 duration-300 relative rounded bg-(--orange-color) z-20`}>
           
       <div className="group-1 ml-3">
         <h3>Haq LED Lights</h3>

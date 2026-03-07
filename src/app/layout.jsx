@@ -1,7 +1,9 @@
 
-import ContextFile from "./components/context/context";
+import { useContext } from "react";
+import ContextFile, { NavContext } from "./components/context/context";
 import Footer from "./components/footer";
 import "./globals.css";
+import Clientlayout from "./components/clientlayout";
 
 
 export const metadata = {
@@ -14,12 +16,15 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+ 
   return (
     <html lang="en">
       <body>
         <ContextFile>
           {children}
-          {/* <Footer/> */}
+          <Clientlayout />
+        
+         
         </ContextFile>
       </body>
 

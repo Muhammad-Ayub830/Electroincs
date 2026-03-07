@@ -10,13 +10,14 @@ const NewRelease = () => {
   return (
     <div className=" my-20">
       <MainTitle title={'New Release'} />
-      <div className='grid px-[5%] grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-7 w-full '>
+      <div className='grid px-[5%] grid-cols-[repeat(auto-fit,minmax(220px,220px))] gap-7 w-full '>
         {
           product.slice(0, 10).map((item, index) => {
             if (item.isNewArrival) 
               return (
 <ItemCard
-        id={item.id}
+        key={item._id}
+        id={item._id}
         src={item.images[0]}
         title={item.title}
         discount={item.discountPercentage}

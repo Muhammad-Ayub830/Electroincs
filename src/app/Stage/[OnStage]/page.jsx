@@ -1,10 +1,11 @@
 'use client'
+import backendUrl from '@/app/backendurl'
 import { NavContext } from '@/app/components/context/context'
 import Header from '@/app/components/header'
 import ItemCard from '@/app/components/itemcard'
 import MainTitle from '@/app/components/mainTitle'
 import Navbar from '@/app/components/navbar'
-import { products } from '@/data'
+import axios from 'axios'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
 import React, { useContext, useEffect, useState } from 'react'
@@ -16,18 +17,25 @@ const page = ({ params }) => {
   const [item, setItem] = useState(null)
   const [url,seturl] = useState('')
   const [counter,setcounter] = useState(1)
+  const [products,setProducts] = useState([])
   // bringing targeted product
   const fetchProduct = async () => {
 
-    let found = products.find(item => item.id === OnStage)
+    let found = products.find(item => item._id == OnStage)
     setItem(found)
-    seturl(()=>found.images[0])
-    console.log(found.id)
+    seturl(()=>found?.images[0])
+    // console.log(found._id)
   }
   useEffect(() => {
+    axios.get(`${backendUrl}get-products`).then((res)=>setProducts(res.data)).catch(error=>console.log(error))
+
+    
+  }, [])
+  useEffect(() => {
+    
     fetchProduct()
-    console.log(url)
-  }, [products, OnStage])
+    
+  }, [url,products])
   if (!item) {
     return <p>loading</p>
   } else {
@@ -59,13 +67,13 @@ const page = ({ params }) => {
      
       
       {/* Title */}
-      <h1 className='title  text-2xl lg:text-3xl xl:text-4xl font-bold  lg:mb-2 leading-tight text-[#e9ae0d]'>
+      <h1 className='title  text-2xl lg:text-3xl xl:text-4xl font-bold  lg:mb-2 leading-tight text-(--orange-color)'>
         {item.title}
       </h1>
       
       {/* Rating */}
       <div className="rating flex items-center gap-2 mb-2 ">
-        <div className="flex gap-0.5 text-[#FFD700] text-lg lg:text-xl">
+        <div className="flex gap-0.5 text-(--orange-color) text-lg lg:text-xl">
           {[...Array(5)].map((_, i) => (
             <FaStar key={i} className="drop-shadow-sm" />
           ))}
@@ -87,16 +95,16 @@ const page = ({ params }) => {
       {/* Price Section */}
       <div className="price mb-6 lg:mb-8 my-3">
         <div className="flex items-baseline gap-3 mb-2">
-          <p className='text-4xl lg:text-5xl xl:text-6xl font-black text-[#e9ae0d]'>
-            ${item.originalPrice}
+          <p className='text-4xl lg:text-5xl xl:text-6xl font-black text-(--orange-color)'>
+            ${item.price}
           </p>
-          {item.discountPercentage > 0 && (
+          {item.discount > 0 && (
             <>
               <p className='text-2xl lg:text-3xl text-gray-400 font-semibold line-through'>
                 ${item.price}.00
               </p>
               <span className="bg-green-100 text-green-800 font-bold text-sm lg:text-base py-1 px-3 rounded-full">
-                Save {item.discountPercentage}%
+                Save {item.discount}%
               </span>
             </>
           )}
@@ -121,7 +129,7 @@ const page = ({ params }) => {
             <button 
               onClick={() => seturl(img)} 
               key={index}
-              className={`relative overflow-hidden rounded-xl transition-all duration-300 hover:scale-105 ${img === url ? 'ring-3 ring-[#e9ae0d] ring-offset-2' : 'ring-1 ring-gray-200'}`}
+              className={`relative overflow-hidden rounded-xl transition-all duration-300 hover:scale-105 ${img === url ? 'ring-3 ring-(--orange-color) ring-offset-2' : 'ring-1 ring-gray-200'}`}
             >
               <img 
                 src={img} 
@@ -144,7 +152,7 @@ const page = ({ params }) => {
           <button>{counter}</button>
           <button onClick={()=>setcounter((prev)=> prev == 1 ? 1 :  prev-1)} className='cursor-pointer '>-</button>
         </div>
-        <button  onClick={()=>addtoCart(item.id,counter)} className={` bg-[#e9ae0d] hover:scale-105 duration-300 cursor-pointer block basis-full rounded  p-3 text-lg text-white font-semibold'`}>Add to Cart </button>
+        <button  onClick={()=>addtoCart(item.id,counter)} className={` bg-(--orange-color) hover:scale-105 duration-300 cursor-pointer block basis-full rounded  p-3 text-lg text-white font-semibold'`}>Add to Cart </button>
       </div>
       {/* Tags */}
       <div className="mt-auto">
@@ -153,7 +161,7 @@ const page = ({ params }) => {
             <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
             {item.category}
           </span>
-          {item.tags.map((tag, index) => (
+          {item.tags?.map((tag, index) => (
             <span 
               key={index} 
               className='bg-gray-100 text-gray-700 font-medium text-xs py-2 px-3 rounded-lg hover:bg-gray-200 transition-colors cursor-pointer'
@@ -171,7 +179,7 @@ const page = ({ params }) => {
 </div>
         {/* related products */}
         <MainTitle title={'Related Products'} />
-        <div className='grid px-[5%] grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-7 w-full mt-5 '>
+        <div className='grid px-[5%] grid-cols-[repeat(auto-fit,minmax(220px,220px))] gap-7 w-full mt-5 '>
 
           {
             product ? product.slice(0, 10).map((itemm, index) => {

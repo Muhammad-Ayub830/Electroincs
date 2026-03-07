@@ -1,8 +1,11 @@
+'use client'
 import { Outfit } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
+import { useContext } from "react";
 import { FaHome } from "react-icons/fa";
 import { FaFacebook, FaLocationDot, FaMapLocation, FaTwitter, FaWhatsapp } from "react-icons/fa6";
+import { NavContext } from "./context/context";
 
 const font = Outfit({
   weight: ["400"],
@@ -10,6 +13,7 @@ const font = Outfit({
 });
 
 const Footer = () => {
+    const {setAdmin} = useContext(NavContext)
   return (
     <section className={`footer_section relative    ${font.className}`}>
 
@@ -64,7 +68,7 @@ const Footer = () => {
 
             <div className="AboutStack">
               <h2 className="text-lg mb-2">About Us</h2>
-              <p className="mb-1">Company</p>
+          <Link onClick={()=>setAdmin(true)} href={'/admin'} >   <p className="mb-1">Admin</p> </Link>
               <p className="mb-1">Achievements</p>
               <p className="mb-1">Our Goals</p>
             </div>

@@ -5,10 +5,12 @@ import { CiHeart as Heart } from "react-icons/ci";
 import React, { useContext } from 'react'
 import { NavContext } from "./context/context";
 import Link from "next/link";
-import { FaCartShopping } from "react-icons/fa6";
+import { FaCartShopping, FaDeleteLeft, FaTrash } from "react-icons/fa6";
+import { usePathname } from "next/navigation";
 
-const ItemCard = ({src,title,discount,price,originalPrice,id}) => {
+const ItemCard = ({src,title,discount,price,originalPrice,id,deleteProduct}) => {
   const {addtoCart} = useContext(NavContext)
+  const path = usePathname()
   return (
      <div  className="
      
@@ -21,6 +23,13 @@ const ItemCard = ({src,title,discount,price,originalPrice,id}) => {
       transition
       relative
     ">
+      {
+   path ==  '/admin/all-products' ? 
+       <FaTrash onClick={()=>deleteProduct(id)} className="text-[#ff0000da] cursor-pointer text-md ml-auto" /> : null
+   
+  }
+      
+   
       {/* Image */}
     <Link  href={`/Stage/${id}`} >
     <div className="w-full h-[160px] flex items-center justify-center mb-4">

@@ -1,7 +1,9 @@
 'use client';
 
+import backendUrl from "@/app/backendurl";
+import axios from "axios";
 import { createContext, useEffect, useState } from "react";
-import { products } from "@/data";
+// import { products } from "@/data";
 
 export const NavContext = createContext(null);
 
@@ -11,7 +13,9 @@ const ContextFile = ({ children }) => {
   const [category, setCategory] = useState('All');
   const [favorite,setfavorite] = useState({})
   const [shippingfee,setShippingFee] = useState(0)
+   const [isAdmin,setAdmin] = useState('/')
   const [cart,setCart] = useState(()=> typeof window != "undefined" ?
+ 
      localStorage.getItem("cart")? JSON.parse(localStorage.getItem("cart")) : {} : {})
   // add to cart 
   const addtoCart = (id,quantity)=>{
@@ -60,6 +64,8 @@ const favoriteCount = ()=>{
 else
   return Object.keys(cart).length;
 }
+    // fetch data 
+    
 // execution...
   useEffect(() => {
    
@@ -69,12 +75,20 @@ else
     localStorage.setItem("cart",JSON.stringify(cart))
   },[cart])
 useEffect(()=>{
- setProducts(products);
+//  setProducts(products);
+  axios.get(`${backendUrl}get-products`).then(
+    (res)=>{
+      setProducts(res.data)
+      console.log(res)
+    }
+  ).catch((errr)=>console.log(errr))
 },[])
+
+
   return (
     <NavContext.Provider
       value={{ isclose, setClose, product, category, setCategory  ,favoriteCount,
-        addtoCart, cart,cartTotal ,shippingfee,deleteCartItem
+        addtoCart, cart,cartTotal ,shippingfee,deleteCartItem,isAdmin,setAdmin
       }}
     >
       {children}

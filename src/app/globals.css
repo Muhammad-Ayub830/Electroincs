@@ -49,6 +49,7 @@ body{
 }
 .group-2  p, .group-1  p, .group-3 p {
     padding-bottom: 5px;
+    font-size: small !important;
 }
 .group-2  p:hover, .group-1  p:hover, .group-3 p:hover ,.group-4 p:hover{
     color: black;
