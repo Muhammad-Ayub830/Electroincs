@@ -33,7 +33,7 @@ const page = () => {
 
     }
     return (
-        <div className={`px-[10%] pt-[5%]   ${outfit.className} text-2xl `}>
+        <div className={` px-[3%] md:px-[10%] pt-[5%]   ${outfit.className} text-2xl `}>
             <AdminNav />
             <form action={`${backendUrl}add-product`} method="POST" encType='multipart/form-data'  >
                 <h1 className={`text-center mb-5`}>Add Product Information</h1>
