@@ -79,7 +79,7 @@ useEffect(()=>{
   axios.get(`${backendUrl}get-products`).then(
     (res)=>{
       setProducts(res.data)
-      console.log(res)
+      
     }
   ).catch((errr)=>console.log(errr))
 },[])

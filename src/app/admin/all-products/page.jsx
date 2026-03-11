@@ -5,6 +5,7 @@ import ItemCard from '@/app/components/itemcard'
 import axios from 'axios'
 import { Outfit } from 'next/font/google'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 import { FaTrash } from 'react-icons/fa6'
 const outfit = Outfit({
@@ -13,6 +14,22 @@ const outfit = Outfit({
 })
 const page = () => {
     const [products,setProducts] = useState([])
+    // verification
+    
+            const router = useRouter()
+        const auth = async()=>{
+            try {
+                const res = await axios.get(`${backendUrl}verify`,{
+                withCredentials : true
+            }).then(a=>console.log(a.data.message))
+            } catch (error) {
+                router.push("/admin/login")
+            }
+            
+        }
+        useEffect(()=>{
+            auth()
+        },[])
      // deleting a product
     const deleteProduct = (idd)=>{
       console.log("hu")

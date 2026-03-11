@@ -3,16 +3,31 @@ import { Outfit } from 'next/font/google'
 import './admin.css'
 import { MdOutlineAddCircle } from "react-icons/md";
 
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { NavContext } from '../components/context/context';
 import backendUrl from '../backendurl';
 import AdminNav from '../components/adminNav';
+import axios from 'axios';
+import { useRouter } from 'next/navigation';
 const outfit = Outfit({
     weight: ["400"],
     subsets: ["latin"]
 })
 const page = () => {
-    // const {backEndUrl} = useContext(NavContext)
+        const router = useRouter()
+    const auth = async()=>{
+        try {
+            const res = await axios.get(`${backendUrl}verify`,{
+            withCredentials : true
+        }).then(a=>console.log(a.data.message))
+        } catch (error) {
+            router.push("/admin/login")
+        }
+        
+    }
+    useEffect(()=>{
+        auth()
+    },[])
     const addTag = () => {
 
     }

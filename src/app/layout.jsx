@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
       <body>
         <ContextFile>
           {children}
-          {/* <Clientlayout /> */}
+          <Clientlayout />
         
          
         </ContextFile>
