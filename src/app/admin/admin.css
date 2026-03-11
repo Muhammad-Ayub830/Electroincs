@@ -1,7 +1,8 @@
-:root{
-    --input-bg : #fff;
+:root {
+    --input-bg: #fff;
 }
-.input-input{
+
+.input-input {
     border: 2px solid rgb(214, 212, 212);
     background: rgba(214, 212, 212, 0.062);
 }
