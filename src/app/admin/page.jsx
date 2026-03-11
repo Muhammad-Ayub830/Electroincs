@@ -20,7 +20,7 @@ const page = () => {
             const res = await axios.get(`${backendUrl}verify`,{
             withCredentials : true
         })
-        console.log(a.data.message)
+        console.log(res.data.message)
         } catch (error) {
             router.push("/admin/login")
         }
