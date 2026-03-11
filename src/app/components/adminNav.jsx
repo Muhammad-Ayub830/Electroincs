@@ -34,7 +34,7 @@ const AdminNav = () => {
       <ul className='flex items-center gap-10 text-[18px] '>
         <Link href={'/admin/all-products'} ><li>All Products</li></Link>
         <Link href={'/admin'} ><li>Add Product</li></Link>
-        <Link href={'/'} ><li>Orders</li></Link>
+        <Link href={'/orders'} ><li>Orders</li></Link>
         <li onClick={()=>logout()} className='cursor-pointer hover:text-[red] duration-300 font-semibold' ><FiLogOut/></li>
       
       
