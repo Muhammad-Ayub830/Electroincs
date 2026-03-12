@@ -11,8 +11,7 @@ const HaqLedLightsSpareParts = () => {
     const {isclose,setClose,product} = useContext(NavContext)
   return (
     <div>
-   <Header isclose={isclose} setClose={setClose}/>
-      <Navbar isclose={isclose} setClose={setClose}/>
+   
       <MainTitle title={'Haq Spare Parts'} />
        <div className='grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-10  mx-[5%]'>
          {

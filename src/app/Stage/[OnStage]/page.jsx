@@ -41,8 +41,7 @@ const page = ({ params }) => {
   } else {
     return (
       <div>
-        <Header isclose={isclose} setClose={setClose} />
-        <Navbar isclose={isclose} setClose={setClose} />
+        
         <div className="bg-white fade-up fade-up-delay-2 rounded-2xl lg:mx-[5%] mx-[2%] overflow-hidden my-20 shadow-2xl shadow-gray-100 border border-gray-100 hover:shadow-3xl hover:shadow-gray-200 transition-all duration-300">
   <div className="lg:flex justify-between items-center lg:items-stretch">
     {/* Product Image Section */}

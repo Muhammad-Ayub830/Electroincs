@@ -31,8 +31,7 @@ const page = () => {
 
   return (
     <div className={`${font.className}`} >
-      <Header isclose={isclose} setClose={setClose}/>
-      <Navbar isclose={isclose} setClose={setClose}/>
+      
       <div className={`  contact-heading  text-white lg:p-20 p-10 flex items-center justify-center flex-col gap-5 `}>
           <h3 className='text-2xl'>Corporate Lighting Solutions </h3>
           <h1 className='lg:text-6xl text-5xl '>Conatact <span className="text-[#e9ae0d]">Us</span></h1>
