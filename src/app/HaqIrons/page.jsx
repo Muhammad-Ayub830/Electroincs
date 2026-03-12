@@ -1,8 +1,6 @@
 
 'use client'
 import React, { useContext, useEffect } from 'react'
-import Navbar from '../components/navbar'
-import Header from '../components/header'
 import { NavContext } from '../components/context/context'
 import MainTitle from '../components/mainTitle'
 import ItemCard from '../components/itemcard'

@@ -24,7 +24,6 @@ const page = ({ params }) => {
     let found = products.find(item => item._id == OnStage)
     setItem(found)
     seturl(()=>found?.images[0])
-    // console.log(found._id)
   }
   
   useEffect(() => {
@@ -104,7 +103,7 @@ const page = ({ params }) => {
             </>
           )}
         </div>
-        {item.discountPercentage > 0 && (
+        {item.discount > 0 && (
           <p className="text-green-600 font-semibold text-sm">
             You save ${(item.price ).toFixed(2)}
           </p>
@@ -174,28 +173,29 @@ const page = ({ params }) => {
 </div>
         {/* related products */}
         <MainTitle title={'Related Products'} />
-        <div className='grid px-[5%] grid-cols-[repeat(auto-fit,minmax(220px,220px))] gap-7 w-full mt-5 '>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-[5%] gap-7 w-full">
 
           {
-            product ? product.slice(0, 10).map((itemm, index) => {
-              if (itemm.category === item.category) {
+            products ? products.slice(0, 10).map((itemm, index) => {
+              if (itemm.category == item.category) {
                 
 
-                return <Link key={itemm.id} href={`/Stage/${itemm.id}`}>
+                return (
                   <div className="" >
                     <ItemCard
-                      id={itemm.id}
-                      src={item.images[0]}
-                      title={itemm.title}
-                      discount={itemm.discountPercentage}
+                      id={itemm._id}
+                      src={itemm.images[0]}
+                      title={itemm.name}
+                      discount={itemm.discount}
                       price={itemm.price}
                       originalPrice={itemm.originalPrice}
+                      tags={itemm.tags}
                     />
 
-                  </div>
+                  </div>)
 
 
-                </Link>
+                
 
 
               }
