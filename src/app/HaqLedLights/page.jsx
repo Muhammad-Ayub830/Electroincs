@@ -8,22 +8,22 @@ import ItemCard from '../components/itemcard'
 import MainTitle from '../components/mainTitle'
 import Link from 'next/link'
 const HaqLedLights = () => {
-    const {isclose,setClose,product} = useContext(NavContext)
+    const {isclose,setClose,products} = useContext(NavContext)
   return (
     <div>
  
       <MainTitle title={'Haq Led Lights'} />
        <div className='grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-10  mx-[5%]'>
          {
-          product.map((item, index) => {
+          products.map((item, index) => {
             if (item.category == "Bulbs") {
-              return <Link key={item.id} href={`/Stage/${item.id}`}>
+              return <Link key={item._id} href={`/Stage/${item._id}`}>
                   <div className="" key={index}>
                       <ItemCard
-                      id={item.id}
+                      id={item._id}
                       src={item.images[0]}
-                      title={item.title}
-                      discount={item.discountPercentage}
+                      title={item.name}
+                      discount={item.discount}
                       price={item.price}
                       originalPrice={item.originalPrice}
                     />
