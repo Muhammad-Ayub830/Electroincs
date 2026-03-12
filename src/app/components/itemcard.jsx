@@ -23,7 +23,7 @@ const ItemCard = ({ src, title, discount, price, id, deleteProduct, tags }) => {
     >
       {/* Sale Badge */}
       {/* {product.sale && ( */}
-      <span  className="absolute left-4 top-4 rounded bg-red-100 px-3 py-1 text-xs font-semibold text-red-600" style={{textTransform:"uppercase"}}>
+      <span  className="absolute left-4 top-4 rounded bg-red-100 px-3 py-1 text-xs font-semibold text-red-600" >
         SALE
       </span>
       {/* )} */}
@@ -45,7 +45,7 @@ const ItemCard = ({ src, title, discount, price, id, deleteProduct, tags }) => {
         {tags?.map((tag, i) => (
           <span
             key={i}
-            className="rounded  bg-green-100 px-3 py-1 text-xs font-medium text-green-700" style={{textTransform:"uppercase"}}
+            className="rounded uppercase  bg-green-100 px-3 py-1 text-xs font-medium text-green-700" 
           >
             {tag}
           </span>
