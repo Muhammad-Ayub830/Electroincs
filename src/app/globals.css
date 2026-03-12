@@ -50,83 +50,6 @@ body {
     border-bottom: none !important;
     
 }
-/* .main-ul{
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    
-}
-.main-ul li{
-    padding: 10px 20px;
-    position: relative;
-    cursor: pointer;
-    font-size: larger;
-}
-.group-2 h3, .group-1 h3, .group-3 h3{
-    font-weight: bold;
-    margin-bottom: 10px;
-    font-size: large;
-    transition: .5s;
-}
-.group-2 h3:hover, .group-1 h3:hover, .group-3 h3:hover, .group-4 p:hover{
-        transform: scale(1.1);
-
-}
-.group-2  p, .group-1  p, .group-3 p {
-    padding-bottom: 5px;
-    font-size: 16px !important;
-}
-.group-2  p:hover, .group-1  p:hover, .group-3 p:hover ,.group-4 p:hover{
-    color: black;
-    transition: .5s;
-    font-weight: bold;
-}
-.group-4 p{
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-@media (max-width:1280px) {
-  .nav-bar{
-    position: absolute;
-    width: 70%;
-    min-height: 100vh;
-    height: fit-content;
-    top: 0;
-    left: 0;
-    padding: 0 !important;
-   
-  }
-  .main-ul{
-    display: flex;
-    flex-direction: column;
-    gap: 1;
-  }
-  .main-ul li{
-    width: 100%;
-    padding: 10px 0;
-    font-size: large;
-    
-    
-  }
-  .f-drop, .s-drop, .t-drop{
-    position: relative;
-    padding: 0px !important;
- margin: 0 !important;
-    margin-top: 10px;
-        background-color: #000;
-        left: 0;
-       
-
-  }
-  .f-drop li, .s-drop li, .t-drop li{
-    display: block;
-    min-width: 100%;  
-    font-size: smaller; 
-    padding:10px 10px !important;
-    background: var(--orange-shade);
-   
-} */
 
 .close {
     transform: translateX(-100%);
@@ -280,6 +203,8 @@ body {
 
 .card .caption p {
     color: #59595A;
+    text-transform: capitalize;
+    
 }
 
 /* -------Our Goal section ends-------- */
