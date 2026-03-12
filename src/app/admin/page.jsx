@@ -76,15 +76,16 @@ const page = () => {
           
 
                 </div>
-                {/* <h2 onClick={() => addTag()} className={`text-xl mt-5 mb-2 flex items-center gap-2 cursor-pointer`}>Add Tags <MdOutlineAddCircle /></h2>
-                <div className="tags">
-                    <div className={`tag inline-block mr-3 px-4   mb-2 p-2 shadow w-fit bg-(--input-bg) rounded text-sm text-blue-500   cursor-pointer`}>
-                        dkfjdkf
-                    </div>
-                </div> */}
+                <h2  className={`text-xl mt-5 mb-2 flex items-center gap-2 cursor-pointer`}>Add Tags <MdOutlineAddCircle /></h2>
+                  <div className="inputs mt-5 grid grid-cols-[repeat(auto-fit,minmax(170px,1fr))] gap-3">
+          <input type='text' name='tag' placeholder='tag' className={`images bg-(--input-bg)  text-[16px]  shadow p-3 rounded `} />
+          <input type='text' name='tag' placeholder='tag' className={`images bg-(--input-bg)  text-[16px]  shadow p-3 rounded `} />
+          <input type='text' name='tag' placeholder='tag' className={`images bg-(--input-bg)  text-[16px]  shadow p-3 rounded `} />
+
+                  </div>
                 <button type='submit' className={` ml-auto text-md mb-10
                       hover:scale-110 duration-300 mt-5 mb-2 flex items-center
-                       justify-center gap-2 cursor-pointer rounded w-62 bg-(--orange-color) p-3`}> Upload <MdOutlineAddCircle /> </button>
+                       justify-center gap-2 cursor-pointer rounded w-full md:w-62 bg-(--orange-color) p-3`}> Upload <MdOutlineAddCircle /> </button>
             </form>
         </div>
     )
