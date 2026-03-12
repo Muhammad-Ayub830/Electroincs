@@ -72,7 +72,7 @@ const WebNav = () => {
               </li>
               <Link href={'/HaqCables'} className=''  onClick={() => setProductCategory(false)}><li>Haq  Cables</li></Link>
               <Link href={'/Haq Irons'} className=''  onClick={() => setProductCategory(false)}><li>Haq Irons</li></Link>
-              <Link href={'/HaqSolarInverters'} className='' ><li>Haq Solar Inverters</li></Link>
+              <Link href={'/HaqSolarInverters'} className='' onClick={() => setProductCategory(false)} ><li>Haq Solar Inverters</li></Link>
               <li onClick={() => setrodsCategory(a => !a)} className='relative cursor-pointer'>Haq Rods <span className='rotate-45'>▾</span>
                 <ul className={`${rodsCategory ? 'block' : 'hidden'} absolute rounded ul top-2 text-[18px] z-10 left-68`}>
                   <Link href={'/HaqRods'} onClick={() => setProductCategory(false)}> <li>Haq Original Italy Rods</li>  </Link>
