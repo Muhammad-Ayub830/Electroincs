@@ -12,12 +12,12 @@ import React, { useContext, useEffect, useState } from 'react'
 import { FaStar } from 'react-icons/fa6'
 
 const page = ({ params }) => {
-  const { setClose, isclose, product,addtoCart } = useContext(NavContext)
+  const { setClose, isclose, products,addtoCart } = useContext(NavContext)
   const { OnStage } = useParams()
   const [item, setItem] = useState(null)
   const [url,seturl] = useState('')
   const [counter,setcounter] = useState(1)
-  const [products,setProducts] = useState([])
+  // const [products,setProducts] = useState([])
   // bringing targeted product
   const fetchProduct = async () => {
 
@@ -26,11 +26,7 @@ const page = ({ params }) => {
     seturl(()=>found?.images[0])
     // console.log(found._id)
   }
-  useEffect(() => {
-    axios.get(`${backendUrl}get-products`).then((res)=>setProducts(res.data)).catch(error=>console.log(error))
-
-    
-  }, [])
+  
   useEffect(() => {
     
     fetchProduct()
@@ -52,9 +48,9 @@ const page = ({ params }) => {
           alt={item.slug} 
           className="max-h-[500px] w-auto object-contain transition-transform duration-500 group-hover:scale-105"
         />
-        {item.discountPercentage > 0 && (
+        {item.discount> 0 && (
           <div className="absolute top-4 left-4 bg-red-500 text-white font-bold py-2 px-4 rounded-full shadow-lg animate-pulse">
-            -{item.discountPercentage}% OFF
+            -{item.discount}% OFF
           </div>
         )}
       </div>
@@ -67,7 +63,7 @@ const page = ({ params }) => {
       
       {/* Title */}
       <h1 className='title  text-2xl lg:text-3xl xl:text-4xl font-bold  lg:mb-2 leading-tight text-(--orange-color)'>
-        {item.title}
+        {item.name}
       </h1>
       
       {/* Rating */}
@@ -81,14 +77,14 @@ const page = ({ params }) => {
           {item.rating || '5.0'}
         </span>
         <span className="text-gray-400 text-sm lg:text-base">•</span>
-        <span className="text-gray-400 font-medium text-sm lg:text-base">
+        {/* <span className="text-gray-400 font-medium text-sm lg:text-base">
           {item.reviewsCount} Reviews
-        </span>
-        {item.stock < 10 && item.stock > 0 && (
+        </span> */}
+        {/* {item.stock < 10 && item.stock > 0 && (
           <span className="ml-3 text-xs font-bold text-red-500 bg-red-50 py-1 px-2 rounded">
             Only {item.stock} left!
           </span>
-        )}
+        )} */}
       </div>
       
       {/* Price Section */}
@@ -110,7 +106,7 @@ const page = ({ params }) => {
         </div>
         {item.discountPercentage > 0 && (
           <p className="text-green-600 font-semibold text-sm">
-            You save ${(item.price - item.originalPrice).toFixed(2)}
+            You save ${(item.price ).toFixed(2)}
           </p>
         )}
       </div>
@@ -151,7 +147,7 @@ const page = ({ params }) => {
           <button>{counter}</button>
           <button onClick={()=>setcounter((prev)=> prev == 1 ? 1 :  prev-1)} className='cursor-pointer '>-</button>
         </div>
-        <button  onClick={()=>addtoCart(item.id,counter)} className={` bg-(--orange-color) hover:scale-105 duration-300 cursor-pointer block basis-full rounded  p-3 text-lg text-white font-semibold'`}>Add to Cart </button>
+        <button  onClick={()=>addtoCart(item._id,counter)} className={` bg-(--orange-color) hover:scale-105 duration-300 cursor-pointer block basis-full rounded  p-3 text-lg text-white font-semibold'`}>Add to Cart </button>
       </div>
       {/* Tags */}
       <div className="mt-auto">

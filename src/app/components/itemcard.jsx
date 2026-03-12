@@ -29,7 +29,7 @@ const ItemCard = ({ src, title, discount, price, id, deleteProduct, tags }) => {
       {/* )} */}
 
       {/* Image */}
-     <Link  href={`/Stage/${item._id}`}><img
+     <Link  href={`/Stage/${id}`}><img
         src={src}
         alt={title}
         className="mx-auto mb-6 h-40 w-full object-contain"
