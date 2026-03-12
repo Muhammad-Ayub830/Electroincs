@@ -1,49 +1,45 @@
-'use client'
 
-import React, { useContext } from 'react'
+'use client'
+import React, { useContext, useEffect } from 'react'
+import Navbar from '../components/navbar'
+import Header from '../components/header'
 import { NavContext } from '../components/context/context'
 import MainTitle from '../components/mainTitle'
 import ItemCard from '../components/itemcard'
 import Link from 'next/link'
-
 const HaqCables = () => {
-
-  const { products } = useContext(NavContext)
-
-  const cableProducts = products.filter(
-    item => item.category === "Cables"
-  )
-
+  const { isclose, setClose,products } = useContext(NavContext)
   return (
-
-    <div className='relative'>
-
+    <div className=' relative'>
+     
       <MainTitle title={'Haq Cables'} />
-
-      <div className='grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-10 mx-[5%]'>
-
-        {cableProducts.map(item => (
-
-          <Link key={item._id} href={`/Stage/${item._id}`}>
-
-            <ItemCard
-              id={item._id}
-              src={item?.images?.[0]}
-              title={item.name}
-              discount={item.discount}
-              price={item.price}
-              originalPrice={item.originalPrice}
-              tags={item.tags}
-            />
-
-          </Link>
-
-        ))}
-
+      <div className='grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-10 mx-[5%] '>
+       
+       {
+          products.map((item, index) => {
+            if (item.category == "Cables") {
+              return <Link key={item._id} href={`/Stage/${item._id}`}>
+                  <div className="" >
+                      <ItemCard
+                      id={item._id}
+                      src={item?.images?.[0]}
+                      title={item.name}
+                      discount={item.discount}
+                      price={item.price}
+                      originalPrice={item.originalPrice}
+                      tags={item.tags}
+                    />
+                  </div>
+                    
+                  
+                </Link>
+                
+            }
+          })
+        }
+        
       </div>
-
     </div>
-
   )
 }
 
