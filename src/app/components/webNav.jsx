@@ -77,7 +77,7 @@ const WebNav = () => {
                 <ul className={`${rodsCategory ? 'block' : 'hidden'} absolute rounded ul top-2 text-[18px] z-10 left-68`}>
                   <Link href={'/HaqRods'} onClick={() => setProductCategory(false)}> <li>Haq Original Italy Rods</li>  </Link>
                   <Link href={'/HaqRods'} onClick={() => setProductCategory(false)}> <li>Haq Original Thermostate</li>  </Link>
-                </ul> onClick={() => setProductCategory(false)}
+                </ul>
               </li>
               <li onClick={() => setsparepartscategory(a => !a)} className='relative cursor-pointer'>Haq LED Lights Spare Parts <span className='rotate-45'>▾</span>
                 <ul className={`${sparepartscategory ? 'block' : 'hidden'} absolute rounded ul top-2 text-[18px] z-10 left-68`}>
