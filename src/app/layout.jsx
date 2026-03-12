@@ -5,6 +5,7 @@ import Footer from "./components/footer";
 import "./globals.css";
 import Clientlayout from "./components/clientlayout";
 import WebNav from "./components/webNav";
+import Clientlayout2 from "./components/clientlayout2";
 
 
 export const metadata = {
@@ -22,7 +23,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <ContextFile>
-          <WebNav />
+          <Clientlayout2 />
           {children}
           <Clientlayout />
         
