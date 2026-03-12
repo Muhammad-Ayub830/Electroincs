@@ -9,8 +9,7 @@ const page = () => {
     const {isclose,setClose} = useContext(NavContext)
   return (
     <div>
-        <Header isclose={isclose} setClose={setClose} />
-        <Navbar isclose={isclose} setClose={setClose} />
+       
       <CartComponents />
     </div>
   )

@@ -1,16 +1,19 @@
 'use client'
 import { Outfit } from 'next/font/google'
 import Link from 'next/link'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { FaCartPlus, FaFacebook, FaFacebookF, FaWhatsapp } from 'react-icons/fa6'
 import { FiMenu } from 'react-icons/fi'
 import { HiMiniMagnifyingGlass } from 'react-icons/hi2'
 import WhatsAppButton from './whatsappbtn'
+import Bage from './Bage'
+import { NavContext } from './context/context'
 const font = Outfit({
   weight: ["400"],
   subsets: ["latin"]
 })
 const WebNav = () => {
+  const { favoriteCount} = useContext(NavContext)
   const [productCategory, setProductCategory] = useState(false)
   const [lightCategory, setLightCategory] = useState(false)
   const [rodsCategory, setrodsCategory] = useState(false)
@@ -34,7 +37,14 @@ const WebNav = () => {
                 <FaFacebookF className='text-gray-950 size-6 ' />
 
               </Link>
-              <Link href={'/cart'} ><FaCartPlus className='size-6' /></Link>
+              <div className="cart relative cursor-pointer ">
+   <Link href={'/cart'} ><FaCartPlus className='size-6' /></Link>
+                   {
+                            favoriteCount() > 0 ? <Bage num={favoriteCount()} /> : ''
+                        }
+                    
+              </div>
+           
               {/* <Link href={'https://api.whatsapp.com/send/?phone=%2B923112111163&text=I+am+interested&type=phone_number&app_absent=0'}>
                 <FaWhatsapp className='text-green-500 size-6' />
 
@@ -94,7 +104,6 @@ const WebNav = () => {
           </li>
           <Link href={'/about'} className='' ><li>Why Choose Us</li></Link>
           <Link href={'/contact'} className='' ><li>Contact Us</li></Link>
-          {/* <Link href={'/'} className='' ><li>Home</li></Link> */}
         </ul>
         {/* vertical navbar  */}
         <div className={`${sidebar ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-500 absolute top-0 left-0 h-full w-full shadow-md z-50 bg-(--orange-color)`}>

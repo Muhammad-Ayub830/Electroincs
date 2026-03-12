@@ -6,26 +6,27 @@ import { NavContext } from './context/context'
 import Link from 'next/link'
 
 const BestDeal = () => {
-    const {category,product} = useContext(NavContext)
+    const {category,products} = useContext(NavContext)
     useEffect(()=>{
-        console.log(product)
+        
     //   console.log(object)  
-      console.log(Array.isArray(product))
-    },[product])
+      console.log(Array.isArray(products))
+    },[products])
     return (<div className=" my-20">
 <MainTitle title={'Todays Best Deals'} />
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-[5%] gap-7 w-full'>
     
             {
-                product ? product.slice(0,10).map((item,index)=>{
+                products ? products.slice(0,10).map((item,index)=>{
                     if(item.isBestDeal)return (
 <ItemCard
         id={item.id}
         src={item.images[0]}
-        title={item.title}
-        discount={item.discountPercentage}
+        title={item.name}
+        discount={item.discount}
         price={item.price}
         originalPrice={item.originalPrice}
+        tags={item.tags}
       />
 )
 

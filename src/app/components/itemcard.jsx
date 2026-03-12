@@ -1,33 +1,29 @@
 'use client'
 import Image from "next/image"
 
-import { CiHeart as Heart } from "react-icons/ci";
+import { CiHeart, CiHeart as Heart } from "react-icons/ci";
 import React, { useContext, useEffect, useState } from 'react'
 import { NavContext } from "./context/context";
 import Link from "next/link";
-import { FaCartShopping, FaDeleteLeft, FaHeart, FaTrash } from "react-icons/fa6";
+import { FaCartShopping, FaDeleteLeft, FaHeart, FaRegHeart, FaTrash } from "react-icons/fa6";
 import { usePathname } from "next/navigation";
+import { PiShoppingCart } from "react-icons/pi";
+import { PiHeartStraight } from "react-icons/pi";
+import { HiHeart, HiOutlineHeart } from "react-icons/hi2";
+import { BsCart } from "react-icons/bs";
 
 const ItemCard = ({ src, title, discount, price, id, deleteProduct, tags }) => {
   const { addtoCart } = useContext(NavContext)
   const path = usePathname()
-const [originalPrice, setOriginalPrice] = useState(0);
 
-useEffect(() => {
-  if (price && discount) {
-    setOriginalPrice(price / (1 - discount / 100));
-  } else {
-    setOriginalPrice(price);
-  }
-}, [price, discount]);
   return (
     <div
       key={id}
-      className="relative rounded-xl bg-white p-6 text-center shadow-sm transition hover:shadow-lg"
+      className="relative rounded-xl bg-white p-6 text-center  transition hover:shadow-lg"
     >
       {/* Sale Badge */}
       {/* {product.sale && ( */}
-      <span className="absolute left-4 top-4 rounded-full bg-red-100 px-3 py-1 text-xs font-semibold text-red-600">
+      <span  className="absolute left-4 top-4 rounded bg-red-100 px-3 py-1 text-xs font-semibold text-red-600" style={{textTransform:"uppercase"}}>
         SALE
       </span>
       {/* )} */}
@@ -49,7 +45,7 @@ useEffect(() => {
         {tags?.map((tag, i) => (
           <span
             key={i}
-            className="rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-700"
+            className="rounded  bg-green-100 px-3 py-1 text-xs font-medium text-green-700" style={{textTransform:"uppercase"}}
           >
             {tag}
           </span>
@@ -66,17 +62,17 @@ useEffect(() => {
   </span>
   {discount > 0 && (
     <span className="text-sm text-gray-400 line-through">
-      ${originalPrice.toFixed(2)}
+      ${Math.round((price / (1 - discount / 100))) }
     </span>
   )}
 </div>
 
         <div className="flex gap-2">
           <button className="rounded-full p-2 hover:bg-gray-100">
-            <FaHeart size={18} className={'text-gray-400'} />
+            <FaRegHeart size={25} className={'text-gray-500'} />
           </button>
           <button className="rounded-full p-2 hover:bg-gray-100">
-            <FaCartShopping size={18} className={'text-gray-400'} />
+            <BsCart onClick={()=>addtoCart(id)} size={20} className={'text-gray-500 font-extrabold'} />
           </button>
         </div>
       </div>
