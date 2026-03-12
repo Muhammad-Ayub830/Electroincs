@@ -146,8 +146,8 @@ const WebNav = () => {
 
               </ul>
             </li>
-            <Link href={'/about'} className='' ><li>Why Choose Us</li></Link>
-            <Link href={'/contact'} className='' ><li className={`${sparepartscategory ? 'remove-b-b' : ''}`}>Contact Us</li></Link>
+            <Link href={'/about'} onClick={() => setsidebar(false)} className='' ><li>Why Choose Us</li></Link>
+            <Link href={'/contact'} onClick={() => setsidebar(false)} className='' ><li className={`${sparepartscategory ? 'remove-b-b' : ''}`}>Contact Us</li></Link>
           </ul>
         </div>
       </div>
