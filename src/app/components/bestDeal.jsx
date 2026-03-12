@@ -14,7 +14,7 @@ const BestDeal = () => {
     },[product])
     return (<div className=" my-20">
 <MainTitle title={'Todays Best Deals'} />
-        <div className='grid px-[5%] grid-cols-[repeat(auto-fit,minmax(220px,220px))] gap-7 w-full mt-5 '>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-[5%] gap-7 w-full'>
     
             {
                 product ? product.slice(0,10).map((item,index)=>{

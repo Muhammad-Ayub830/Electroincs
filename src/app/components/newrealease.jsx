@@ -10,7 +10,7 @@ const NewRelease = () => {
   return (
     <div className=" my-20">
       <MainTitle title={'New Release'} />
-      <div className='grid px-[5%] grid-cols-[repeat(auto-fit,minmax(220px,220px))] gap-7 w-full '>
+      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-[5%] gap-7 w-full '>
         {
           product.slice(0, 10).map((item, index) => {
             if (item.isNewArrival) 

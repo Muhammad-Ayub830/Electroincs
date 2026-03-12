@@ -23,7 +23,7 @@ export default function Home() {
   const { isclose, setClose } = useContext(NavContext)
   const pathname = usePathname()
   const {setAdmin } = useContext(NavContext)
-  setAdmin(pathname)
+ 
   return (
     <div className="mx-auto max-w-360 relative">
       <Hero />

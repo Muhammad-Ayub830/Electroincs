@@ -78,9 +78,9 @@ const page = () => {
                 </div>
                 <h2  className={`text-xl mt-5 mb-2 flex items-center gap-2 cursor-pointer`}>Add Tags <MdOutlineAddCircle /></h2>
                   <div className="inputs mt-5 grid grid-cols-[repeat(auto-fit,minmax(170px,1fr))] gap-3">
-          <input type='text' name='tags' placeholder='tag' className={`images bg-(--input-bg)  text-[16px]  shadow p-3 rounded `} />
-          <input type='text' name='tags' placeholder='tag' className={`images bg-(--input-bg)  text-[16px]  shadow p-3 rounded `} />
-          <input type='text' name='tags' placeholder='tag' className={`images bg-(--input-bg)  text-[16px]  shadow p-3 rounded `} />
+          <input type='text' name='tags' required placeholder='tag' className={`images bg-(--input-bg)  text-[16px]  shadow p-3 rounded `} />
+          <input type='text' name='tags' required placeholder='tag' className={`images bg-(--input-bg)  text-[16px]  shadow p-3 rounded `} />
+          {/* <input type='text' name='tags' required placeholder='tag' className={`images bg-(--input-bg)  text-[16px]  shadow p-3 rounded `} /> */}
 
                   </div>
                 <button type='submit' className={` ml-auto text-md mb-10

@@ -122,7 +122,7 @@ const WebNav = () => {
                 <li className={`${rodsCategory ? 'remove-b-b' : ''} relative cursor-pointer `} onClick={() => setrodsCategory(a => !a)} > <span className={`${rodsCategory ? 'text-[#9e880d]' : ''} cursor-pointer `}>Haq Rods▾</span>
                   <ul className={`${rodsCategory ? 'block' : 'hidden'}  `}>
                     <Link href={'/'} onClick={() => setsidebar(false)} > <li>Haq Original Italy Rods</li>  </Link>
-                    <Link href={'/'}> onClick={() => setsidebar(false)}  <li>Haq Original Thermostate</li>  </Link>
+                    <Link href={'/'} onClick={() => setsidebar(false)} >  <li>Haq Original Thermostate</li>  </Link>
                   </ul>
                 </li>
                 <li className={`${sparepartscategory ? 'remove-b-b' : ''} relative cursor-pointer `} onClick={() => setsparepartscategory(a => !a)}><span className={`${sparepartscategory ? 'text-[#9e880d]' : ''} cursor-pointer `}>Haq LED Lights Spare Parts ▾</span>

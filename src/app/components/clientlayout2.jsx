@@ -5,6 +5,7 @@ import Footer from './footer'
 import { usePathname } from 'next/navigation'
 import WebNav from './webNav'
 
+
 const Clientlayout2 = () => {
     const path = usePathname()
     console.log(path)
