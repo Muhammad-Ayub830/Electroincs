@@ -98,7 +98,12 @@ const WebNav = () => {
         </ul>
         {/* vertical navbar  */}
         <div className={`${sidebar ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-500 absolute top-0 left-0 h-full w-full shadow-md z-50 bg-(--orange-color)`}>
-          <img src="logo3.png" className='w-30 ml-3 mt-3' alt="" />
+         <div className="flex items-center justify-between">
+ <img src="logo3.png" className='w-30 ml-3 mt-3' alt="" />
+             <FiMenu onClick={() => setsidebar((prev) => !prev)} className='text-4xl mr-3 mt-3 lg:ml-8 text-black xl:hidden cursor-pointer' />
+
+         </div>
+         
           <ul className='w-full vertical-ul p-3  bg-(--orange-color) text-white'>
             <Link href={'/'} className='' onClick={() => setsidebar(false)}  ><li>Home</li></Link>
             <li className={`${productCategory ? 'remove-b-b ' : ''} `} > <span onClick={() => setProductCategory(a => !a) } className={`${productCategory ? 'text-[#9e880d] ' : ''} cursor-pointer     `}>Product Categories ▾</span>
