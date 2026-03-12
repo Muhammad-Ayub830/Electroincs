@@ -34,6 +34,7 @@ const WebNav = () => {
                 <FaFacebookF className='text-gray-950 size-6 ' />
 
               </Link>
+              <Link href={'/cart'} ><FaCartPlus className='size-6' /></Link>
               {/* <Link href={'https://api.whatsapp.com/send/?phone=%2B923112111163&text=I+am+interested&type=phone_number&app_absent=0'}>
                 <FaWhatsapp className='text-green-500 size-6' />
 
