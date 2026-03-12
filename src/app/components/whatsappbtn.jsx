@@ -18,7 +18,7 @@ export default function WhatsAppButton() {
 
   const handleClick = () => {
     if (!dragged.current) {
-      window.open("https://wa.me/123456789", "_blank");
+      window.open("https://api.whatsapp.com/send/?phone=%2B923112111163&text=I+am+interested&type=phone_number&app_absent=0", "_blank");
     }
   };
 
