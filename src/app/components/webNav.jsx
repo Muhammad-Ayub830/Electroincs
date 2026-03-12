@@ -64,26 +64,26 @@ const WebNav = () => {
             <ul className={`${productCategory ? 'block' : 'hidden'} absolute rounded ul top-15 text-[18px] z-10 left-0`}>
               <li onClick={() => setLightCategory(a => !a)} className='relative cursor-pointer'>Haq LED Lights <span className='rotate-45'>▾</span>
                 <ul className={`${lightCategory ? 'block' : 'hidden'} absolute rounded ul top-2 text-[18px] z-10 left-68`}>
-                  <Link href={'/HaqLedLights'} className='' ><li>Haq LED Bulbs</li></Link>
-                  <Link href={'/HaqLedLights'} className='' ><li>Haq  Downlights</li></Link>
-                  <Link href={'/HaqLedLights'} className='' ><li>Haq Panel Lights</li></Link>
-                  <Link href={'/HaqLedLights'} className='' ><li>Haq Cob SpotLights</li></Link>
+                  <Link href={'/HaqLedLights'} className='' onClick={() => setProductCategory(false)}><li>Haq LED Bulbs</li></Link>
+                  <Link href={'/HaqLedLights'} className='' onClick={() => setProductCategory(false)} ><li>Haq  Downlights</li></Link>
+                  <Link href={'/HaqLedLights'} className='' onClick={() => setProductCategory(false)} ><li>Haq Panel Lights</li></Link>
+                  <Link href={'/HaqLedLights'} className='' onClick={() => setProductCategory(false)} ><li>Haq Cob SpotLights</li></Link>
                 </ul>
               </li>
-              <Link href={'/HaqCables'} className='' ><li>Haq  Cables</li></Link>
-              <Link href={'/Haq Irons'} className='' ><li>Haq Irons</li></Link>
+              <Link href={'/HaqCables'} className=''  onClick={() => setProductCategory(false)}><li>Haq  Cables</li></Link>
+              <Link href={'/Haq Irons'} className=''  onClick={() => setProductCategory(false)}><li>Haq Irons</li></Link>
               <Link href={'/HaqSolarInverters'} className='' ><li>Haq Solar Inverters</li></Link>
               <li onClick={() => setrodsCategory(a => !a)} className='relative cursor-pointer'>Haq Rods <span className='rotate-45'>▾</span>
                 <ul className={`${rodsCategory ? 'block' : 'hidden'} absolute rounded ul top-2 text-[18px] z-10 left-68`}>
-                  <Link href={'/HaqRods'}> <li>Haq Original Italy Rods</li>  </Link>
-                  <Link href={'/HaqRods'}> <li>Haq Original Thermostate</li>  </Link>
-                </ul>
+                  <Link href={'/HaqRods'} onClick={() => setProductCategory(false)}> <li>Haq Original Italy Rods</li>  </Link>
+                  <Link href={'/HaqRods'} onClick={() => setProductCategory(false)}> <li>Haq Original Thermostate</li>  </Link>
+                </ul> onClick={() => setProductCategory(false)}
               </li>
               <li onClick={() => setsparepartscategory(a => !a)} className='relative cursor-pointer'>Haq LED Lights Spare Parts <span className='rotate-45'>▾</span>
                 <ul className={`${sparepartscategory ? 'block' : 'hidden'} absolute rounded ul top-2 text-[18px] z-10 left-68`}>
-                  <Link href={'/HaqLedLightsSpareParts'}> <li>Ac LED Light Spare Parts</li>  </Link>
-                  <Link href={'/HaqLedLightsSpareParts'}> <li>Dc LED Light Spare Parts</li>  </Link>
-                  <Link href={'/HaqLedLightsSpareParts'}> <li>LED Light Spare Parts </li>  </Link>
+                  <Link href={'/HaqLedLightsSpareParts'} onClick={() => setProductCategory(false)}> <li>Ac LED Light Spare Parts</li>  </Link>
+                  <Link href={'/HaqLedLightsSpareParts'} onClick={() => setProductCategory(false)}> <li>Dc LED Light Spare Parts</li>  </Link>
+                  <Link href={'/HaqLedLightsSpareParts'} onClick={() => setProductCategory(false)}> <li>LED Light Spare Parts </li>  </Link>
                 </ul>
 
 
