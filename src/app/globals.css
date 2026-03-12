@@ -197,9 +197,9 @@ body {
 
 .card {
     background: #ffffffff;
-    border-radius: 12px;
+    /* border-radius: 12px; */
     padding: 40px !important;
-}
+box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;}
 
 .card .caption p {
     color: #59595A;
@@ -320,6 +320,6 @@ body {
 
 }
 
-.shadoww {
-    box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.219);
-}
+/* .shadoww {
+    box-shadow: 0 0 6px 1px var(--orange-color);
+} */

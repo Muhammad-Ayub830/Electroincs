@@ -45,8 +45,7 @@ const page = () => {
 
   return (
     <div>
-        <Header isclose={isclose} setClose={setClose} />
-        <Navbar isclose={isclose} setClose={setClose} />
+      
         <br />
         <MainTitle title={'Billing Details'}  />
       <div className={` ${font.className} page grid lg:grid-cols-2 grid-cols-1 gap-40 px-[1%] lg:px-[5%] items-start "`}>
