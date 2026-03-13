@@ -54,21 +54,30 @@ const page = () => {
                     <input type='data' name='price' placeholder='Price' className={`images bg-(--input-bg)  text-[16px]  shadow p-3 rounded `} />
                     <input type='data'  name='discount' placeholder='Discount In Percentage' className={`images bg-(--input-bg)  text-[16px]  shadow p-3 rounded `} />
                     {/* <input type='data' name='reviews' placeholder='reviews' className={`images bg-(--input-bg)  text-[16px]  shadow p-3 rounded `} /> */}
-                    <select name="subCategory" id="" required className={`images bg-(--input-bg) ${category == 'LED_LIGHT_SPARE_PART' ? 'block' : 'hidden'}  text-[16px]  shadow p-3 rounded `}>
-                        <option value="AC_LED_LIGHT_SPARE_PART">AC LED LIGHT SPARE PART</option>
-                        <option value="DC_LED_LIGHT_SPARE_PART">DC LED LIGHT SPARE PART</option>
-                        <option value="LED_LIGHT_SPARE_PART">LED LIGHT SPARE PART</option>
-                    </select>
-                    <select name="subCategory" id="" required className={`images bg-(--input-bg) ${category == 'ROD' ? 'block' : 'hidden'}  text-[16px]  shadow p-3 rounded `}>
+                 {category === 'LED_LIGHT_SPARE_PART' && (
+  <select name="subCategory" required className="images bg-(--input-bg) text-[16px] shadow p-3 rounded">
+      <option value="AC_LED_LIGHT_SPARE_PART">AC LED LIGHT SPARE PART</option>
+      <option value="DC_LED_LIGHT_SPARE_PART">DC LED LIGHT SPARE PART</option>
+      <option value="LED_LIGHT_SPARE_PART">LED LIGHT SPARE PART</option>
+  </select>
+)}
+                  
+                     {category === 'ROD' && (
+                         <select name="subCategory" id="" required className={`images bg-(--input-bg)   text-[16px]  shadow p-3 rounded `}>
                         <option value="ORIGINAL_ITALY_ROD">HAQ ORIGINAL ITALY ROD</option>
                         <option value="ORIGINAL_THERMOSTATE">HAQ ORIGINAL THERMOSTATE</option>
                     </select>
-                    <select name="subCategory" id="" required className={`images bg-(--input-bg) ${category == 'LED_LIGHT' ? 'block' : 'hidden'}   text-[16px]  shadow p-3 rounded `}>
+                     )}
+                     {category === 'LED_LIGHT' && (
+                         <select name="subCategory" id="" required className={`images bg-(--input-bg)  text-[16px]  shadow p-3 rounded `}>
                         <option value="LED_BULB">HAQ LED BULB</option>
                         <option value="LED_DOWNLIGHT">HAQ DOWNLIGHT</option>
                         <option value="PANEL_LIGHT">HAQ PANEL LIGHT</option>
                         <option value="COB_SPOTLIGHT">HAQ COB SPOTLIGHT</option>
                     </select>
+                     )}
+                   
+                   
                     <select onChange={(e)=>setCategory(e.currentTarget.value)} name="category" id="" required className={`images bg-(--input-bg)   text-[16px]  shadow p-3 rounded `}>
                         <option value="LED_LIGHT">HAQ LED LIGHT</option>
                         <option value="LED_LIGHT_SPARE_PART">LED LIGHT SPARE PART</option>
