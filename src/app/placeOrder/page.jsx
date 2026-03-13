@@ -4,6 +4,8 @@ import React, { useContext, useEffect, useState } from 'react'
 import { NavContext } from '../components/context/context'
 import MainTitle from '../components/mainTitle'
 import { Outfit } from 'next/font/google'
+import axios from 'axios'
+import backendUrl from '../backendurl'
 
 const font = Outfit({
   weight:["400"],
@@ -12,9 +14,26 @@ const font = Outfit({
 
 const Page = () => {
 
-  const { products, cart, cartTotal, shippingfee } = useContext(NavContext)
+  const { products, cart,setCart, cartTotal, shippingfee } = useContext(NavContext)
 
   const [items, setItems] = useState([])
+  const [customerName,setCustomerName] = useState('')
+  const [customerEmail,setCustomerEmail] = useState('')
+  const [city,setcity] = useState('')
+  const [address,setaddress] = useState('')
+  const [paymentMethod,setpaymentMethod] = useState('COD')
+  const [phone,setphone] = useState('')
+
+  // clearn input fields 
+  const clearINputerFields = ()=>{
+ setcity('')
+    setaddress('')
+    setpaymentMethod('COD')
+    setphone('')
+    setCustomerName('')
+    setCustomerEmail('')
+    setCart({})
+  }
 
   useEffect(() => {
 
@@ -30,7 +49,8 @@ const Page = () => {
         id: found._id,
         name: found.name,
         price: found.price * cart[id],
-        url: found?.images?.[0]
+        url: found?.images?.[0],
+        quantity: cart[id]
       })
 
     }
@@ -38,6 +58,33 @@ const Page = () => {
     setItems(temp)
 
   }, [cart, products])
+
+  // place order 
+  const placeOrder = async ()=>{
+    const data = {
+city,
+    address,
+    paymentMethod,
+    phone,
+    customerName,
+    customerEmail,
+    items,
+    totalPrice : cartTotal(),
+    deliveryFee : shippingfee
+    }
+    try {
+       const res = await axios.post(`${backendUrl}place-order`,data,{
+      withCredentials : true
+    })
+    console.log(res)
+   clearINputerFields()
+    } catch (error) {
+      console.log(error.message)
+    }
+   
+    
+  }
+ 
 
   return (
     <div>
@@ -52,38 +99,35 @@ const Page = () => {
         <form>
 
           <div className="mb-6">
-            <label className='block text-gray-400 mb-1'>First Name</label>
-            <input type="text" className='bg-white rounded outline-[#e9ae0d] p-2 cartItem w-full lg:w-[400px]' />
-          </div>
-
-          <div className="mb-6">
-            <label className='block text-gray-400 mb-1'>Company Name</label>
-            <input type="text" className='bg-white rounded outline-[#e9ae0d] p-2 cartItem w-full lg:w-[400px]' />
-          </div>
-
-          <div className="mb-6">
-            <label className='block text-gray-400 mb-1'>Street Name</label>
-            <input type="text" className='bg-white rounded outline-[#e9ae0d] p-2 cartItem w-full lg:w-[400px]' />
-          </div>
-
-          <div className="mb-6">
-            <label className='block text-gray-400 mb-1'>Apartment, Floor etc.</label>
-            <input type="text" className='bg-white rounded outline-[#e9ae0d] p-2 cartItem w-full lg:w-[400px]' />
-          </div>
-
-          <div className="mb-6">
-            <label className='block text-gray-400 mb-1'>Town / City</label>
-            <input type="text" required className='bg-white rounded outline-[#e9ae0d] p-2 cartItem w-full lg:w-[400px]' />
+            <label className='block text-gray-400 mb-1'>Customer Name</label>
+            <input value={customerName} onChange={(e)=>setCustomerName(e.target.value)}
+             type="text" className='bg-white rounded outline-[#e9ae0d] p-2 cartItem w-full lg:w-[400px]' />
           </div>
 
           <div className="mb-6">
             <label className='block text-gray-400 mb-1'>Phone Number</label>
-            <input type="text" required className='bg-white rounded outline-[#e9ae0d] p-2 cartItem w-full lg:w-[400px]' />
+            <input value={phone} onChange={(e)=>setphone(e.target.value)}
+             type="text" required className='bg-white rounded outline-[#e9ae0d] p-2 cartItem w-full lg:w-[400px]' />
+          </div>
+
+
+          <div className="mb-6">
+            <label className='block text-gray-400 mb-1'>Address</label>
+            <input value={address} onChange={(e)=>setaddress(e.target.value)}
+             type="text" className='bg-white rounded outline-[#e9ae0d] p-2 cartItem w-full lg:w-[400px]' />
           </div>
 
           <div className="mb-6">
+            <label className='block text-gray-400 mb-1'>City</label>
+            <input value={city} onChange={(e)=>setcity(e.target.value)}
+             type="text" required className='bg-white rounded outline-[#e9ae0d] p-2 cartItem w-full lg:w-[400px]' />
+          </div>
+
+          
+          <div className="mb-6">
             <label className='block text-gray-400 mb-1'>Email Address</label>
-            <input type="email" className='bg-white rounded outline-[#e9ae0d] p-2 cartItem w-full lg:w-[400px]' />
+            <input value={customerEmail} onChange={(e)=>setCustomerEmail(e.target.value)}
+             type="email" className='bg-white rounded outline-[#e9ae0d] p-2 cartItem w-full lg:w-[400px]' />
           </div>
 
         </form>
@@ -129,7 +173,8 @@ const Page = () => {
             </label>
           </div>
 
-          <button className='bg-[#e9ae0d] w-full cursor-pointer px-8 mt-5 text-white py-3 rounded'>
+          <button onClick={()=>placeOrder()}
+           className='bg-[#e9ae0d] w-full cursor-pointer px-8 mt-5 text-white py-3 rounded'>
             Place Order
           </button>
 

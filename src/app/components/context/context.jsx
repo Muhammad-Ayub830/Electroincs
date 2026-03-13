@@ -116,7 +116,8 @@ const ContextFile = ({ children }) => {
         shippingfee,
         deleteCartItem,
         isAdmin,
-        setAdmin
+        setAdmin,
+        setCart
       }}
     >
       {children}
