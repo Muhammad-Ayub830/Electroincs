@@ -28,10 +28,10 @@ const page = () => {
                 withCredentials : true
             })
            console.log(res.data)
-            router.push(res.redirect)
+            router.push(res.data.redirect)
             
             } catch (error) {
-               
+               console.log(error)
             }
             
             

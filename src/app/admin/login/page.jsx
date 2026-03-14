@@ -6,6 +6,7 @@ import '../admin.css'
 import backendUrl from '@/app/backendurl'
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 const font = Outfit({
     subsets  : ["latin"],
     weight: ["400"]
@@ -58,6 +59,8 @@ const page = () => {
                     
                     placeholder:text-gray-300 ' 
                      placeholder='Enter your Name' id="pass" />
+                 <Link href={'/signUp'}   ><label  className='block py-2 text-sm text-[#444] hover:text-blue-700 duration-300'>Don't have account?</label></Link>     
+
                 </div>
                
             <button onClick={()=>sendData()}

@@ -6,6 +6,7 @@ import MainTitle from '../components/mainTitle'
 import { Outfit } from 'next/font/google'
 import axios from 'axios'
 import backendUrl from '../backendurl'
+import { useRouter } from 'next/navigation'
 
 const font = Outfit({
   weight:["400"],
@@ -23,7 +24,9 @@ const Page = () => {
   const [address,setaddress] = useState('')
   const [paymentMethod,setpaymentMethod] = useState('COD')
   const [phone,setphone] = useState('')
+  const router = useRouter()
  const auth = async () => {
+
         try {
             const res = await axios.get(`${backendUrl}verify-customer`, {
                 withCredentials: true
