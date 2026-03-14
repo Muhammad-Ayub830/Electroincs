@@ -35,7 +35,7 @@ const WebNav = () => {
               <HiMiniMagnifyingGlass className='text-2xl' />
             </div>
             <div className="flex items-center justify-between gap-7 mr-10 lg:mr-0">
-              <Link href={'https://www.facebook.com/haq.6363'}>
+              <Link href={'https://www.facebook.com/haq.6363'} className='hidden md:block'>
                 <FaFacebookF className='text-gray-950 size-6 ' />
 
               </Link>
@@ -70,7 +70,7 @@ const WebNav = () => {
 
             </div>
 
-            <FiMenu onClick={() => setsidebar((prev) => !prev)} className='text-5xl lg:ml-8 text-black xl:hidden cursor-pointer' />
+            <FiMenu onClick={() => setsidebar((prev) => !prev)} className=' text-3xl sm:text-4xl lg:text-5xl lg:ml-8 text-black xl:hidden cursor-pointer' />
 
           </div>
         </div>
