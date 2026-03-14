@@ -23,7 +23,18 @@ const Page = () => {
   const [address,setaddress] = useState('')
   const [paymentMethod,setpaymentMethod] = useState('COD')
   const [phone,setphone] = useState('')
-
+ const auth = async () => {
+        try {
+            const res = await axios.get(`${backendUrl}verify-customer`, {
+                withCredentials: true
+            })
+            console.log(res)
+        } catch (error) {
+            console.log(error)
+            router.push("/admin/login")
+        }
+    }
+    
   // clearn input fields 
   const clearINputerFields = ()=>{
  setcity('')
@@ -36,7 +47,7 @@ const Page = () => {
   }
 
   useEffect(() => {
-
+    auth()
     const temp = []
 
     for (const id in cart) {
@@ -79,6 +90,7 @@ city,
     console.log(res)
    clearINputerFields()
     } catch (error) {
+      console.log(error)
       console.log(error)
     }
    
