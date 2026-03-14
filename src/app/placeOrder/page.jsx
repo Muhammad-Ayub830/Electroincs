@@ -79,7 +79,7 @@ city,
     console.log(res)
    clearINputerFields()
     } catch (error) {
-      console.log(error.message)
+      console.log(error)
     }
    
     

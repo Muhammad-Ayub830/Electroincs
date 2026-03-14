@@ -27,14 +27,14 @@ const WebNav = () => {
       <div className={` ${font.className} bg-(--orange-color) md:bg-white md:pt-10 pt-7 pb-7 md:pb-0 `}>
         {/* header */}
         <div className="header mx-[3%]  flex items-center justify-between ">
-          <img src="/logo3.png" className='md:w-[200px] w-[170px]' alt="" />
+      <Link href={'/'} ><img src="/logo3.png" className='md:w-[200px] w-[140px] sm:w-[170px]' alt="" /></Link>   
           <div className="right-search-and-buttons flex items-center justify-between ">
             <div className="serchbar px-5 p-2 rounded border-gray-400 xl:w-120 w-75  border mr-10 hidden lg:flex items-center justify-between  ">
               <input type="search" name="searc" id="search" placeholder='Search...' className={`outline-0 cursor-pointer w-full p-1`} />
 
               <HiMiniMagnifyingGlass className='text-2xl' />
             </div>
-            <div className="flex items-center justify-between gap-7 mr-10 lg:mr-0">
+            <div className="flex items-center justify-between gap-3 md:gap-7 mr-3 lg:mr-0">
               <Link href={'https://www.facebook.com/haq.6363'} className='hidden md:block'>
                 <FaFacebookF className='text-gray-950 size-6 ' />
 
