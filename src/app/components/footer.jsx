@@ -44,12 +44,12 @@ const Footer = () => {
             className="mb-2 flex items-center"
           >
             <i className="fa-solid fa-phone mr-2"></i>
-            +91 91813 23 2309
+            03195343463
           </a>
 
-          <span className="flex items-center">
-            <i className="fa-solid fa-location-dot mr-2"></i>
-            Somewhere in the World <FaLocationDot className="ml-2" />
+          <span className="flex items-center capitalize">
+            <i className="fa-solid fa-location-dot mr-2 capitalize"></i>
+     <Link href={'https://maps.app.goo.gl/siZ5MCFNoShDQZ52A?g_st=iw'} >      shop# gj-08, deans commercial centre, cinema road, <br /> chowk yadgar, peshawar <FaLocationDot className="ml-2 inline-block" /></Link> 
           </span>
         </div>
 
@@ -59,7 +59,7 @@ const Footer = () => {
           {/* Home & About */}
           <div className="opps flex font-semibold">
             <div className="HOme_stack">
-              <h2 className="text-lg mb-2 text-black">Home</h2>
+              <h2 className="text-lg mb-2 ">Home</h2>
               <p className="mb-1">Experites</p>
               <p className="mb-1">Maintainance Policy</p>
               <p className="mb-1">Our Testimonials</p>

@@ -20,16 +20,16 @@ const page = () => {
         const auth = async()=>{
             try {
                 const res = await axios.get(`${backendUrl}verify`,{
-                withCredentials : true
-            }).then(a=>console.log(a.data.message))
-            } catch (error) {
+                withCredentials : true})
+           
+                console.log(res)
+            } 
+            catch (error) {
                 router.push("/admin/login")
             }
             
         }
-        useEffect(()=>{
-            auth()
-        },[])
+      
      // deleting a product
     const deleteProduct = (idd)=>{
       console.log("hu")
@@ -38,8 +38,9 @@ const page = () => {
 
     // fetching products
     useEffect(()=>{
+      auth()
         axios.get(`${backendUrl}get-products`).then(res=>setProducts(res.data)).catch(error=>console.log(error))
-    },[deleteProduct])
+    },[])
 
    
   return (

@@ -8,7 +8,7 @@ import WebNav from './webNav'
 
 const Clientlayout2 = () => {
     const path = usePathname()
-    console.log(path)
+    // console.log(path)
   if(path !== '/admin' && path !== '/admin/all-products' && path !== '/admin/login' && path !== '/admin/orders' ){
     
     return <WebNav />

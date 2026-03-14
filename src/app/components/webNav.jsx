@@ -8,6 +8,8 @@ import { HiMiniMagnifyingGlass } from 'react-icons/hi2'
 import WhatsAppButton from './whatsappbtn'
 import Bage from './Bage'
 import { NavContext } from './context/context'
+import { FaUserAlt } from "react-icons/fa";
+
 const font = Outfit({
   weight: ["400"],
   subsets: ["latin"]
@@ -32,7 +34,7 @@ const WebNav = () => {
 
               <HiMiniMagnifyingGlass className='text-2xl' />
             </div>
-            <div className="flex items-center justify-between gap-4 mr-10 lg:mr-0">
+            <div className="flex items-center justify-between gap-7 mr-10 lg:mr-0">
               <Link href={'https://www.facebook.com/haq.6363'}>
                 <FaFacebookF className='text-gray-950 size-6 ' />
 
@@ -44,6 +46,10 @@ const WebNav = () => {
                         }
                     
               </div>
+               <Link href={'/track_order'}>
+                <FaUserAlt className='text-gray-950 size-6 ' />
+
+              </Link>
            
               {/* <Link href={'https://api.whatsapp.com/send/?phone=%2B923112111163&text=I+am+interested&type=phone_number&app_absent=0'}>
                 <FaWhatsapp className='text-green-500 size-6' />
