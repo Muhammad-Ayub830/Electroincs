@@ -117,7 +117,7 @@ const CartComponents = () => {
             className='px-5 w-[200px] lg:min-w-[300px] py-3 cartBorder text-sm bg-white rounded'
           />
 
-          <button className='bg-[#e9ae0d] text-sm px-5 lg:px-10 text-white py-3 rounded'>
+          <button className='bg-[#e9ae0d] active:scale-95 duration-300 text-sm px-5 lg:px-10 text-white py-3 rounded'>
             Apply Coupon
           </button>
 
@@ -143,7 +143,7 @@ const CartComponents = () => {
           </div>
 
           <Link href='/placeOrder'>
-            <button className='bg-[#e9ae0d] cursor-pointer text-sm px-8 m-auto mt-5 text-white py-3 rounded block'>
+            <button className='bg-[#e9ae0d] active:scale-95 duration-300 cursor-pointer text-sm px-8 m-auto mt-5 text-white py-3 rounded block'>
               Proceed to Checkout
             </button>
           </Link>

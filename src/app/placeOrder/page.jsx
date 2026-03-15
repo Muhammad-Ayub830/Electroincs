@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import { NavContext } from '../components/context/context'
 import MainTitle from '../components/mainTitle'
 import { Outfit } from 'next/font/google'
@@ -48,6 +48,7 @@ const Page = () => {
     setCustomerName('')
     setCustomerEmail('')
     setCart({})
+    
   }
 
   useEffect(() => {
@@ -94,9 +95,9 @@ city,
     console.log(res)
    clearINputerFields()
    if(res.status == 201)
-   toast.success(res.data.message)
+   toast.success(res.data.message,{removeDelay:1500})
   else 
-    toast.error(res.data.message)
+    toast.error(res.data.message,{removeDelay:1500})
 
     } catch (error) {
       console.log(error)
@@ -189,7 +190,7 @@ city,
 
           <div className="mt-5">
             <input type="radio" name="pay" id="pay" />
-            <label htmlFor="pay" className='ml-2 cursor-pointer text-lg'>
+            <label htmlFor="pay"  className='ml-2 cursor-pointer text-lg'>
               Cash on delivery
             </label>
           </div>
