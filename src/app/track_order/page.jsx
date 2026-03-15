@@ -41,7 +41,7 @@ const page = () => {
   return (
      <div className={`px-[5%] pt-[5%]   ${outfit.className} text-2xl `}>
            
-            <h1 className={` mb-10`}>Received Orders</h1>
+            <h1 className={` mb-10`}>Placed Orders</h1>
             <div className="orders bg-white mb-10 shadow rounded-tl-2xl rounded-tr-2xl rounded-lg ">
                 <div className=" bg-gray-200 p-5 rounded-tl-2xl rounded-tr-2xl  grid grid-cols-5 text-[17px] text-[#312f2f] font-semibold">
                     <div className="name">Name</div>
