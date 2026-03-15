@@ -1,9 +1,9 @@
 # 🛒 Haq Electronics Full-Stack Project
 
-![GitHub repo size]([https://img.shields.io/github/repo-size/yourusername/haq-electronics](https://github.com/Muhammad-Ayub830/Electroincs))
-![GitHub top language]([https://img.shields.io/github/languages/top/yourusername/haq-electronics](https://github.com/Muhammad-Ayub830/Electroincs))
-![GitHub last commit]([https://img.shields.io/github/last-commit/yourusername/haq-electronics](https://github.com/Muhammad-Ayub830/Electroincs))
-![License]([https://img.shields.io/github/license/yourusername/haq-electronics](https://github.com/Muhammad-Ayub830/Electroincs))
+![GitHub repo size][https://img.shields.io/github/repo-size/yourusername/haq-electronics](https://github.com/Muhammad-Ayub830/Electroincs)
+![GitHub top language][https://img.shields.io/github/languages/top/yourusername/haq-electronics](https://github.com/Muhammad-Ayub830/Electroincs)
+![GitHub last commit][https://img.shields.io/github/last-commit/yourusername/haq-electronics](https://github.com/Muhammad-Ayub830/Electroincs)
+![License][https://img.shields.io/github/license/yourusername/haq-electronics](https://github.com/Muhammad-Ayub830/Electroincs)
 
 This is a **full-stack e-commerce application** built for **Haq Electronics**. The project includes **complete admin and customer management**, product listings, and an admin panel to manage inventory and orders.
 
