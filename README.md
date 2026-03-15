@@ -1,9 +1,9 @@
 # 🛒 Haq Electronics Full-Stack Project
 
-![GitHub repo size](https://img.shields.io/github/repo-size/yourusername/haq-electronics)
-![GitHub top language](https://img.shields.io/github/languages/top/yourusername/haq-electronics)
-![GitHub last commit](https://img.shields.io/github/last-commit/yourusername/haq-electronics)
-![License](https://img.shields.io/github/license/yourusername/haq-electronics)
+![GitHub repo size]([https://img.shields.io/github/repo-size/yourusername/haq-electronics](https://github.com/Muhammad-Ayub830/Electroincs))
+![GitHub top language]([https://img.shields.io/github/languages/top/yourusername/haq-electronics](https://github.com/Muhammad-Ayub830/Electroincs))
+![GitHub last commit]([https://img.shields.io/github/last-commit/yourusername/haq-electronics](https://github.com/Muhammad-Ayub830/Electroincs))
+![License]([https://img.shields.io/github/license/yourusername/haq-electronics](https://github.com/Muhammad-Ayub830/Electroincs))
 
 This is a **full-stack e-commerce application** built for **Haq Electronics**. The project includes **complete admin and customer management**, product listings, and an admin panel to manage inventory and orders.
 
@@ -170,6 +170,3 @@ NEXT_PUBLIC_API_URL=http://localhost:5000/api
 
 ---
 
-I can also **add a “Live Preview GIF” section** that automatically shows the website UI flow in action, which makes it **super attractive on GitHub**.
-
-Do you want me to do that as well?
