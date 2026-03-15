@@ -68,11 +68,11 @@ const ItemCard = ({ src, title, discount, price, id, deleteProduct, tags }) => {
 </div>
 
         <div className="flex gap-2">
-          <button className="rounded-full p-2 hover:bg-gray-100">
-            <FaRegHeart size={25} className={'text-gray-500'} />
+          <button className="rounded-full p-2 hover:bg-gray-100 active:bg-gray-300 duration-300">
+            <FaRegHeart size={25} className={'text-gray-500 active:scale-95 duration-300'} />
           </button>
-          <button className="rounded-full p-2 hover:bg-gray-100">
-            <BsCart onClick={()=>addtoCart(id)} size={20} className={'text-gray-500 font-extrabold'} />
+          <button className="rounded-full p-2 hover:bg-gray-100 active:bg-gray-300 duration-300">
+            <BsCart onClick={()=>addtoCart(id)} size={20} className={'text-gray-500 active:text-(--orange-color) active:scale-95 duration-300 font-extrabold'} />
           </button>
         </div>
       </div>

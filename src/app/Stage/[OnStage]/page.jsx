@@ -146,7 +146,7 @@ const page = ({ params }) => {
           <button>{counter}</button>
           <button onClick={()=>setcounter((prev)=> prev == 1 ? 1 :  prev-1)} className='cursor-pointer '>-</button>
         </div>
-        <button  onClick={()=>addtoCart(item._id,counter)} className={` bg-(--orange-color) hover:scale-105 duration-300 cursor-pointer block basis-full rounded  p-3 text-lg text-white font-semibold'`}>Add to Cart </button>
+        <button  onClick={()=>addtoCart(item._id,counter)} className={`active:scale-95 bg-(--orange-color) hover:scale-105 duration-300 cursor-pointer block basis-full rounded  p-3 text-lg text-white font-semibold'`}>Add to Cart </button>
       </div>
       {/* Tags */}
       <div className="mt-auto">

@@ -7,6 +7,7 @@ import { Outfit } from 'next/font/google'
 import axios from 'axios'
 import backendUrl from '../backendurl'
 import { useRouter } from 'next/navigation'
+import toast from 'react-hot-toast'
 
 const font = Outfit({
   weight:["400"],
@@ -92,6 +93,11 @@ city,
     })
     console.log(res)
    clearINputerFields()
+   if(res.status == 201)
+   toast.success(res.data.message)
+  else 
+    toast.error(res.data.message)
+
     } catch (error) {
       console.log(error)
       console.log(error)
@@ -189,7 +195,7 @@ city,
           </div>
 
           <button onClick={()=>placeOrder()}
-           className='bg-[#e9ae0d] w-full cursor-pointer px-8 mt-5 text-white py-3 rounded'>
+           className='bg-[#e9ae0d] active:scale-95 duration-300 w-full cursor-pointer px-8 mt-5 text-white py-3 rounded'>
             Place Order
           </button>
 

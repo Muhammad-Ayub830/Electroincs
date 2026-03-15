@@ -6,6 +6,7 @@ import "./globals.css";
 import Clientlayout from "./components/clientlayout";
 import WebNav from "./components/webNav";
 import Clientlayout2 from "./components/clientlayout2";
+import { Toaster } from "react-hot-toast";
 
 
 export const metadata = {
@@ -25,6 +26,8 @@ export default function RootLayout({ children }) {
         <ContextFile>
           <Clientlayout2 />
           {children}
+                  <Toaster position="top-right" reverseOrder={false} />
+
           <Clientlayout />
         
          
