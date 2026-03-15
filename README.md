@@ -1,36 +1,171 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🛒 Haq Electronics Full-Stack Project
 
-## Getting Started
+[![GitHub](https://img.shields.io/badge/GitHub-Muhammad%20Ayub830-blue?logo=github)](https://github.com/Muhammad-Ayub830/Electroincs)
+[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
+[![Status](https://img.shields.io/badge/Status-Active-brightgreen)](https://github.com/Muhammad-Ayub830/Electroincs)
 
-First, run the development server:
+This is a **full-stack e-commerce application** built for **Haq Electronics**. The project includes **complete admin and customer management**, product listings, and an admin panel to manage inventory and orders.
+
+**Live Demo:** [https://www.haq1.com/](https://www.haq1.com/)
+
+---
+
+## 📌 Table of Contents
+
+* [Tech Stack](#-tech-stack)
+* [Features](#-features)
+* [Getting Started](#-getting-started)
+* [Project Structure](#-project-structure)
+* [Screenshots / Demo](#-screenshots--demo)
+* [Resources Used](#-resources-used)
+* [Contributing](#-contributing)
+* [License](#-license)
+
+---
+
+## 🛠 Tech Stack
+
+* **Frontend:** Next.js, React
+* **Backend:** Node.js, Express.js
+* **Authentication:** JWT, Cookies
+* **File Storage / Media:** Cloudinary
+* **Database:** (MongoDB / PostgreSQL / your DB)
+* **Libraries:** Axios, bcrypt, react-hot-toast, dotenv, cors
+
+---
+
+## ✨ Features
+
+### **Admin Panel**
+
+* 🔒 Admin login with secure JWT authentication
+* 📊 Dashboard for managing products, categories, and orders
+* ✏️ Full CRUD operations for all resources
+* 🛡️ Protected admin-only routes
+
+### **Customer Panel / Store**
+
+* 🛍️ Browse products across categories:
+
+  * LED Lights (Bulbs, Downlights, Panel Lights, COB Spotlights)
+  * Cables, Irons, Solar Inverters
+  * Rods (Original Italy Rods, Thermostate Rods)
+  * LED Lights Spare Parts (AC/DC/Other)
+* 🔍 Product search and filtering
+* 🖼️ Product images with Cloudinary integration
+
+### **Authentication & Security**
+
+* 🔑 JWT-based authentication with cookies
+* 🛡️ Role-based protected routes for Admin and Customer
+* 🔒 Password hashing with bcrypt
+
+### **Extras**
+
+* 📱 Fully responsive design
+* 🔔 Notifications for user actions (react-hot-toast)
+
+---
+
+## 🚀 Getting Started
+
+### **Prerequisites**
+
+* Node.js >= 16.x
+* npm or yarn
+* MongoDB / Your database setup
+
+### **Installation**
+
+#### Frontend (Next.js)
 
 ```bash
+cd frontend
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+#### Backend (Express.js + Node.js)
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```bash
+cd backend
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### **Environment Variables**
 
-## Learn More
+**Backend (`.env`):**
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+PORT=5000
+MONGO_URI=<your_mongo_connection_string>
+JWT_SECRET=<your_jwt_secret>
+CLOUDINARY_CLOUD_NAME=<cloud_name>
+CLOUDINARY_API_KEY=<api_key>
+CLOUDINARY_API_SECRET=<api_secret>
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Frontend (`.env`):**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+NEXT_PUBLIC_API_URL=http://localhost:5000/api
+```
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🗂 Project Structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```text
+/frontend
+ ├─ pages/
+ ├─ components/
+ ├─ styles/
+ └─ public/
+
+/backend
+ ├─ routes/
+ ├─ controllers/
+ ├─ models/
+ ├─ middleware/
+ └─ server.js
+```
+
+---
+
+## 📸 Screenshots / Demo
+
+* **Admin Panel Dashboard**
+* **Product Listings**
+* **Customer Store Pages**
+* **Login / Signup Pages**
+
+*(Add screenshots or GIFs here for better presentation)*
+
+---
+
+## 🔧 Resources Used
+
+* JWT & Cookies for authentication
+* Cloudinary for image storage
+* bcrypt for password hashing
+* Axios for API requests
+* react-hot-toast for notifications
+* Helmet & CORS for security
+
+---
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a new branch: `git checkout -b feature-name`
+3. Make your changes and commit: `git commit -m 'Add feature'`
+4. Push to the branch: `git push origin feature-name`
+5. Open a Pull Request
+
+---
+
+
+
+---
+
