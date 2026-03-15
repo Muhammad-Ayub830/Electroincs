@@ -1,9 +1,8 @@
 # 🛒 Haq Electronics Full-Stack Project
 
-!https://github.com/Muhammad-Ayub830/Electroincs
-!https://github.com/Muhammad-Ayub830/Electroincs
-!https://github.com/Muhammad-Ayub830/Electroincs
-!https://github.com/Muhammad-Ayub830/Electroincs
+[![GitHub](https://img.shields.io/badge/GitHub-Muhammad%20Ayub830-blue?logo=github)](https://github.com/Muhammad-Ayub830/Electroincs)
+[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
+[![Status](https://img.shields.io/badge/Status-Active-brightgreen)](https://github.com/Muhammad-Ayub830/Electroincs)
 
 This is a **full-stack e-commerce application** built for **Haq Electronics**. The project includes **complete admin and customer management**, product listings, and an admin panel to manage inventory and orders.
 
