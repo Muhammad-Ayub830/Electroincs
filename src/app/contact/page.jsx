@@ -133,7 +133,8 @@ const page = () => {
     </div>
     {/* location */}
     <div className=" p-[1%] mt-10">
-       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d353468.0440813778!2d71.56547024999998!3d33.97729305000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38d917b90f0e79cf%3A0xa816b2637558a412!2sPeshawar%2C%20Pakistan!5e1!3m2!1sen!2s!4v1770542908231!5m2!1sen!2s" 
+      
+       <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2760.369671759379!2d71.5713079757147!3d34.01112607317244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzTCsDAwJzQwLjEiTiA3McKwMzQnMjYuMCJF!5e1!3m2!1sen!2s!4v1773665560984!5m2!1sen!2s" 
      allowFullScreen loading="lazy" height={700} referrerpolicy="no-referrer-when-downgrade" className='w-full'></iframe>
     </div>
    

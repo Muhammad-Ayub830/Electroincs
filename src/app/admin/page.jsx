@@ -37,7 +37,7 @@ const page = () => {
     return (
         <div className={` px-[3%] md:px-[10%] pt-[5%]   ${outfit.className} text-2xl `}>
             <AdminNav />
-            <form onSubmit={()=>submit} action={`${backendUrl}add-product`} method="POST" encType='multipart/form-data'  >
+            <form action={`${backendUrl}add-product`} method="POST" encType='multipart/form-data'  >
                 <h1 className={`text-center mb-5`}>Add Product Information</h1>
                 <h2 className={`text-xl mb-2`}>Product Images</h2>
                 <input type='file' name='images' multiple className={`images text-[16px] shadow p-3 rounded bg-(--input-bg) `} required />
@@ -109,7 +109,7 @@ const page = () => {
           {/* <input type='text' name='tags' required placeholder='tag' className={`images bg-(--input-bg)  text-[16px]  shadow p-3 rounded `} /> */}
 
                   </div>
-                <button type='submit' className={` ml-auto text-md mb-10
+                <button type='submit' className={` ml-auto  mb-10
                       hover:scale-110 duration-300 mt-5 mb-2 flex items-center
                        justify-center gap-2 cursor-pointer rounded w-full md:w-62 bg-(--orange-color) p-3`}> Upload <MdOutlineAddCircle /> </button>
             </form>
