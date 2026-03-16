@@ -1,7 +1,7 @@
 'use client'
 import AdminNav from '@/app/components/adminNav'
 import { Outfit } from 'next/font/google'
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import '../admin.css'
 import backendUrl from '@/app/backendurl'
 import axios from 'axios'
@@ -13,11 +13,13 @@ const font = Outfit({
 })
 const page = () => {
     const router = useRouter()
+    const [loading,setloading] = useState(false)
 
     // sending data 
     const name = useRef()
     const password = useRef()
      const sendData  = async ()=>{
+        setloading(true)
         const data = {
             username : name.current.value,
             password : password.current.value
@@ -29,10 +31,12 @@ const page = () => {
            console.log(res.data)
             router.push(res.data.redirect)
             
-            } catch (error) {
+            }catch (error) {
                 name.current.value = "";
             password.current.value = "";
                 console.log(error)
+            } finally{
+                setloading(false)
             }
             
             
@@ -64,8 +68,10 @@ const page = () => {
                 </div>
                
             <button onClick={()=>sendData()}
-            className='w-full mt-5 mb-5  text-white text-[20px] cursor-pointer duration-300 hover:scale-105 text-center p-3 rounded bg-(--orange-color)'
-            > Login</button>
+            className={`w-full mt-5 mb-5  text-white text-[20px]
+             cursor-pointer duration-300  text-center p-3 rounded bg-(--orange-color) ${loading ? 'bg-(--orange-shade)' : '' } duration-300`}
+          
+          > { loading ? 'Logging In' : 'Login' }</button>
             </form>
 
         </div>

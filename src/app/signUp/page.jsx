@@ -17,7 +17,9 @@ const page = () => {
     const [name,setName] = useState('')
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
+    const [loading,setloading] = useState(false)
      const sendData  = async ()=>{
+        setloading(true)
         const data = {
             username : name,
             password,
@@ -32,6 +34,8 @@ const page = () => {
             
             } catch (error) {
                console.log(error)
+            } finally{
+                setloading(false)
             }
             
             
@@ -73,7 +77,7 @@ const page = () => {
                
             <button onClick={()=>sendData()}
             className='w-full mt-5 mb-5  text-white text-[20px] cursor-pointer duration-300 hover:scale-105 text-center p-3 rounded bg-(--orange-color)'
-            > Sign Up</button>
+            >{loading ? 'Signning Up' : 'Sign Up '} </button>
             </form>
 
         </div>

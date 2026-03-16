@@ -37,7 +37,7 @@ const page = () => {
     return (
         <div className={` px-[3%] md:px-[10%] pt-[5%]   ${outfit.className} text-2xl `}>
             <AdminNav />
-            <form action={`${backendUrl}add-product`} method="POST" encType='multipart/form-data'  >
+            <form onSubmit={()=>submit} action={`${backendUrl}add-product`} method="POST" encType='multipart/form-data'  >
                 <h1 className={`text-center mb-5`}>Add Product Information</h1>
                 <h2 className={`text-xl mb-2`}>Product Images</h2>
                 <input type='file' name='images' multiple className={`images text-[16px] shadow p-3 rounded bg-(--input-bg) `} required />
