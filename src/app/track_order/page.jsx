@@ -43,11 +43,11 @@ const page = () => {
            
             <h1 className={` mb-10`}>Placed Orders</h1>
             <div className="orders bg-white mb-10 shadow rounded-tl-2xl rounded-tr-2xl rounded-lg ">
-                <div className=" bg-gray-200 p-5 rounded-tl-2xl rounded-tr-2xl  grid grid-cols-5 text-[17px] text-[#312f2f] font-semibold">
+                <div className=" bg-gray-200 p-5 rounded-tl-2xl rounded-tr-2xl  grid grid-cols-4 md:grid-cols-5 text-[17px] text-[#312f2f] font-semibold">
                     <div className="name">Name</div>
                     <div className="name">City</div>
                     <div className="name">Price</div>
-                    <div className="name">Phone</div>
+                    <div className="name hidden md:block">Phone</div>
                     <div className="name">Status</div>
                 </div>
                 {
@@ -56,7 +56,7 @@ const page = () => {
                             <div className="name">{order.customerName}</div>
                             <div className="name">{order.city}</div>
                             <div className="name">{order.totalPrice}</div>
-                            <div className="name">{order.phone}</div>
+                            <div className="name  hidden md:block">{order.phone}</div>
                             <div className={`
                             ${order.orderStatus == 'DELIVERED' ? 'text-green-800 bg-green-200 w-fit rounded py-1 px-2' : '' }
                             ${order.orderStatus == 'PENDING' ? 'text-[#a1a11a] bg-yellow-200 w-fit rounded py-1 px-2' : '' }

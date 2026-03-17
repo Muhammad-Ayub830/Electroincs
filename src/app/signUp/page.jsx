@@ -44,8 +44,10 @@ const page = () => {
         <div className={` ${font.className} p-[5%] `}>
             
             <form onSubmit={(e)=>e.preventDefault()} className='rounded-lg shadow w-full bg-[white] max-w-[450px] mx-auto p-8 '>
-                <img src="/logo3.png" alt="logo" className='w-[180px] m-auto mb-6' />
-                <div className="input mb-3">
+  <Link href={'/'} className='m-auto mb-6 block flex items-center justify-center' >
+         <img src="/logo3.png" alt="logo" className='w-[180px]  ' />
+         </Link>   
+                      <div className="input mb-3">
                     <label htmlFor="user" className='block py-2'>User Name</label>
                     <input type="text" name="username" value={name} onChange={(e)=>setName(e.target.value)}
                     className='outline-(--orange-color) rounded p-2 input-input

@@ -88,7 +88,7 @@ const Footer = () => {
                 <FaTwitter className="cursor-pointer" />
               </div>
               <div className="please rounded">
-             <Link href={'https://api.whatsapp.com/send/?phone=%2B923112111163&text=I+am+interested&type=phone_number&app_absent=0'}>
+             <Link href={'https://api.whatsapp.com/send/?phone=%2B923195343463&text=I+am+interested&type=phone_number&app_absent=0'}>
              <FaWhatsapp className="cursor-pointer" />
              </Link>   
               </div>
