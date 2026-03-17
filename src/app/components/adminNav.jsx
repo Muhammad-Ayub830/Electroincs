@@ -30,7 +30,7 @@ const AdminNav = () => {
      
     }
   return (
-    <div className={` bg-white rounded flex items-center justify-between p-5 px-10 shadow mb-8 `}>
+    <div className={` bg-white rounded flex items-center justify-between p-5  md:px-10 shadow mb-8 `}>
       <Link onClick={()=>setAdmin(false)} href={'/'}> <div className="logo">
             <img src={'/logo3.png'} className='w-[100px]' alt="" />
         </div></Link> 
