@@ -6,6 +6,7 @@ import "../admin/admin.css"
 import backendUrl from '@/app/backendurl'
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 const font = Outfit({
     subsets  : ["latin"],
     weight: ["400"]
