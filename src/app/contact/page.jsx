@@ -48,26 +48,21 @@ const page = () => {
 
           <div className="mb-6">
             <h3 className="text-lg font-semibold">For Complaints</h3>
-            <p className="text-gray-700">+92-317-8880020</p>
+            <p className="text-gray-700">03112111163</p>
             <hr className="my-2" />
           </div>
 
-          <div className="mb-6">
-            <h3 className="text-lg font-semibold">For Information:</h3>
-            <p className="text-gray-700">+92-3111 444 805</p>
-            <hr className="my-2" />
-          </div>
-
+          
           <div className="mb-6">
             <h3 className="text-lg font-semibold">PTCL</h3>
-            <p className="text-gray-700">+92-55-4272890-3</p>
+            <p className="text-gray-700">0912566363</p>
             <hr className="my-2" />
           </div>
 
           <div>
             <h3 className="text-lg font-semibold">Opening Hour:</h3>
-            <p className="text-gray-700">Sat - Thurs: 9:00 am to 5:00 pm</p>
-            <p className="text-gray-700">Friday Closed.</p>
+            <p className="text-gray-700"> 9:00 am to 9:00 pm.</p>
+            <p className="text-gray-700">Sunday Closed.</p>
           </div>
         </div>
 

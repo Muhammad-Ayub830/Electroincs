@@ -40,8 +40,8 @@ export default function WhatsAppButton() {
       }}
     >
       <Image
-        src="/whatsapp.png"
-        className="shadow-2xl rounded-full backdrop-blur-lg bg-green-100 border border-green-500 shadow shadow-green-800"
+        src="/whatsapp.PNG"
+        className="shadow-2xl rounded-full backdrop-blur-lg "
         width={60}
         height={60}
         alt="WhatsApp"

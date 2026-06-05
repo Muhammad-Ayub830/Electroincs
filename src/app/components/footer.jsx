@@ -36,7 +36,7 @@ const Footer = () => {
             className="mb-2 flex items-center"
           >
             <i className="fa-solid fa-envelope mr-2"></i>
-            contact@haq.com
+            contacts@haq1.com
           </a>
 
           <a
@@ -49,7 +49,7 @@ const Footer = () => {
 
           <span className="flex items-center capitalize">
             <i className="fa-solid fa-location-dot mr-2 capitalize"></i>
-     <Link href={'https://maps.app.goo.gl/siZ5MCFNoShDQZ52A?g_st=iw'} >      shop# gj-08, deans commercial centre, cinema road, <br /> chowk yadgar, peshawar <FaLocationDot className="ml-2 inline-block" /></Link> 
+     <Link href={'https://maps.app.goo.gl/siZ5MCFNoShDQZ52A?g_st=iw'} >      shop# Gf-08, Deans Commercial Centre, Cinema Road, <br /> Chowk Yadgar, Peshawar.<FaLocationDot className="ml-2 inline-block" /></Link> 
           </span>
         </div>
 

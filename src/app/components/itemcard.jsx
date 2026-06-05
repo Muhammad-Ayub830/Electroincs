@@ -55,7 +55,7 @@ const ItemCard = ({ src, title, discount, price, id, deleteProduct, tags }) => {
       <div className="my-3 border-t border-t-gray-300"></div>
 
       {/* Price + Buttons */}
-      <div className="flex items-center justify-between">
+      {/* <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
   <span className="text-xl font-semibold text-gray-800">
     ${price}
@@ -75,7 +75,7 @@ const ItemCard = ({ src, title, discount, price, id, deleteProduct, tags }) => {
             <BsCart onClick={()=>addtoCart(id)} size={20} className={'text-gray-500 active:text-(--orange-color) active:scale-95 duration-300 font-extrabold'} />
           </button>
         </div>
-      </div>
+      </div> */}
     </div>
   )
 }

@@ -127,20 +127,7 @@ With decades of experience in the electrical industry, we have the technical exp
 
      
 
-      <div className="grid my-20 grid-cols-[repeat(auto-fit,minmax(270px,1fr))] mx-[5%] gap-7.5 ">
-
-        <PersonCard />
-        <PersonCard />
-        <PersonCard />
-        <PersonCard />
-
-
-
-
-
-
-
-      </div>
+     
 
 
     </div>
