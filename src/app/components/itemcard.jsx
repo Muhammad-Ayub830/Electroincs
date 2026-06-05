@@ -52,7 +52,7 @@ const ItemCard = ({ src, title, discount, price, id, deleteProduct, tags }) => {
         ))}
       </div>
 
-      <div className="my-3 border-t border-t-gray-300"></div>
+    
 
       {/* Price + Buttons */}
       {/* <div className="flex items-center justify-between">
