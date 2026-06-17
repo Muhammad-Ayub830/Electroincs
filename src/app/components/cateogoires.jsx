@@ -24,7 +24,7 @@ const Categories = () => {
     },
     {
       name: 'LED_LIGHT_SPARE_PART',
-      label: 'LED_LIGHT_SPARE_PART',
+      label: 'Spare Parts',
       image: '/EcoGlow 12W LED Driver.png',
     },
     {
