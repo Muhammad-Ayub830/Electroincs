@@ -6,59 +6,109 @@ import Reveal from './Reveal'
 
 const Categories = () => {
   const { category, setCategory } = useContext(NavContext)
+
   useEffect(() => {
     console.log(category)
   }, [category])
+
+  const categories = [
+    {
+      name: 'Cables',
+      label: 'Cables',
+      image: '/PowerFlex 1.5mm Copper Cable.png',
+    },
+    {
+      name: 'Bulbs',
+      label: 'Lights',
+      image: '/led.png',
+    },
+    {
+      name: 'Spare_Parts',
+      label: 'Spare Parts',
+      image: '/EcoGlow 12W LED Driver.png',
+    },
+    {
+      name: 'Inverters',
+      label: 'Inverters',
+      image: '/SunVolt 1.5kVA Off-Grid Solar Inverter.png',
+    },
+    {
+      name: 'Irons',
+      label: 'Irons',
+      image: '/w.png',
+    },
+  ]
+
   return (
-<Reveal>
-  <div className=''>
-      <MainTitle title={'Categories'} />
-      <div className="scroll-bar-category w-full flex items-center overflow-x-scroll gap-2 scroll-smooth mx-[5%] my-10 ">
+    <Reveal>
+      <div>
+        <MainTitle title={'Categories'} />
 
+        <div className="scroll-bar-category flex gap-6 overflow-x-auto px-[5%] py-8">
 
+          {categories.map((item) => {
+            const isSelected = category === item.name
 
-        <div className={`item rounded-full p-3 shrink-0   `} onClick={() =>setCategory(prev => (prev === 'All' ? 'Cables' : 'All'))}>
-          <div className="img    w-50 h-50  ">
-            <Image src={'/PowerFlex 1.5mm Copper Cable.png'} width={100} height={100} className={`${category=='Cables'? 'selected-box' : 'box'} bg-white  duration-200  w-[100%] h-[100%] rounded-full '`} alt='' />
-          </div>
-          <p className='font-bold text-md text-center tracking-wide text-gray-700 mt-3'>Cables</p>
-        </div>
-        {/* cable */}
-        <div className={`item rounded-full p-3 shrink-0   `} onClick={() =>setCategory(prev => (prev === 'All' ? 'Bulbs' : 'All'))}>
-          <div className="img    w-50 h-50  ">
-            <Image src={'/led.png'} width={100} height={100} className={`${category=='Bulbs'? 'selected-box' : 'box'} bg-white  duration-200  w-[100%] h-[100%] rounded-full '`} alt='' />
-          </div>
-          <p className='font-bold text-md text-center tracking-wide text-gray-700 mt-3'>Lights</p>
-        </div>
-        {/* Bulb */}
-        <div className={`item rounded-full p-3 shrink-0   `} onClick={() =>setCategory(prev => (prev === 'All' ? 'Spare_Parts' : 'All'))}>
-          <div className="img    w-50 h-50  ">
-            <Image src={'/EcoGlow 12W LED Driver.png'} width={100} height={100} className={`${category=='Spare_Parts'? 'selected-box' : 'box'} bg-white  duration-200  w-[100%] h-[100%] rounded-full '`} alt='' />
-          </div>
-          <p className='font-bold text-md text-center tracking-wide text-gray-700 mt-3'>Spare Parts</p>
-        </div>
-        {/* Spare Parts */}
-        <div className={`item rounded-full p-3 shrink-0   `} onClick={() =>setCategory(prev => (prev === 'All' ? 'Inverters' : 'All'))}>
-          <div className="img    w-50 h-50  ">
-            <Image src={'/SunVolt 1.5kVA Off-Grid Solar Inverter.png'} width={100} height={100} className={`${category=='Inverters'? 'selected-box' : 'box'} bg-white  duration-200  w-[100%] h-[100%] rounded-full '`} alt='' />
-          </div>
-          <p className='font-bold text-md text-center tracking-wide text-gray-700 mt-3'>Inverters</p>
-        </div>
-        {/* Inverters */}
-        <div className={`item rounded-full p-3 shrink-0   `} onClick={() =>setCategory(prev => (prev === 'All' ? 'Irons' : 'All'))}>
-          <div className="img    w-50 h-50  ">
-            <Image src={'/w.png'} width={100} height={100} className={`${category=='Irons'? 'selected-box' : 'box'} bg-white  duration-200  w-[100%] h-[100%] rounded-full '`} alt='' />
-          </div>
-          <p className='font-bold text-md text-center tracking-wide text-gray-700 mt-3'>Irons</p>
-        </div>
-        {/* Irons */}
+            return (
+              <div
+                key={item.name}
+                onClick={() =>
+                  setCategory(isSelected ? 'All' : item.name)
+                }
+                className={`
+                  shrink-0
+                  cursor-pointer
+                  transition-all
+                  duration-300
+                  rounded-3xl
+                  p-6
+                  min-w-[190px]
+                  border-2
+                  shadow-sm
+                  hover:-translate-y-2
+                  hover:shadow-xl
+                  ${
+                    isSelected
+                      ? 'bg-[var(--orange-color)] border-[var(--orange-color)] scale-105'
+                      : 'bg-white border-gray-200'
+                  }
+                `}
+              >
+                <div className="flex justify-center">
+                  <div className="w-[120px] h-[120px] rounded-full bg-white flex items-center justify-center shadow-md">
+                    <Image
+                      src={item.image}
+                      width={90}
+                      height={90}
+                      alt={item.label}
+                      className="object-contain"
+                    />
+                  </div>
+                </div>
 
-        
-
+                <p
+                  className={`
+                    mt-5
+                    text-center
+                    text-lg
+                    font-semibold
+                    tracking-wide
+                    transition-colors
+                    ${
+                      isSelected
+                        ? 'text-white'
+                        : 'text-gray-700'
+                    }
+                  `}
+                >
+                  {item.label}
+                </p>
+              </div>
+            )
+          })}
+        </div>
       </div>
-    </div>
-</Reveal>
-    
+    </Reveal>
   )
 }
 

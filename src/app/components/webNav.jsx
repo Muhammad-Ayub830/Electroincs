@@ -51,22 +51,7 @@ const WebNav = () => {
 
               </Link>
            
-              {/* <Link href={'https://api.whatsapp.com/send/?phone=%2B923112111163&text=I+am+interested&type=phone_number&app_absent=0'}>
-                <FaWhatsapp className='text-green-500 size-6' />
-
-              </Link> */}
-              {/* <div className="cart relative cursor-pointer ">
-                <Link href={'/cart'} ><FaCartPlus className='size-6' /></Link>
-                {/* {
-                            favoriteCount() > 0 ? <div className="count rounded-full text-black font-bold absolute  -top-3 left-3 bg-orange-400 w-6 h-6 text-center leading-6 text-sm ">
-                                {
-                                    favoriteCount()
-                                }+
-
-                            </div> : ''
-                        } */}
-
-              {/* </div>  */}
+              
 
             </div>
 

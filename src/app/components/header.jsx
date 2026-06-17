@@ -1,72 +1,106 @@
 'use client'
-import React, { useContext, useEffect } from 'react'
-import { Inter } from 'next/font/google';
-import { HiMiniMagnifyingGlass } from "react-icons/hi2";
 
-import { FaFacebook, FaFacebookF, FaMagnifyingGlass, FaRegUser, FaSquareWhatsapp, FaUser, FaWhatsapp } from "react-icons/fa6";
-import { FaCartPlus } from "react-icons/fa6";
+import React, { useContext } from 'react'
+import { Inter } from 'next/font/google'
+import { HiMiniMagnifyingGlass } from "react-icons/hi2"
+import { FaFacebookF, FaWhatsapp } from "react-icons/fa6"
+import { FaCartPlus } from "react-icons/fa6"
+import { FiMenu } from "react-icons/fi"
+import { NavContext } from './context/context'
+import Image from 'next/image'
+import Link from 'next/link'
 
-
-import { FiMenu } from "react-icons/fi";
-import { NavContext } from './context/context';
-import Image from 'next/image';
-import { FaWhatsappSquare } from 'react-icons/fa';
-import { RiWhatsappFill, RiWhatsappLine } from 'react-icons/ri';
-import { IoLogoWhatsapp } from 'react-icons/io';
-import Link from 'next/link';
 const fontt = Inter({
     subsets: ['latin']
-
 })
+
 const Header = ({ isclose, setClose }) => {
     const { favoriteCount } = useContext(NavContext)
 
     return (
-        <div className={`${fontt.className} flex items-center justify-between  py-8  Header px-[5%] bg-(--orange-color) lg:bg-white`}>
-            <div className="left-logo-and-toggle-icon flex items-center justify-start">
+        <header
+            className={`${fontt.className} sticky top-0 z-50 bg-white shadow-sm border-b border-gray-100`}
+        >
+            <div className="max-w-[1440px] mx-auto px-[5%] py-5 flex items-center justify-between gap-6">
 
-
-
-                <p className='logo text-4xl font-bold tracking-wider w-[130px] md:w-[200px]   text-white lg:text-(--orange-color)'>
-                    <Link href={'/'} ><Image src={'/logo3.png'} width={200} height={0} /></Link>
-                </p>
-                {/* HAQ <span className='text-gray-950'>Electronics</span> */}
-            </div>
-
-
-            <div className="right-search-and-buttons flex items-center justify-between ">
-                <div className="serchbar px-5 p-2 rounded border-gray-400 xl:w-120 w-75  border mr-10 hidden lg:flex items-center justify-between  ">
-                    <input type="search" name="searc" id="search" placeholder='Search...' className={`outline-0 cursor-pointer w-full p-1`} />
-
-                    <HiMiniMagnifyingGlass className='text-2xl' />
+                {/* Logo */}
+                <div className="flex items-center shrink-0">
+                    <Link href="/">
+                        <Image
+                            src="/logo3.png"
+                            width={220}
+                            height={60}
+                            alt="Haq Electronics"
+                            className="object-contain"
+                        />
+                    </Link>
                 </div>
-                <div className="flex items-center justify-between gap-4 mr-10 lg:mr-0">
-                    <Link href={'https://www.facebook.com/haq.6363'}>
-                        <FaFacebookF className='text-gray-950 size-5 '   />
 
-                    </Link>
-                    <Link href={'https://api.whatsapp.com/send/?phone=%2B923112111163&text=I+am+interested&type=phone_number&app_absent=0'}>
-                        <FaWhatsapp className='text-green-500 size-5'  />
+                {/* Search */}
+                <div className="hidden lg:flex flex-1 justify-center">
 
-                    </Link>
-                    <div className="cart relative cursor-pointer ">
-                    <Link href={'/cart'} ><FaCartPlus className='size-5' /></Link>   
-                        {
-                            favoriteCount() > 0 ? <div className="count rounded-full text-black font-bold absolute  -top-3 left-3 bg-orange-400 w-6 h-6 text-center leading-6 text-sm ">
-                                {
-                                    favoriteCount()
-                                }+
+                    <div className="w-full max-w-[650px] flex items-center overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm hover:shadow-md transition-all duration-300">
 
-                            </div> : ''
-                        }
+                        <input
+                            type="search"
+                            placeholder="Search products..."
+                            className="w-full px-5 py-4 outline-none text-gray-700"
+                        />
+
+                        <button
+                            className="h-full px-6 bg-[var(--orange-color)] hover:bg-[var(--orange-shade)] transition-colors flex items-center justify-center"
+                        >
+                            <HiMiniMagnifyingGlass className="text-2xl text-black" />
+                        </button>
 
                     </div>
 
                 </div>
 
-                <FiMenu onClick={() => setClose((prev) => !prev)} className='text-4xl lg:ml-8 text-black xl:hidden cursor-pointer' />
+                {/* Actions */}
+                <div className="flex items-center gap-4">
+
+                    <Link
+                        href="https://www.facebook.com/haq.6363"
+                        className="hidden md:flex w-11 h-11 rounded-full bg-gray-100 items-center justify-center hover:bg-[var(--orange-color)] transition-all duration-300 hover:scale-110"
+                    >
+                        <FaFacebookF className="text-gray-800" />
+                    </Link>
+
+                    <Link
+                        href="https://api.whatsapp.com/send/?phone=%2B923112111163&text=I+am+interested&type=phone_number&app_absent=0"
+                        className="hidden md:flex w-11 h-11 rounded-full bg-gray-100 items-center justify-center hover:bg-green-500 hover:text-white transition-all duration-300 hover:scale-110"
+                    >
+                        <FaWhatsapp />
+                    </Link>
+
+                    {/* Cart */}
+                    <Link href="/cart">
+                        <div className="relative flex items-center justify-center w-12 h-12 rounded-full bg-gray-100 hover:bg-[var(--orange-color)] transition-all duration-300 hover:scale-110 cursor-pointer">
+
+                            <FaCartPlus className="text-xl" />
+
+                            {favoriteCount() > 0 && (
+                                <div className="absolute -top-1 -right-1 min-w-[24px] h-[24px] px-1 rounded-full bg-red-500 text-white text-xs font-bold flex items-center justify-center shadow">
+                                    {favoriteCount()}
+                                </div>
+                            )}
+
+                        </div>
+                    </Link>
+
+                    {/* Mobile Menu */}
+                    <button
+                        onClick={() => setClose(prev => !prev)}
+                        className="xl:hidden flex items-center justify-center w-12 h-12 rounded-full bg-[var(--orange-color)] hover:bg-[var(--orange-shade)] transition-all duration-300 shadow-md"
+                    >
+                        <FiMenu className="text-2xl text-black" />
+                    </button>
+
+                </div>
+
             </div>
-        </div>
+        </header>
     )
 }
 
