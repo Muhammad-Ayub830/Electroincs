@@ -1,145 +1,301 @@
 'use client'
+
 import { Outfit } from 'next/font/google'
 import Link from 'next/link'
 import React, { useContext, useState } from 'react'
-import { FaCartPlus, FaFacebook, FaFacebookF, FaWhatsapp } from 'react-icons/fa6'
-import { FiMenu } from 'react-icons/fi'
+import { FaCartPlus, FaFacebookF } from 'react-icons/fa6'
+import { FiMenu, FiX } from 'react-icons/fi'
 import { HiMiniMagnifyingGlass } from 'react-icons/hi2'
 import WhatsAppButton from './whatsappbtn'
 import Bage from './Bage'
 import { NavContext } from './context/context'
-import { FaUserAlt } from "react-icons/fa";
+import { FaUserAlt } from "react-icons/fa"
+import { GoChevronDown } from "react-icons/go"
 
-const font = Outfit({
-  weight: ["400"],
-  subsets: ["latin"]
+const font = Outfit({ weight: ["400"], subsets: ["latin"] })
+
+const expandStyle = (open, maxPx = 500) => ({
+  maxHeight: open ? `${maxPx}px` : '0px',
+  overflow: 'hidden',
+  transition: 'max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
 })
+
 const WebNav = () => {
-  const { favoriteCount} = useContext(NavContext)
+  const { favoriteCount } = useContext(NavContext)
+
+  const [sidebar, setSidebar] = useState(false)
+  const [megaMenu, setMegaMenu] = useState(false)
+
   const [productCategory, setProductCategory] = useState(false)
   const [lightCategory, setLightCategory] = useState(false)
-  const [rodsCategory, setrodsCategory] = useState(false)
-  const [sparepartscategory, setsparepartscategory] = useState(false)
-  const [sidebar, setsidebar] = useState(false)
+  const [rodsCategory, setRodsCategory] = useState(false)
+  const [sparePartsCategory, setSparePartsCategory] = useState(false)
+
+  const closeSidebar = () => {
+    setSidebar(false)
+    setProductCategory(false)
+    setLightCategory(false)
+    setRodsCategory(false)
+    setSparePartsCategory(false)
+  }
+
   return (
-    <div>
+    <div className={font.className}>
       <WhatsAppButton />
-      <div className={` ${font.className} bg-(--orange-color) md:bg-white md:pt-10 pt-7 pb-7 md:pb-0 `}>
-        {/* header */}
-        <div className="header mx-[3%]  flex items-center justify-between ">
-      <Link href={'/'} ><img src="/logo3.png" className='md:w-[200px] w-[140px] sm:w-[170px]' alt="" /></Link>   
-          <div className="right-search-and-buttons flex items-center justify-between ">
-            <div className="serchbar px-5 p-2 rounded border-gray-400 xl:w-120 w-75  border mr-10 hidden lg:flex items-center justify-between  ">
-              <input type="search" name="searc" id="search" placeholder='Search...' className={`outline-0 cursor-pointer w-full p-1`} />
 
-              <HiMiniMagnifyingGlass className='text-2xl' />
+      {/* ── HEADER ── */}
+      <div className="lg:bg-white bg-[var(--orange-color)] sticky top-0 z-50 shadow-sm">
+        <div className="max-w-[1440px] mx-auto px-[4%] py-5 flex items-center justify-between gap-6">
+          <Link href="/">
+            <img src="/logo3.png" className="w-[150px] md:w-[220px]" alt="Haq Electronics" />
+          </Link>
+
+          <div className="hidden lg:flex flex-1 justify-center">
+            <div className="flex items-center overflow-hidden bg-white border border-gray-200 rounded-2xl shadow-sm w-full max-w-[650px]">
+              <input type="search" placeholder="Search products..." className="w-full px-5 py-4 outline-none" />
+              <button className="bg-[var(--orange-color)] hover:bg-[var(--orange-shade)] px-6 py-4 transition-colors">
+                <HiMiniMagnifyingGlass className="text-2xl" />
+              </button>
             </div>
-            <div className="flex items-center justify-between gap-3 md:gap-7 mr-3 lg:mr-0">
-              <Link href={'https://www.facebook.com/haq.6363'} className='hidden md:block'>
-                <FaFacebookF className='text-gray-950 size-6 ' />
+          </div>
 
-              </Link>
-              <div className="cart relative cursor-pointer ">
-   <Link href={'/cart'} ><FaCartPlus className='size-6' /></Link>
-                   {
-                            favoriteCount() > 0 ? <Bage num={favoriteCount()} /> : ''
-                        }
-                    
+          <div className="flex items-center gap-4">
+            <Link href="https://www.facebook.com/haq.6363" className="hidden md:flex w-11 h-11 rounded-full bg-gray-100 items-center justify-center hover:bg-[var(--orange-color)] transition-colors">
+              <FaFacebookF />
+            </Link>
+            <Link href="/track_order">
+              <div className="hidden md:flex w-11 h-11 rounded-full bg-gray-100 items-center justify-center hover:bg-[var(--orange-color)] transition-colors">
+                <FaUserAlt />
               </div>
-               <Link href={'/track_order'}>
-                <FaUserAlt className='text-gray-950 size-6 ' />
-
-              </Link>
-           
-              
-
-            </div>
-
-            <FiMenu onClick={() => setsidebar((prev) => !prev)} className=' text-3xl sm:text-4xl lg:text-5xl lg:ml-8 text-black xl:hidden cursor-pointer' />
-
+            </Link>
+            <Link href="/cart">
+              <div className="relative w-11 h-11 rounded-full bg-gray-100 flex items-center justify-center hover:bg-[var(--orange-color)] transition-colors">
+                <FaCartPlus className="text-xl" />
+                {favoriteCount() > 0 && <Bage num={favoriteCount()} />}
+              </div>
+            </Link>
+            <button
+              onClick={() => setSidebar(true)}
+              className="xl:hidden w-11 h-11 rounded-full bg-gray-100 flex items-center justify-center hover:bg-[var(--orange-color)] active:scale-95 transition-all"
+            >
+              <FiMenu className="text-2xl" />
+            </button>
           </div>
         </div>
-        {/* horizontal navbar */}
-        <ul className='w-full px-[3%] text-[20px] hidden   mt-10 md:flex items-center gap-10 p-10 bg-(--orange-color) text-white'>
-          <Link href={'/'} className='' ><li>Home</li></Link>
-          <li className='relative cursor-pointer'> <span onClick={() => setProductCategory(a => !a)}>Product Categories ▾</span>
-            <ul className={`${productCategory ? 'block' : 'hidden'} absolute rounded ul top-15 text-[18px] z-10 left-0`}>
-              <li onClick={() => setLightCategory(a => !a)} className='relative cursor-pointer'>Haq LED Lights <span className='rotate-45'>▾</span>
-                <ul className={`${lightCategory ? 'block' : 'hidden'} absolute rounded ul top-2 text-[18px] z-10 left-68`}>
-                  <Link href={'/HaqLedLights'} className='' onClick={() => setProductCategory(false)}><li>Haq LED Bulbs</li></Link>
-                  <Link href={'/HaqLedLights'} className='' onClick={() => setProductCategory(false)} ><li>Haq  Downlights</li></Link>
-                  <Link href={'/HaqLedLights'} className='' onClick={() => setProductCategory(false)} ><li>Haq Panel Lights</li></Link>
-                  <Link href={'/HaqLedLights'} className='' onClick={() => setProductCategory(false)} ><li>Haq Cob SpotLights</li></Link>
-                </ul>
-              </li>
-              <Link href={'/HaqCables'} className=''  onClick={() => setProductCategory(false)}><li>Haq  Cables</li></Link>
-              <Link href={'/Haq Irons'} className=''  onClick={() => setProductCategory(false)}><li>Haq Irons</li></Link>
-              <Link href={'/HaqSolarInverters'} className='' onClick={() => setProductCategory(false)} ><li>Haq Solar Inverters</li></Link>
-              <li onClick={() => setrodsCategory(a => !a)} className='relative cursor-pointer'>Haq Rods <span className='rotate-45'>▾</span>
-                <ul className={`${rodsCategory ? 'block' : 'hidden'} absolute rounded ul top-2 text-[18px] z-10 left-68`}>
-                  <Link href={'/HaqRods'} onClick={() => setProductCategory(false)}> <li>Haq Original Italy Rods</li>  </Link>
-                  <Link href={'/HaqRods'} onClick={() => setProductCategory(false)}> <li>Haq Original Thermostate</li>  </Link>
-                </ul>
-              </li>
-              <li onClick={() => setsparepartscategory(a => !a)} className='relative cursor-pointer'>Haq LED Lights Spare Parts <span className='rotate-45'>▾</span>
-                <ul className={`${sparepartscategory ? 'block' : 'hidden'} absolute rounded ul top-2 text-[18px] z-10 left-68`}>
-                  <Link href={'/HaqLedLightsSpareParts'} onClick={() => setProductCategory(false)}> <li>Ac LED Light Spare Parts</li>  </Link>
-                  <Link href={'/HaqLedLightsSpareParts'} onClick={() => setProductCategory(false)}> <li>Dc LED Light Spare Parts</li>  </Link>
-                  <Link href={'/HaqLedLightsSpareParts'} onClick={() => setProductCategory(false)}> <li>LED Light Spare Parts </li>  </Link>
-                </ul>
 
+        {/* ── DESKTOP NAV ── */}
+        <div className="hidden xl:block bg-[var(--orange-color)] py-5 text-white shadow-md">
+          <div className="max-w-[1440px] mx-auto px-[4%]">
+            <ul className="flex items-center gap-10 h-16 font-medium text-lg">
+              <Link href="/">
+                <li className="relative cursor-pointer hover:text-black transition-colors duration-200 after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-black after:transition-all after:duration-300 hover:after:w-full">
+                  Home
+                </li>
+              </Link>
 
+              <li
+                className="relative h-full flex items-center"
+                onMouseEnter={() => setMegaMenu(true)}
+                onMouseLeave={() => setMegaMenu(false)}
+              >
+                <button className="flex items-center gap-2 hover:text-black transition-colors duration-200 h-full">
+                  Products
+                  <GoChevronDown className={`transition-transform duration-300 ${megaMenu ? 'rotate-180' : ''}`} />
+                </button>
+
+                <div className={`absolute top-full left-0 w-[900px] transition-all duration-300 ${megaMenu ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-2 pointer-events-none'}`}>
+                  <div className="bg-white rounded-3xl shadow-2xl p-8 mt-2 border border-gray-100">
+                    <div className="grid grid-cols-4 gap-6">
+                      {[
+                        { title: 'LED Lights', items: ['Haq LED Bulbs', 'Haq Downlights', 'Haq Panel Lights', 'Haq Cob SpotLights' ,'Haq Rechargeable Lights'], href: '/HaqLedLights' },
+                        { title: 'Spare Parts', items: ['Ac LED Light Spare Parts', 'Dc LED Light Spare Parts', 'LED Light Spare Parts'], href: '/HaqLedLightsSpareParts' },
+                        { title: 'Rods', items: ['Haq Original Italy Rods', 'Haq Original Thermostate'], href: '/HaqRods' },
+                        { title: 'Other Products', items: ['Haq Cables', 'Haq Irons', 'Haq Solar Inverters'], href: '#' },
+                      ].map((cat) => (
+                        <div key={cat.title} className="group bg-gray-50 rounded-2xl p-5 hover:bg-[var(--orange-color)] hover:-translate-y-1 hover:shadow-xl transition-all duration-300 cursor-pointer">
+                          <h3 className="font-bold text-[var(--orange-shade)] group-hover:text-white mb-3">{cat.title}</h3>
+                          {cat.items.map(item => (
+                            <Link key={item} href={cat.href}>
+                              <p className="mb-2 text-gray-700 group-hover:text-white text-sm hover:underline">{item}</p>
+                            </Link>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </li>
 
+              <Link href="/about">
+                <li className="relative cursor-pointer hover:text-black transition-colors duration-200 after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-black after:transition-all after:duration-300 hover:after:w-full">
+                  Why Choose Us
+                </li>
+              </Link>
+              <Link href="/contact">
+                <li className="relative cursor-pointer hover:text-black transition-colors duration-200 after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-black after:transition-all after:duration-300 hover:after:w-full">
+                  Contact Us
+                </li>
+              </Link>
             </ul>
-          </li>
-          <Link href={'/about'} className='' ><li>Why Choose Us</li></Link>
-          <Link href={'/contact'} className='' ><li>Contact Us</li></Link>
-        </ul>
-        {/* vertical navbar  */}
-        <div className={`${sidebar ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-500 absolute top-0 left-0 h-full w-full shadow-md z-50 bg-(--orange-color)`}>
-         <div className="flex items-center justify-between">
- <img src="logo3.png" className='w-30 ml-3 mt-3' alt="" />
-             <FiMenu onClick={() => setsidebar((prev) => !prev)} className='text-4xl mr-3 mt-3 lg:ml-8 text-black xl:hidden cursor-pointer' />
+          </div>
+        </div>
+      </div>
 
-         </div>
-         
-          <ul className='w-full vertical-ul p-3  bg-(--orange-color) text-white'>
-            <Link href={'/'} className='' onClick={() => setsidebar(false)}  ><li>Home</li></Link>
-            <li className={`${productCategory ? 'remove-b-b ' : ''} `} > <span onClick={() => setProductCategory(a => !a) } className={`${productCategory ? 'text-[#9e880d] ' : ''} cursor-pointer     `}>Product Categories ▾</span>
-              <ul className={`${productCategory ? 'block ' : 'hidden'}      `}>
-                <li  className={`${lightCategory ? 'remove-b-b' : ''} `}  > <span  onClick={() => setLightCategory(a => !a)} className={`${lightCategory ? 'text-[#9e880d]' : ''} cursor-pointer     `}>Haq LED Lights▾</span>
-                  <ul className={`${lightCategory ? 'block' : 'hidden'}       `}>
-                    <Link href={'/HaqLedLights'} className='' onClick={() => setsidebar(false)} ><li className=''>Haq LED Bulbs</li></Link>
-                    <Link href={'/HaqLedLights'} className=''  onClick={() => setsidebar(false)} ><li>Haq  Downlights</li></Link>
-                    <Link href={'/HaqLedLights'} className='' onClick={() => setsidebar(false)}  ><li>Haq Panel Lights</li></Link>
-                    <Link href={'/HaqLedLights'} className=''  onClick={() => setsidebar(false)} ><li>Haq Cob SpotLights</li></Link>
-                  </ul>
-                </li>
-                <Link href={'/HaqCables'} className='' onClick={() => setsidebar(false)}  ><li>Haq  Cables</li></Link>
-                <Link href={'/HaqIrons'} className=''  onClick={() => setsidebar(false)} ><li>Haq Irons</li></Link>
-                <Link href={'/HaqSolarInverters'} className='' onClick={() => setsidebar(false)}  ><li>Haq Solar Inverters</li></Link>
-                <li className={`${rodsCategory ? 'remove-b-b' : ''} relative cursor-pointer `} onClick={() => setrodsCategory(a => !a)} > <span className={`${rodsCategory ? 'text-[#9e880d]' : ''} cursor-pointer `}>Haq Rods▾</span>
-                  <ul className={`${rodsCategory ? 'block' : 'hidden'}  `}>
-                    <Link href={'/'} onClick={() => setsidebar(false)} > <li>Haq Original Italy Rods</li>  </Link>
-                    <Link href={'/'} onClick={() => setsidebar(false)} >  <li>Haq Original Thermostate</li>  </Link>
-                  </ul>
-                </li>
-                <li className={`${sparepartscategory ? 'remove-b-b' : ''} relative cursor-pointer `} onClick={() => setsparepartscategory(a => !a)}><span className={`${sparepartscategory ? 'text-[#9e880d]' : ''} cursor-pointer `}>Haq LED Lights Spare Parts ▾</span>
-                  <ul className={`${sparepartscategory ? 'block' : 'hidden'}  `}>
-                    <Link href={'/HaqLedLightsSpareParts'} onClick={() => setsidebar(false)} > <li>Ac LED Light Spare Parts</li>  </Link>
-                    <Link href={'/HaqLedLightsSpareParts'} onClick={() => setsidebar(false)} > <li>Dc LED Light Spare Parts</li>  </Link>
-                    <Link href={'/HaqLedLightsSpareParts'} onClick={() => setsidebar(false)} > <li>LED Light Spare Parts </li>  </Link>
-                  </ul>
+      {/* ── BACKDROP ── */}
+      <div
+        onClick={closeSidebar}
+        className={`fixed inset-0 z-[99] bg-black transition-opacity duration-300 ${sidebar ? 'opacity-40 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+      />
 
+      {/* ── MOBILE DRAWER ── */}
+      <div className={`fixed inset-y-0 left-0 z-[100] w-full transition-transform duration-500 ease-in-out ${sidebar ? 'translate-x-0' : '-translate-x-full'}`}>
+        <div className="bg-[var(--orange-color)] w-full h-full overflow-y-auto">
 
-                </li>
+          {/* Top bar */}
+          <div className="flex items-center justify-between px-5 py-4 mb-2">
+            <img src="/logo3.png" className="w-28" alt="Haq Electronics" />
+            <button
+              onClick={closeSidebar}
+              className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center hover:bg-white/40 active:scale-90 transition-all duration-150"
+            >
+              <FiX className="text-2xl text-white" />
+            </button>
+          </div>
 
-              </ul>
-            </li>
-            <Link href={'/about'} onClick={() => setsidebar(false)} className='' ><li>Why Choose Us</li></Link>
-            <Link href={'/contact'} onClick={() => setsidebar(false)} className='' ><li className={`${sparepartscategory ? 'remove-b-b' : ''}`}>Contact Us</li></Link>
-          </ul>
+          {/* Nav items */}
+          <div className="px-4 pb-6 flex flex-col gap-3">
+
+            {/* Home */}
+            <Link href="/" onClick={closeSidebar}>
+              <div className="bg-white rounded-2xl px-5 py-4 font-medium text-gray-800 hover:bg-orange-50 active:scale-[0.98] transition-all duration-150 cursor-pointer">
+                Home
+              </div>
+            </Link>
+
+            {/* ── Level 1: Product Categories ── */}
+            <div className="bg-white rounded-2xl overflow-hidden">
+              <button
+                onClick={() => {
+                  setProductCategory(p => !p)
+                  if (productCategory) {
+                    setLightCategory(false)
+                    setRodsCategory(false)
+                    setSparePartsCategory(false)
+                  }
+                }}
+                className="w-full flex items-center justify-between px-5 py-4 font-medium text-gray-800 hover:bg-orange-50 active:bg-orange-100 transition-colors duration-150"
+              >
+                <span className={productCategory ? 'text-[var(--orange-color)]' : ''}>Product Categories</span>
+                <GoChevronDown className={`transition-transform duration-300 ${productCategory ? 'rotate-180 text-[var(--orange-color)]' : 'text-gray-400'}`} />
+              </button>
+
+              {/* ── Level 2 container ── */}
+              <div style={expandStyle(productCategory, 800)}>
+                <div className="bg-orange-50 border-t border-orange-100 px-3 py-2 flex flex-col gap-1">
+
+                  {/* 2a: Haq LED Lights — expandable */}
+                  <div className="bg-white rounded-xl overflow-hidden">
+                    <button
+                      onClick={() => setLightCategory(p => !p)}
+                      className="w-full flex items-center justify-between px-4 py-3 text-sm font-semibold text-[var(--orange-color)] hover:bg-orange-50 active:bg-orange-100 transition-colors duration-150"
+                    >
+                      <span>Haq LED Lights</span>
+                      <GoChevronDown className={`transition-transform duration-300 ${lightCategory ? 'rotate-180' : 'text-gray-400'}`} />
+                    </button>
+
+                    {/* Level 3: LED links */}
+                    <div style={expandStyle(lightCategory, 220)}>
+                      <div className="bg-orange-50 border-t border-orange-100 px-3 py-2 flex flex-col gap-1">
+                        {['Haq LED Bulbs', 'Haq Downlights', 'Haq Panel Lights', 'Haq Cob SpotLights', 'Haq Rechargeable Lights'].map(item => (
+                          <Link key={item} href="/HaqLedLights" onClick={closeSidebar}>
+                            <div className="flex items-center gap-2.5 bg-white rounded-lg px-4 py-2.5 text-sm text-gray-700 hover:bg-orange-100 hover:text-[var(--orange-color)] active:scale-[0.98] transition-all duration-150 cursor-pointer">
+                              <span className="w-1.5 h-1.5 rounded-full bg-[var(--orange-color)] opacity-50 flex-shrink-0" />
+                              {item}
+                            </div>
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* 2b: Direct links */}
+                  {[
+                    { label: 'Haq Cables', href: '/HaqCables' },
+                    { label: 'Haq Irons', href: '/HaqIrons' },
+                    { label: 'Haq Solar Inverters', href: '/HaqSolarInverters' },
+                  ].map(({ label, href }) => (
+                    <Link key={label} href={href} onClick={closeSidebar}>
+                      <div className="bg-white rounded-xl px-4 py-3 text-sm font-semibold text-[var(--orange-color)] hover:bg-orange-100 active:scale-[0.98] transition-all duration-150 cursor-pointer">
+                        {label}
+                      </div>
+                    </Link>
+                  ))}
+
+                  {/* 2c: Haq Rods — expandable */}
+                  <div className="bg-white rounded-xl overflow-hidden">
+                    <button
+                      onClick={() => setRodsCategory(p => !p)}
+                      className="w-full flex items-center justify-between px-4 py-3 text-sm font-semibold text-[var(--orange-color)] hover:bg-orange-50 active:bg-orange-100 transition-colors duration-150"
+                    >
+                      <span>Haq Rods</span>
+                      <GoChevronDown className={`transition-transform duration-300 ${rodsCategory ? 'rotate-180' : 'text-gray-400'}`} />
+                    </button>
+                    <div style={expandStyle(rodsCategory, 130)}>
+                      <div className="bg-orange-50 border-t border-orange-100 px-3 py-2 flex flex-col gap-1">
+                        {['Haq Original Italy Rods', 'Haq Original Thermostate'].map(item => (
+                          <Link key={item} href="/HaqRods" onClick={closeSidebar}>
+                            <div className="flex items-center gap-2.5 bg-white rounded-lg px-4 py-2.5 text-sm text-gray-700 hover:bg-orange-100 hover:text-[var(--orange-color)] active:scale-[0.98] transition-all duration-150 cursor-pointer">
+                              <span className="w-1.5 h-1.5 rounded-full bg-[var(--orange-color)] opacity-50 flex-shrink-0" />
+                              {item}
+                            </div>
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* 2d: Haq LED Lights Spare Parts — expandable */}
+                  <div className="bg-white rounded-xl overflow-hidden">
+                    <button
+                      onClick={() => setSparePartsCategory(p => !p)}
+                      className="w-full flex items-center justify-between px-4 py-3 text-sm font-semibold text-[var(--orange-color)] hover:bg-orange-50 active:bg-orange-100 transition-colors duration-150"
+                    >
+                      <span>Haq LED Lights Spare Parts</span>
+                      <GoChevronDown className={`transition-transform duration-300 ${sparePartsCategory ? 'rotate-180' : 'text-gray-400'}`} />
+                    </button>
+                    <div style={expandStyle(sparePartsCategory, 160)}>
+                      <div className="bg-orange-50 border-t border-orange-100 px-3 py-2 flex flex-col gap-1">
+                        {['Ac LED Light Spare Parts', 'Dc LED Light Spare Parts', 'LED Light Spare Parts'].map(item => (
+                          <Link key={item} href="/HaqLedLightsSpareParts" onClick={closeSidebar}>
+                            <div className="flex items-center gap-2.5 bg-white rounded-lg px-4 py-2.5 text-sm text-gray-700 hover:bg-orange-100 hover:text-[var(--orange-color)] active:scale-[0.98] transition-all duration-150 cursor-pointer">
+                              <span className="w-1.5 h-1.5 rounded-full bg-[var(--orange-color)] opacity-50 flex-shrink-0" />
+                              {item}
+                            </div>
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            {/* Why Choose Us */}
+            <Link href="/about" onClick={closeSidebar}>
+              <div className="bg-white rounded-2xl px-5 py-4 font-medium text-gray-800 hover:bg-orange-50 active:scale-[0.98] transition-all duration-150 cursor-pointer">
+                Why Choose Us
+              </div>
+            </Link>
+
+            {/* Contact Us */}
+            <Link href="/contact" onClick={closeSidebar}>
+              <div className="bg-white rounded-2xl px-5 py-4 font-medium text-gray-800 hover:bg-orange-50 active:scale-[0.98] transition-all duration-150 cursor-pointer">
+                Contact Us
+              </div>
+            </Link>
+
+          </div>
         </div>
       </div>
     </div>

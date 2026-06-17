@@ -18,13 +18,13 @@ const Categories = () => {
       image: '/PowerFlex 1.5mm Copper Cable.png',
     },
     {
-      name: 'Bulbs',
+      name: 'LED_LIGHT',
       label: 'Lights',
       image: '/led.png',
     },
     {
-      name: 'Spare_Parts',
-      label: 'Spare Parts',
+      name: 'LED_LIGHT_SPARE_PART',
+      label: 'LED_LIGHT_SPARE_PART',
       image: '/EcoGlow 12W LED Driver.png',
     },
     {
@@ -35,6 +35,11 @@ const Categories = () => {
     {
       name: 'Irons',
       label: 'Irons',
+      image: '/w.png',
+    },
+    {
+      name: 'ROD',
+      label: 'Rods',
       image: '/w.png',
     },
   ]
