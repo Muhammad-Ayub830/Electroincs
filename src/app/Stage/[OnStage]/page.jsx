@@ -111,7 +111,7 @@ const page = ({ params }) => {
       </div>
       
       {/* Description */}
-      <p className='text-gray-600 mb-7 lg:mb-9 text-base lg:text-lg leading-relaxed font-medium'>
+      <p style={{ whiteSpace: 'pre-wrap' }} className='text-gray-600 mb-7 lg:mb-9 text-base lg:text-lg leading-relaxed font-medium'>
         {item.description}
       </p>
       
