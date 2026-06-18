@@ -15,6 +15,7 @@ import OurProducts from "./components/ourProducts";
 import Reveal from "./components/Reveal";
 import { usePathname } from "next/navigation";
 import WhatsAppButton from "./components/whatsappbtn";
+import WhyUs from "./components/whyUs";
 const font = Orbitron({
   subsets: ["latin"],
   weight: ["400"]
@@ -31,6 +32,7 @@ export default function Home() {
         <Offer />
         <Categories />
         <OurProducts />
+        <WhyUs />
         <BestDeal />
         <NewRelease />
       </Reveal>

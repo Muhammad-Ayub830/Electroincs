@@ -20,7 +20,7 @@ const BestDeal = () => {
                 {products?.length > 0 ? (
                    products
   .filter(item => category === 'All' || item.category === category)
-  .slice(0, 10)
+  .slice(0, 6)
                         .map((item) => {
                             if (item.isBestDeal)
                                 return (
