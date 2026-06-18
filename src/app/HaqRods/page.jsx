@@ -3,11 +3,11 @@
 import ProductListingPage from '../components/productListingPage'
 import { CATEGORIES } from '../productCategories'
 
-export default function HaqIronsPage() {
+export default function HaqRodsPage() {
   return (
     <ProductListingPage
-      title="Haq Irons"
-      category={CATEGORIES.IRON}
+      title="Haq Spare Parts (Rods)"
+      category={CATEGORIES.ROD}
     />
   )
 }

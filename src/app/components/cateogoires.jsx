@@ -3,6 +3,7 @@ import MainTitle from './mainTitle'
 import Image from 'next/image'
 import { NavContext } from './context/context'
 import Reveal from './Reveal'
+import { CATEGORIES } from '../productCategories'
 
 const Categories = () => {
   const { category, setCategory } = useContext(NavContext)
@@ -13,32 +14,32 @@ const Categories = () => {
 
   const categories = [
     {
-      name: 'Cables',
+      name: CATEGORIES.CABLE,
       label: 'Cables',
       image: '/PowerFlex 1.5mm Copper Cable.png',
     },
     {
-      name: 'LED_LIGHT',
+      name: CATEGORIES.LED_LIGHT,
       label: 'Lights',
       image: '/led.png',
     },
     {
-      name: 'LED_LIGHT_SPARE_PART',
+      name: CATEGORIES.LED_LIGHT_SPARE_PART,
       label: 'Spare Parts',
       image: '/EcoGlow 12W LED Driver.png',
     },
     {
-      name: 'Inverters',
+      name: CATEGORIES.INVERTER,
       label: 'Inverters',
       image: '/SunVolt 1.5kVA Off-Grid Solar Inverter.png',
     },
     {
-      name: 'Irons',
+      name: CATEGORIES.IRON,
       label: 'Irons',
       image: '/w.png',
     },
     {
-      name: 'ROD',
+      name: CATEGORIES.ROD,
       label: 'Rods',
       image: '/w.png',
     },

@@ -3,19 +3,24 @@ import { Outfit } from 'next/font/google'
 import './admin.css'
 import { MdOutlineAddCircle } from "react-icons/md";
 
-import React, { useContext, useEffect, useRef, useState } from 'react'
-import { NavContext } from '../components/context/context';
+import React, { useEffect, useState } from 'react'
 import backendUrl from '../backendurl';
 import AdminNav from '../components/adminNav';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
+import {
+  ADMIN_CATEGORY_OPTIONS,
+  CATEGORIES,
+  getSubCategoriesForCategory,
+} from '../productCategories';
+
 const outfit = Outfit({
     weight: ["400"],
     subsets: ["latin"]
 })
 const page = () => {
         const router = useRouter()
-   const [category,setCategory] = useState('LED_LIGHT')
+   const [category,setCategory] = useState(CATEGORIES.LED_LIGHT)
     const auth = async()=>{
         try {
             const res = await axios.get(`${backendUrl}verify`,{
@@ -31,9 +36,9 @@ const page = () => {
         
         auth()
     },[])
-    const addTag = () => {
 
-    }
+    const subCategories = getSubCategoriesForCategory(category)
+
     return (
         <div className={` px-[3%] md:px-[10%] pt-[5%]   ${outfit.className} text-2xl `}>
             <AdminNav />
@@ -53,38 +58,18 @@ const page = () => {
                 <div className="inputs mt-5 grid grid-cols-[repeat(auto-fit,minmax(170px,1fr))] gap-3">
                     <input type='data' name='price' placeholder='Price' className={`images bg-(--input-bg)  text-[16px]  shadow p-3 rounded `} />
                     <input type='data'  name='discount' placeholder='Discount In Percentage' className={`images bg-(--input-bg)  text-[16px]  shadow p-3 rounded `} />
-                    {/* <input type='data' name='reviews' placeholder='reviews' className={`images bg-(--input-bg)  text-[16px]  shadow p-3 rounded `} /> */}
-                 {category === 'LED_LIGHT_SPARE_PART' && (
-  <select name="subCategory" required className="images bg-(--input-bg) text-[16px] shadow p-3 rounded">
-      <option value="AC_LED_LIGHT_SPARE_PART">AC LED LIGHT SPARE PART</option>
-      <option value="DC_LED_LIGHT_SPARE_PART">DC LED LIGHT SPARE PART</option>
-      <option value="LED_LIGHT_SPARE_PART">LED LIGHT SPARE PART</option>
-  </select>
-)}
-                  
-                     {category === 'ROD' && (
-                         <select name="subCategory" id="" required className={`images bg-(--input-bg)   text-[16px]  shadow p-3 rounded `}>
-                        <option value="ORIGINAL_ITALY_ROD">HAQ ORIGINAL ITALY ROD</option>
-                        <option value="ORIGINAL_THERMOSTATE">HAQ ORIGINAL THERMOSTATE</option>
-                    </select>
-                     )}
-                     {category === 'LED_LIGHT' && (
-                         <select name="subCategory" id="" required className={`images bg-(--input-bg)  text-[16px]  shadow p-3 rounded `}>
-                        <option value="LED_BULB">HAQ LED BULB</option>
-                        <option value="LED_DOWNLIGHT">HAQ DOWNLIGHT</option>
-                        <option value="PANEL_LIGHT">HAQ PANEL LIGHT</option>
-                        <option value="COB_SPOTLIGHT">HAQ COB SPOTLIGHT</option>
-                    </select>
-                     )}
-                   
+                    {subCategories.length > 0 && (
+                      <select name="subCategory" required className="images bg-(--input-bg) text-[16px] shadow p-3 rounded">
+                        {subCategories.map((sub) => (
+                          <option key={sub.value} value={sub.value}>{sub.label}</option>
+                        ))}
+                      </select>
+                    )}
                    
                     <select onChange={(e)=>setCategory(e.currentTarget.value)} name="category" id="" required className={`images bg-(--input-bg)   text-[16px]  shadow p-3 rounded `}>
-                        <option value="LED_LIGHT">HAQ LED LIGHT</option>
-                        <option value="LED_LIGHT_SPARE_PART">LED LIGHT SPARE PART</option>
-                        <option value="IRON">HAQ IRON</option>
-                        <option value="ROD">HAQ ROD</option>
-                        <option value="CABLE">HAQ CABLE</option>
-                        <option value="INVERTER">HAQ SOLAR INVERTER</option>
+                        {ADMIN_CATEGORY_OPTIONS.map((cat) => (
+                          <option key={cat.value} value={cat.value}>{cat.label}</option>
+                        ))}
                     </select>
                 </div>
                 <div className="inputs mt-5 grid grid-cols-[repeat(auto-fit,minmax(170px,1fr))] gap-3">

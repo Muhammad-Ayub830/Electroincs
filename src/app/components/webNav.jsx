@@ -11,6 +11,11 @@ import Bage from './Bage'
 import { NavContext } from './context/context'
 import { FaUserAlt } from "react-icons/fa"
 import { GoChevronDown } from "react-icons/go"
+import {
+  CATEGORIES,
+  NAV_MEGA_MENU,
+  PRODUCT_PAGES,
+} from '../productCategories'
 
 const font = Outfit({ weight: ["400"], subsets: ["latin"] })
 
@@ -103,20 +108,19 @@ const WebNav = () => {
                   <GoChevronDown className={`transition-transform duration-300 ${megaMenu ? 'rotate-180' : ''}`} />
                 </button>
 
-                <div className={`absolute top-full left-0 w-[900px] transition-all duration-300 ${megaMenu ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-2 pointer-events-none'}`}>
+    {/* mega dropdown */}
+
+                <div className={`absolute top-full left-0 w-[1100px] transition-all duration-300 ${megaMenu ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-2 pointer-events-none'}`}>
                   <div className="bg-white rounded-3xl shadow-2xl p-8 mt-2 border border-gray-100">
                     <div className="grid grid-cols-4 gap-6">
-                      {[
-                        { title: 'LED Lights', items: ['Haq LED Bulbs', 'Haq Downlights', 'Haq Panel Lights', 'Haq Cob SpotLights' ,'Haq Rechargeable Lights'], href: '/HaqLedLights' },
-                        { title: 'Spare Parts', items: ['Ac LED Light Spare Parts', 'Dc LED Light Spare Parts', 'LED Light Spare Parts'], href: '/HaqLedLightsSpareParts' },
-                        { title: 'Rods', items: ['Haq Original Italy Rods', 'Haq Original Thermostate'], href: '/HaqRods' },
-                        { title: 'Other Products', items: ['Haq Cables', 'Haq Irons', 'Haq Solar Inverters'], href: '#' },
-                      ].map((cat) => (
+                      {NAV_MEGA_MENU.map((cat) => (
                         <div key={cat.title} className="group bg-gray-50 rounded-2xl p-5 hover:bg-[var(--orange-color)] hover:-translate-y-1 hover:shadow-xl transition-all duration-300 cursor-pointer">
                           <h3 className="font-bold text-[var(--orange-shade)] group-hover:text-white mb-3">{cat.title}</h3>
-                          {cat.items.map(item => (
-                            <Link key={item} href={cat.href}>
-                              <p className="mb-2 text-gray-700 group-hover:text-white text-sm hover:underline">{item}</p>
+                          {cat.items.map((item) => (
+                            <Link key={item.name} href={item.href}>
+                              <p className="mb-2 text-gray-700 group-hover:text-white text-sm hover:underline">
+                                {item.name}
+                              </p>
                             </Link>
                           ))}
                         </div>
@@ -206,27 +210,25 @@ const WebNav = () => {
                     {/* Level 3: LED links */}
                     <div style={expandStyle(lightCategory, 220)}>
                       <div className="bg-orange-50 border-t border-orange-100 px-3 py-2 flex flex-col gap-1">
-                        {['Haq LED Bulbs', 'Haq Downlights', 'Haq Panel Lights', 'Haq Cob SpotLights', 'Haq Rechargeable Lights'].map(item => (
-                          <Link key={item} href="/HaqLedLights" onClick={closeSidebar}>
-                            <div className="flex items-center gap-2.5 bg-white rounded-lg px-4 py-2.5 text-sm text-gray-700 hover:bg-orange-100 hover:text-[var(--orange-color)] active:scale-[0.98] transition-all duration-150 cursor-pointer">
-                              <span className="w-1.5 h-1.5 rounded-full bg-[var(--orange-color)] opacity-50 flex-shrink-0" />
-                              {item}
-                            </div>
-                          </Link>
-                        ))}
+                        {PRODUCT_PAGES.filter((p) => p.category === CATEGORIES.LED_LIGHT).map((item) => (
+  <Link key={item.href} href={item.href} onClick={closeSidebar}>
+    <div className="flex items-center gap-2.5 bg-white rounded-lg px-4 py-2.5 text-sm text-gray-700 hover:bg-orange-100 hover:text-[var(--orange-color)] active:scale-[0.98] transition-all duration-150 cursor-pointer">
+      <span className="w-1.5 h-1.5 rounded-full bg-[var(--orange-color)] opacity-50 flex-shrink-0" />
+      {item.title}
+    </div>
+  </Link>
+))}
                       </div>
                     </div>
                   </div>
 
                   {/* 2b: Direct links */}
-                  {[
-                    { label: 'Haq Cables', href: '/HaqCables' },
-                    { label: 'Haq Irons', href: '/HaqIrons' },
-                    { label: 'Haq Solar Inverters', href: '/HaqSolarInverters' },
-                  ].map(({ label, href }) => (
-                    <Link key={label} href={href} onClick={closeSidebar}>
+                  {PRODUCT_PAGES.filter((p) =>
+                    [CATEGORIES.CABLE, CATEGORIES.IRON, CATEGORIES.INVERTER].includes(p.category)
+                  ).map(({ title, href }) => (
+                    <Link key={href} href={href} onClick={closeSidebar}>
                       <div className="bg-white rounded-xl px-4 py-3 text-sm font-semibold text-[var(--orange-color)] hover:bg-orange-100 active:scale-[0.98] transition-all duration-150 cursor-pointer">
-                        {label}
+                        {title}
                       </div>
                     </Link>
                   ))}
@@ -242,14 +244,14 @@ const WebNav = () => {
                     </button>
                     <div style={expandStyle(rodsCategory, 130)}>
                       <div className="bg-orange-50 border-t border-orange-100 px-3 py-2 flex flex-col gap-1">
-                        {['Haq Original Italy Rods', 'Haq Original Thermostate'].map(item => (
-                          <Link key={item} href="/HaqRods" onClick={closeSidebar}>
-                            <div className="flex items-center gap-2.5 bg-white rounded-lg px-4 py-2.5 text-sm text-gray-700 hover:bg-orange-100 hover:text-[var(--orange-color)] active:scale-[0.98] transition-all duration-150 cursor-pointer">
-                              <span className="w-1.5 h-1.5 rounded-full bg-[var(--orange-color)] opacity-50 flex-shrink-0" />
-                              {item}
-                            </div>
-                          </Link>
-                        ))}
+                        {PRODUCT_PAGES.filter((p) => p.category === CATEGORIES.ROD).map((item) => (
+  <Link key={item.href} href={item.href} onClick={closeSidebar}>
+    <div className="flex items-center gap-2.5 bg-white rounded-lg px-4 py-2.5 text-sm text-gray-700 hover:bg-orange-100 hover:text-[var(--orange-color)] active:scale-[0.98] transition-all duration-150 cursor-pointer">
+      <span className="w-1.5 h-1.5 rounded-full bg-[var(--orange-color)] opacity-50 flex-shrink-0" />
+      {item.title}
+    </div>
+  </Link>
+))}
                       </div>
                     </div>
                   </div>
@@ -265,14 +267,14 @@ const WebNav = () => {
                     </button>
                     <div style={expandStyle(sparePartsCategory, 160)}>
                       <div className="bg-orange-50 border-t border-orange-100 px-3 py-2 flex flex-col gap-1">
-                        {['Ac LED Light Spare Parts', 'Dc LED Light Spare Parts', 'LED Light Spare Parts'].map(item => (
-                          <Link key={item} href="/HaqLedLightsSpareParts" onClick={closeSidebar}>
-                            <div className="flex items-center gap-2.5 bg-white rounded-lg px-4 py-2.5 text-sm text-gray-700 hover:bg-orange-100 hover:text-[var(--orange-color)] active:scale-[0.98] transition-all duration-150 cursor-pointer">
-                              <span className="w-1.5 h-1.5 rounded-full bg-[var(--orange-color)] opacity-50 flex-shrink-0" />
-                              {item}
-                            </div>
-                          </Link>
-                        ))}
+                        {PRODUCT_PAGES.filter((p) => p.category === CATEGORIES.LED_LIGHT_SPARE_PART).map((item) => (
+  <Link key={item.href} href={item.href} onClick={closeSidebar}>
+    <div className="flex items-center gap-2.5 bg-white rounded-lg px-4 py-2.5 text-sm text-gray-700 hover:bg-orange-100 hover:text-[var(--orange-color)] active:scale-[0.98] transition-all duration-150 cursor-pointer">
+      <span className="w-1.5 h-1.5 rounded-full bg-[var(--orange-color)] opacity-50 flex-shrink-0" />
+      {item.title}
+    </div>
+  </Link>
+))}
                       </div>
                     </div>
                   </div>
