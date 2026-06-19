@@ -32,7 +32,7 @@ const Footer = () => {
       <div className="border-t border-b border-gray-200 bg-gray-50 mt-20">
         <div className="max-w-[1400px] mx-auto px-[5%] py-8">
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
 
   <div
     className="
